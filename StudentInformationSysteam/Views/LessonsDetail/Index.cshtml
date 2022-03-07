@@ -1,0 +1,173 @@
+﻿<section>
+            <link
+                href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
+                rel="stylesheet">
+                
+
+            <div class="layout">
+                <input
+                    name="nav"
+                    type="radio"
+                    class="nav home-radio"
+                    id="home"
+                    checked="checked"/>
+                <div class="page home-page">
+                    <div class="page-contents">
+                        <div class="container my-3">
+
+                            <ul class="responsive-table">
+                              <li class="table-header">
+                                <div class="col col-2">№</div>
+                                <div class="col col-6">File Name</div>
+                                <div class="col col-2">Dwonload</div>
+                                
+                              </li>
+
+                              <li class=" table-row">
+                                <div class="col col-2" data-label="№">1</div>
+                                <div class="col col-6" data-label="File Name">Muhazire.docx </div>
+                                <div class="col col-2" data-label="Attendance"><i class="fas fa-file-download"></i></div>
+                                
+                              </li>
+                              <li class=" table-row">
+                                <div class="col col-2" data-label="№">2</div>
+                                <div class="col col-6" data-label="File Name">lesson.pptx</div>
+                                <div class="col col-2" data-label="Download"> <a href=""><i class="fas fa-file-download"></i>  </a></div>
+                              
+                              </li>
+                             
+                             
+                            </ul>
+                          </div>
+
+                    </div>
+                </div>
+                <label class="nav" for="home">
+                    
+                        Didactic material
+                    </span>
+                </label>
+
+                <input name="nav" type="radio" class="about-radio" id="about"/>
+                <div class="page about-page">
+                    <div class="page-contents">
+                        <div class="container my-3">
+
+                            <ul class="attendance-table">
+                              <li class="table-header">
+                                <div class="col col-2">№</div>
+                                <div class="col col-4">Lesson Date</div>
+                                <div class="col col-3">Attendance</div>
+                                
+                              </li>
+
+                              <li class=" table-row">
+                                <div class="col col-2" data-label="№">1</div>
+                                <div class="col col-4" data-label="Lesson Date">28/02 </div>
+                                <div class="col col-3" data-label="Attendance"><span style="font-size: 1.1rem;" class="badge bg-soft-danger text-danger">q.b</span></div>
+                                
+                              </li>
+                              <li class=" table-row">
+                                <div class="col col-2" data-label="№">2</div>
+                                <div class="col col-4" data-label="Lesson Date">27/02</div>
+                                <div class="col col-3" data-label="Download"> <a href=""><span style="font-size: 1.1rem;" class="badge bg-soft-success text-success">i.e</span> </a></div>
+                              
+                              </li>
+                             
+                             
+                            </ul>
+                          </div>
+                    </div>
+                </div>
+                <label class="nav" for="about">
+                    <span>
+                      <svg><use href="/FinalProject/assets/img/attendance.svg"/></svg>
+                      
+                        Attendance
+                    </span>
+                </label>
+
+                <input name="nav" type="radio" class="contact-radio" id="contact"/>
+                <div class="page contact-page">
+                    <div class="page-contents">
+                      
+                        <div class="container container-evaluation my-3" >
+                            <ul class="evaluation-table">
+                              <li class="table-header">
+                                <div class="col col-1">№</div>
+                                <div class="col col-2">Type of teaching</div>                             
+                                <div class="col col-4"> Subject</div>
+                                <div class="col col-1">Point</div>
+                                <div class="col col-2">start date</div>
+                                <div class="col col-2">end date</div>                            
+                              </li>
+
+                              <li class=" table-row">
+                                <div class="col col-1" data-label="№">1</div>
+                                <div class="col col-2" data-label="Type of teaching">Mesgele </div>
+                                <div class="col col-4" data-label="Subject"> <button data-toggle="modal" data-target="#myModal"> Ehtimal nəzəriyyəsinin predmeti. Ehtimalın sadə xassələri.</button>
+                                    
+                                      
+                                </div>
+                                
+                                <div class="col col-1" data-label="Point">10</div>
+                                <div class="col col-2" data-label="start date">10.10.2020 </div>
+                                <div class="col col-2" data-label="end date">10.10.2020</div>
+                                
+                              </li>
+                              <div class="modal"  id="myModal" class="modal fade" role="dialog" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" >
+                                      <div class="modal-header">
+                                        <h5 class="modal-title">Upload File</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                       
+
+                                       <div>
+                                        <form class="box" method="post" action="" enctype="multipart/form-data">
+                                            <div class="box__input">
+                                              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+                                             
+                                            </div>
+                                          
+                                          </form>
+                                       </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                              <li class=" table-row">
+                                <div class="col col-1" data-label="№">1</div>
+                                <div class="col col-2" data-label="Type of teaching">Mesgele </div>
+                                <div class="col col-4" data-label="Subject">Ehtimal nəzəriyyəsinin predmeti. Ehtimalın sadə xassələri.</div>
+                                <div class="col col-1" data-label="Point">10</div>
+                                <div class="col col-2" data-label="start date">10.10.2020 </div>
+                                <div class="col col-2" data-label="end date">10.10.2020</div>
+                                
+                              </li>
+                             
+                             
+                            </ul>
+                            
+                          </div>
+                
+                       
+                    </div>
+                </div>
+                <label class="nav" for="contact">
+                    <span>
+                       
+                        Evaluation
+                    </span>
+
+                </label>
+            </div>
+        </section>

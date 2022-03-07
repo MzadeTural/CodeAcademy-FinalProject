@@ -1,0 +1,13 @@
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.deps.json
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.dll
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.pdb
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.csproj.AssemblyReference.cache
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.AssemblyInfoInputs.cache
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.AssemblyInfo.cs
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.csproj.CoreCompileInputs.cache
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.dll
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.pdb
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.runtimeconfig.json
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.runtimeconfig.dev.json
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.genruntimeconfig.cache

@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StudentIformationSysteam.Core.Models
+{
+    public class UserLesson : BaseEntity
+    {
+        public int LessonId { get; set; }
+        public Lessson Lessson { get; set; }
+        public string UserId { get; set; }
+        public AppUser AppUser { get; set; }
+    }
+}

@@ -1,0 +1,38 @@
+﻿ <aside id="Aside">
+            <a  class="logo-container">
+                <img src="~/assets/img/logo.png" alt=""></a>
+           
+            <p class="sidebar-heading">Student</p>
+            <nav>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item ">
+                        <a asp-action="Index" asp-controller="Home" class="aside-link active">
+                            <i class="fa fa-home aside-icon " aria-hidden="true"></i>
+                            <span class="aside-title">Home</span></a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a asp-action="Index" asp-controller="StudentProfile" class="aside-link">
+                            <i class="fa fa-user aside-icon" aria-hidden="true"></i>
+                            <span class="aside-title">Student Dahsboard</span></a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a  asp-action="Index" asp-controller="Lesson" class="aside-link">
+                            <i class="fas fa-book-open aside-icon" aria-hidden="true"></i>
+                            <span class="aside-title">Lessons</span></a>
+                
+                        </li>
+
+                    <li class="sidebar-menu-item">
+                        <a asp-action="Index" asp-controller="Transcript"  class="aside-link">
+                            
+                            <i class="fas fa-list-alt aside-icon" aria-hidden="true"></i>
+                            <span class="aside-title">Transcript</span></a>
+                
+                        </li>
+                   
+                    <li class="sidebar-menu-item"></li>
+                    <li class="sidebar-menu-item"></li>
+                    <li class="sidebar-menu-item"></li>
+                </ul>
+            </nav>
+        </aside>
