@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StudentIformationSysteam.Core.Models
 {
-    public class Lessson:BaseEntity
+    public class Lesson:BaseEntity
     {
         public string Name { get; set; }
         public ICollection<UserLesson> UserLessons { get; set; }

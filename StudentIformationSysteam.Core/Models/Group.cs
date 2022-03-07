@@ -7,6 +7,7 @@ namespace StudentIformationSysteam.Core.Models
     public class Group:BaseEntity
     {
         public string Name { get; set; }
+        public bool IsDeleted { get; set; }
         public int CourseId{ get; set; }
         public Course Course { get; set; }
         public int FacultyId { get; set; }

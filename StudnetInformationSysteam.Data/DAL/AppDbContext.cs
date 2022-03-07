@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
+using StudnetInformationSysteam.Data.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,14 +19,27 @@ namespace StudnetInformationSysteam.Data.DAL
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<GroupSubject> GroupSubjects { get; set; }
-        public DbSet<Lessson> Lesssons { get; set; }
+        public DbSet<Lesson> Lesssons { get; set; }
         public DbSet<Semester> Semesters { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<SubjectExam> SubjectExams{ get; set; }
         public DbSet<UserGroup> UserGroups{ get; set; }
         public DbSet<UserLesson> UserLessons { get; set; }
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AttendanceConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseConfiguration());
+            modelBuilder.ApplyConfiguration(new ExamConfiguration());
+            modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
+            modelBuilder.ApplyConfiguration(new FacultyConfiguration());
+            modelBuilder.ApplyConfiguration(new GroupConfiguration());
+            modelBuilder.ApplyConfiguration(new LessonConfiguration());
+            modelBuilder.ApplyConfiguration(new SemesterConfiguration());
+            modelBuilder.ApplyConfiguration(new SubjectConfiguration());
+           
+            base.OnModelCreating(modelBuilder);
+        }
 
 
 
