@@ -22,7 +22,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
            
            
