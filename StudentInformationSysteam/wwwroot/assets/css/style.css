@@ -1308,7 +1308,11 @@ body {
 }
 
 .body-signIn {
-  margin: 0  !important;
+    margin: 0 !important;
+    min-height: 98vh;
+    background-image: url("/assets/img/back.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 600px) {

@@ -9,9 +9,10 @@ namespace StudentInformationSysteam.Business.ViewModel.Account
   public  class LoginVM
     {
         public int Identifier { get; set; }
+        public string UserName { get; set; }
         [DataType(DataType.Password)]
         public string Password { get; set; }
-           [DataType(DataType.EmailAddress)]
+         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public bool RememberMe { get; set; }
 

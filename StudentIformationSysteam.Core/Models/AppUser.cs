@@ -20,5 +20,13 @@ namespace StudentIformationSysteam.Core.Models
         
 
     }
-}
+    public enum UserRoles
+    {
+        Admin,
+        Teacher,
+        Student,
+        
+    }
+
+    }
   

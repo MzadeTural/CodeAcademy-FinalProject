@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Controllers
 {
-
     public class AccountController : Controller
     {  // private readonly IMapper _mapper;
-      
+
         public AppDbContext _context { get; }
         private UserManager<AppUser> _userManager;
         private SignInManager<AppUser> _signInManager;
@@ -23,14 +22,23 @@ namespace StudentInformationSysteam.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
-           
+
             _context = context;
         }
         public IActionResult Index()
         {
             return View();
         }
+        [AllowAnonymous]
+        public IActionResult Login(string returnUrl = null)
+        {
+            //IsAuthenticated();
+            //ViewData["ReturnUrl"] = returnUrl;
 
+            return View();
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginVM userModel, string returnUrl)
@@ -39,13 +47,13 @@ namespace StudentInformationSysteam.Controllers
             {
                 return View(userModel);
             }
-            AppUser user = await _userManager.FindByEmailAsync(userModel.Email);
+          var user=await _userManager.FindByEmailAsync(userModel.Email);
             if (user == null)
             {
                 ModelState.AddModelError(String.Empty, "Email or Pasword is wrong");
                 return View(userModel);
             }
-           
+
 
             var result = await _signInManager.PasswordSignInAsync(user, userModel.Password, userModel.RememberMe, true);
 
@@ -85,7 +93,7 @@ namespace StudentInformationSysteam.Controllers
             AppUser newUser = new AppUser
             {
                 FullName = register.FullName
-             
+
             };
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
             if (!identityResult.Succeeded)
@@ -96,18 +104,58 @@ namespace StudentInformationSysteam.Controllers
                 }
                 return View(register);
             }
-           
- #region
-            
-            #endregion
 
-         //   await _userManager.AddToRoleAsync(newUser, UserRoles.Member.ToString());
+
+
+            //   await _userManager.AddToRoleAsync(newUser, UserRoles.Member.ToString());
 
             return RedirectToAction();
 
 
 
         }
+        #region
+        public async Task CreateRolesandUsers()
+        {
+
+
+            // first we create Admin rool    
+
+
+            //Here we create a Admin super user who will maintain the website                   
+
+            var user = new AppUser();
+            user.UserName = "default";
+            user.Email = "default@defaultcode.com";
+            user.Identifier = 201906138;
+            user.FatherName = "Ariz";
+            user.CourseId = 1;
+            user.Gender = true;
+            user.FullName = "ILkin Memmedzade";
+
+            string userPWD = "Tural123@";
+
+            IdentityResult chkUser = await _userManager.CreateAsync(user, userPWD);
+            await _userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
+
+            //Add default User to Role Admin    
+
+        }
+
+        #endregion
+
+        #region CreateRole
+        //public async Task CreateRole()
+        //{
+        //    foreach (var role in Enum.GetValues(typeof(UserRoles)))
+        //    {
+        //        if (!await _roleManager.RoleExistsAsync(role.ToString()))
+        //        {
+        //            await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+        //        }
+        //    }
+        //}
+        #endregion
 
     }
 }

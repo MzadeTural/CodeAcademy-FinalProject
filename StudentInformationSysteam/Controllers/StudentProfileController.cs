@@ -20,6 +20,14 @@ namespace StudentInformationSysteam.Controllers
             _context = context;
             _userManager = userManager;
         }
+        public async Task<AppUser> GetAuthorByIdAsync(string id)
+        {
+            var bookDetails = await _context.Users
+                .Include(ab => ab.UserGroups)
+                .ThenInclude(b => b.Group)
+                .FirstOrDefaultAsync(n => n.Id == "2a68892b-6c94-4501-9abd-25c170c66184");
+            return bookDetails;
+        }
         public async Task<IActionResult> Index()
         {
             //ProfileVM profileVM = new ProfileVM
