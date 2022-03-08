@@ -1,12 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using StudentIformationSysteam.Core.Models;
+using StudnetInformationSysteam.Data.DAL;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class DashboardController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+
+        public DashboardController(AppDbContext context,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+        public async Task<IActionResult> Index()
+        {
+           
+           
+            ViewBag.UserCount = _context.Users.Count();
+
+
             return View();
         }
     }

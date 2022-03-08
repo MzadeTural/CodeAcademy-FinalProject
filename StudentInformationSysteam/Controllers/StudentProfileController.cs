@@ -39,9 +39,11 @@ namespace StudentInformationSysteam.Controllers
                Course=c.Course.Name,
                Gender=c.Gender,
               UserName =c.UserName,
+             
 
 
-        }).FirstOrDefault();
+
+            }).FirstOrDefault();
             return View(user);
 
 
