@@ -15,7 +15,7 @@ namespace StudentIformationSysteam.Core.Models
         public Course Course { get; set; }
         public int Identifier { get; set; }
         public string FullName { get; set; }
-        public bool Gender { get; set; }
+        public string Gender { get; set; }
         public string FatherName { get; set; }
         
 

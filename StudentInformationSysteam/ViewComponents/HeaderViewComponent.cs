@@ -1,13 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.StudentProfile;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.ViewComponents
 {
     public class HeaderViewComponent:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly UserManager<AppUser> _userManager;
+
+        public HeaderViewComponent(UserManager<AppUser> userManager)
         {
-            return View();
+            _userManager = userManager;
+        }
+        public async   Task<IViewComponentResult> InvokeAsync()
+        {
+            AppUser userI = await _userManager.GetUserAsync((System.Security.Claims.ClaimsPrincipal)User);
+            var user = _userManager.Users.Where(u => u.UserName == userI.UserName).Select(c => new ProfileVM
+            {
+               
+                FullName = c.FullName,
+              
+
+
+            }).FirstOrDefault();
+            return View(user);
+           
+           
         }
     }
 }

@@ -8,11 +8,11 @@ namespace StudentInformationSysteam.Business.ViewModel.StudentProfile
     public class ProfileVM
     {
         public string FullName { get; set; }
-        public int Identifier { get; set; }
+        public string UserName { get; set; }
         public string FateherName { get; set; }
-        public bool Gender { get; set; }
+        public string Gender { get; set; }
         public string GroupName { get; set; }
-        public AppUser Course { get; set; }
+        public string Course { get; set; }
 
     }
 }

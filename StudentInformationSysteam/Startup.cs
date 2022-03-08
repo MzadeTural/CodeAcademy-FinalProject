@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.Validators.Account;
 using StudnetInformationSysteam.Data.DAL;
 
 using System;
@@ -35,7 +36,7 @@ namespace StudentInformationSysteam
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration["ConnectionStrings:Default"]);
             });
-            services.AddControllersWithViews().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<Startup>());
+            services.AddControllersWithViews().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<LoginVMValidation>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

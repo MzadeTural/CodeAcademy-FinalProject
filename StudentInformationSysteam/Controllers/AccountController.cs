@@ -47,7 +47,7 @@ namespace StudentInformationSysteam.Controllers
             {
                 return View(userModel);
             }
-          var user=await _userManager.FindByEmailAsync(userModel.Email);
+          var user=await _userManager.FindByNameAsync(userModel.UserName);
             if (user == null)
             {
                 ModelState.AddModelError(String.Empty, "Email or Pasword is wrong");
@@ -130,7 +130,7 @@ namespace StudentInformationSysteam.Controllers
             user.Identifier = 201906138;
             user.FatherName = "Ariz";
             user.CourseId = 1;
-            user.Gender = true;
+            user.Gender = "Male";
             user.FullName = "ILkin Memmedzade";
 
             string userPWD = "Tural123@";

@@ -10,10 +10,10 @@
             <div class="card-header bg-transparent text-center">
               <!-- <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt=""> -->
               <img style="background-color: #5567ff;padding: 0.4rem;" class="profile_img" src="~/assets/img/white.svg" alt="">
-              <h3>Tural Memmedzade</h3>
+              <h3>@Model.FullName</h3>
             </div>
             <div class="card-body">
-              <p class="mb-0"><strong class="pr-1">Student ID:</strong>201906140</p>
+              <p class="mb-0"><strong class="pr-1">Student ID:</strong>@Model.UserName</p>
               <p class="mb-0"><strong class="pr-1">Class:</strong>3</p>
               <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
             </div>
@@ -39,18 +39,18 @@
                 <tr>
                   <th width="30%">Gender</th>
                   <td width="2%">:</td>
-                  <td>Male</td>
+                  <td>@Model.Gender</td>
                 </tr>
                 <tr>
                   <th width="30%">Religion</th>
                   <td width="2%">:</td>
                   
-                  <td>Group : @Model.FullName</td>
+                  <td>Group :</td>
                 </tr>
                 <tr>
-                  <th width="30%">blood</th>
+                  <th width="30%">Course</th>
                   <td width="2%">:</td>
-                  <td>B+</td>                 
+                  <td>@Model.Course</td>                 
                 </tr>
                 <tr>
                     <th width="30%">Identity card serial number</th>

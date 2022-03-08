@@ -30,25 +30,22 @@ namespace StudentInformationSysteam.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            //ProfileVM profileVM = new ProfileVM
-            //{
-            //    // FateherName = _context.Users.FirstOrDefault().ToString(),
-            //    // GroupName=_context.Users.Include(i=>i.UserGroups).ThenInclude().ToString(),
-            //   // Course = _context.Users.Include(i => i.Course).FirstOrDefault()
-              
-
-            //};
-            AppUser user = await  _userManager.GetUserAsync(User);
-            if (user == null) return Content("NULL");
-            var users = _userManager.Users.Select(c => new ProfileVM
+           
+            AppUser userI = await _userManager.GetUserAsync(User);
+            var user = _userManager.Users.Where(u => u.UserName == userI.UserName).Select(c => new ProfileVM
             {
-               
-                FullName = c.FullName
+                FateherName=c.FatherName,
+                FullName = c.FullName,
+               Course=c.Course.Name,
+               Gender=c.Gender,
+              UserName =c.UserName,
 
-                
-            }).FirstOrDefault();
 
-            return View(users);
+        }).FirstOrDefault();
+            return View(user);
+
+
+           
         }
     }
 }
