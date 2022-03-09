@@ -8,7 +8,7 @@ namespace StudentIformationSysteam.Core.Models
     {
         public int LessonId { get; set; }
         public Lesson Lessson { get; set; }
-        public string UserId { get; set; }
+        public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
     }
 }

@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[3.1.22, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.23, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.22, )"
@@ -131,6 +135,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[10.3.6, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.23, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -219,6 +227,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.22, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.23, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -320,6 +332,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.22, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.23, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

@@ -34,6 +34,7 @@
                     <span class="title">Studen Managment Systeam</span>
                     <div class="form-container">
                         <form asp-action="Login" method="post">
+                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="my-5" >
                               <!-- <label for="User ID">User ID</label> -->
                             <input asp-for="UserName" placeholder="ID" required>

@@ -1,4 +1,4 @@
-﻿@model ProfileVM
+﻿@model AppUser
 
  <section id="StudentProfil">
           <!-- Student Profile -->
@@ -14,7 +14,7 @@
             </div>
             <div class="card-body">
               <p class="mb-0"><strong class="pr-1">Student ID:</strong>@Model.UserName</p>
-              <p class="mb-0"><strong class="pr-1">Class:</strong>3</p>
+            
               <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
             </div>
           </div>
@@ -44,13 +44,17 @@
                 <tr>
                   <th width="30%">Religion</th>
                   <td width="2%">:</td>
-                  
-                  <td>Group :</td>
+                    @foreach (var book in Model.UserGroups)
+                                {
+                              
+                                   <td>Group : @book.Group.Name</td>
+                                }
+                 
                 </tr>
                 <tr>
                   <th width="30%">Course</th>
                   <td width="2%">:</td>
-                  <td>@Model.Course</td>                 
+                  <td>@Model.Course.Name</td>                 
                 </tr>
                 <tr>
                     <th width="30%">Identity card serial number</th>
@@ -60,7 +64,7 @@
                   <tr>
                     <th width="30%">Father Name</th>
                     <td width="2%">:</td>
-                    <td>@Model.FateherName</td>                 
+                    <td>@Model.FatherName</td>                 
                   </tr>
                   <tr>
                     <th width="30%">Type of education</th>
