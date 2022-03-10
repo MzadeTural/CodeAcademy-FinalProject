@@ -168,9 +168,10 @@ C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\D
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Views\StudentProfile\GetUSer.cshtml.g.cs
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Student\Index.cshtml.g.cs
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Student\AddStudent.cshtml.g.cs
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs

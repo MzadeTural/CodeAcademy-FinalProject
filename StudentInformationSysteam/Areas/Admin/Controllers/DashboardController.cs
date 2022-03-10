@@ -13,19 +13,21 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
     {
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+      
 
-
-        public DashboardController(AppDbContext context,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        public DashboardController(AppDbContext context,UserManager<AppUser> userManager)
         {
             _context = context;
             _userManager = userManager;
-            _roleManager = roleManager;
+          
         }
         public IActionResult Index()
         {
 
-            ViewBag.UserCount = _context.UserRoles.Where(x => x.RoleId == "7b04df80-3a2c-4d65-9eaf-15c00c88d57d").Count(); 
+            ViewBag.UserStudent = _context.UserRoles.Where(x => x.RoleId == "f00cc3f4-d208-4597-9179-ba035b34c6b6").Count(); 
+            ViewBag.TeacherCount = _context.UserRoles.Where(x => x.RoleId == "b7fa0d73-4cc0-401e-8d91-60485688424e").Count();
+            ViewBag.SubjectCount = _context.Subjects.Count();
+
             return View();
         }
     }
