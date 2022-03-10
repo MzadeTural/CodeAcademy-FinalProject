@@ -42,12 +42,12 @@
                   <td>@Model.Gender</td>
                 </tr>
                 <tr>
-                  <th width="30%">Religion</th>
+                  <th width="30%">Group</th>
                   <td width="2%">:</td>
                     @foreach (var book in Model.UserGroups)
                                 {
                               
-                                   <td>Group : @book.Group.Name</td>
+                                   <td> @book.Group.Name</td>
                                 }
                  
                 </tr>
@@ -66,11 +66,7 @@
                     <td width="2%">:</td>
                     <td>@Model.FatherName</td>                 
                   </tr>
-                  <tr>
-                    <th width="30%">Type of education</th>
-                    <td width="2%">:</td>
-                    <td>State-ordered</td>                 
-                  </tr>
+                 
                   <tr>
                     <th width="30%">Qualification</th>
                     <td width="2%">:</td>
@@ -79,7 +75,11 @@
                   <tr>
                     <th width="30%">Name of the faculty</th>
                     <td width="2%">:</td>
-                    <td>Information and telecommunication technologies</td>                 
+                     @foreach (var book in Model.UserGroups)
+                                {
+                              
+                                   <td> @book.Group.Faculty.Name</td>
+                                }           
                   </tr>
                   
                   

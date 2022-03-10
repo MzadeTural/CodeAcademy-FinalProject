@@ -24,11 +24,8 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-           
-           
-            ViewBag.UserCount = _context.Users.Count();
-
-
+                    
+            ViewBag.UserCount = _roleManager.Roles.Where(d=>d.Id=="7b04df80-3a2c-4d65-9eaf-15c00c88d57d").Count();
             return View();
         }
     }

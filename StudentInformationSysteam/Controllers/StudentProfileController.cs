@@ -24,15 +24,16 @@ namespace StudentInformationSysteam.Controllers
         public async Task<IActionResult> Index()
         {        
             AppUser userI = await _userManager.GetUserAsync(User);
-            
-          
+                   
             AppUser bookDetails = await _context.Users
                .Include(ab => ab.UserGroups)
                .ThenInclude(b => b.Group)
+               .ThenInclude(b=>b.Faculty)
                .Include(u=>u.Course)
+             
                .FirstOrDefaultAsync(n => n.Id == userI.Id);
 
-           // return Json(bookDetails);
+         
             return View(bookDetails);
 
 
