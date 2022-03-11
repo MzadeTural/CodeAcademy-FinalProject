@@ -30,6 +30,7 @@ namespace StudentInformationSysteam.Controllers
                .ThenInclude(b => b.Group)
                .ThenInclude(b=>b.Faculty)
                .Include(u=>u.Course)
+               .Include(u=>u.Gender)
              
                .FirstOrDefaultAsync(n => n.Id == userI.Id);
 

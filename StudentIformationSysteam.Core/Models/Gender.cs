@@ -7,6 +7,6 @@ namespace StudentIformationSysteam.Core.Models
     public class Gender:BaseEntity
     {
         public string Name { get; set; }
-        public AppUser AppUser { get; set; }
+        public ICollection<AppUser> AppUsers { get; set; }
     }
 }

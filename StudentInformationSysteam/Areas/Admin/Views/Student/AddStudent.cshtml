@@ -30,23 +30,26 @@
         <div class="register__box conteiner__check">
             <label for="genders">Gender</label>
             <ul class="conteiner__check">
-                <li>
-                    <input id="female" name="gender" type="radio" value="Female">
-                    <label for="female">Female</label>
-                </li>
-                <li>
-                    <input id="male" name="gender" type="radio" value="Male">
-                    <label for="male">Male</label>
-                </li>
-                <li>
+                 <label>Speciality</label>
+            <div class="select" style="font-family: ui-rounded;">
+               <select asp-for="GenderId"  asp-items="@ViewBag.Genders" >
+                   </select>
+            </div>
 
-                    <input id="other" name="gender" type="radio" value="Other">
-                    <label for="other">Other</label>
-                </li>
-
+            
+               
+               
             </ul>
         </div>
-     
+      <div class="register__box">
+
+            <label>Speciality</label>
+            <div class="select" style="font-family: ui-rounded;">
+               <select asp-for="SpecialityId"  asp-items="@ViewBag.Specality" >
+                   </select>
+            </div>
+
+        </div>
         <div class="register__box">
 
             <label>Course</label>
@@ -57,7 +60,8 @@
 
         </div>
       
-        <input type="button" value="Create profile" id="register__btn">
+       
+        <button id="register__btn">Add Student"</button>
     </form>
     <div id="overlay" class="hidden">
         <div id="avatar"></div>

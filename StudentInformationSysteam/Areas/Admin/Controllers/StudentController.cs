@@ -32,6 +32,12 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         public async Task<IActionResult> AddStudent()
         {
             ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
+            ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
+            ViewBag.Genders = new SelectList(await _context.Genders.ToListAsync(), "Id", "Name");
+
+
+
+
             return View();
         }
         [HttpPost]
@@ -51,11 +57,23 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                FatherName=createVM.FatherName,
                UserName=createVM.UserName,
                GenderId=createVM.GenderId,
-               CourseId=createVM.CourseId,             
+               CourseId=createVM.CourseId,  
+               SpecialityId=createVM.SpecialityId,
+               Email=createVM.Email,
+               Identifier=createVM.Identifier,
 
-            };
-            await _context.Users.AddAsync(newUser);
-            await _context.SaveChangesAsync();
+            };         
+            IdentityResult identityResult = await _userManager.CreateAsync(newUser,"Student123@");
+            if (!identityResult.Succeeded)
+            {
+                foreach (var error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(createVM);
+            }
+            await _userManager.AddToRoleAsync(newUser, UserRoles.Student.ToString());
+           
             return View();
         }
     }

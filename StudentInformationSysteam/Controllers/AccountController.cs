@@ -104,7 +104,7 @@ namespace StudentInformationSysteam.Controllers
                 }
                 return View(register);
             }
-
+            await _userManager.AddToRoleAsync(newUser, UserRoles.Student.ToString());
 
 
             //   await _userManager.AddToRoleAsync(newUser, UserRoles.Member.ToString());
