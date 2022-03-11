@@ -44,10 +44,10 @@
                 <tr>
                   <th width="30%">Group</th>
                   <td width="2%">:</td>
-                    @foreach (var book in Model.UserGroups)
+                    @foreach (var item in Model.UserGroups)
                                 {
                               
-                                   <td> @book.Group.Name</td>
+                                   <td> @item.Group.Name</td>
                                 }
                  
                 </tr>
@@ -59,7 +59,7 @@
                 <tr>
                     <th width="30%">Identity card serial number</th>
                     <td width="2%">:</td>
-                    <td>18513013</td>                 
+                    <td>@Model.Identifier</td>                 
                   </tr>
                   <tr>
                     <th width="30%">Father Name</th>

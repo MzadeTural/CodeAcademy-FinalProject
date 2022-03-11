@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StudnetInformationSysteam.Data.Migrations
 {
-    public partial class CreateDBTabls : Migration
+    public partial class CreateALlDbTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,7 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LessonDate = table.Column<DateTime>(type: "DateTime", nullable: false),
                     LessonId = table.Column<int>(nullable: false),
-                    IsPresent = table.Column<bool>(nullable: false,defaultValue:true)
+                    IsPresent = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,6 +76,19 @@ namespace StudnetInformationSysteam.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Specialities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Specialities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -97,49 +110,13 @@ namespace StudnetInformationSysteam.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Email = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    CourseId = table.Column<int>(nullable: false),
-                    Identifier = table.Column<int>(nullable: false),
-                    FullName = table.Column<string>(nullable: true),
-                    Gender = table.Column<bool>(nullable: false),
-                    FatherName = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_Courses_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Courses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Groups",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 20, nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false,defaultValue:false),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     CourseId = table.Column<int>(nullable: false),
                     FacultyId = table.Column<int>(nullable: false)
                 },
@@ -167,7 +144,7 @@ namespace StudnetInformationSysteam.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 20, nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false,defaultValue:false),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     SemesterId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -177,6 +154,95 @@ namespace StudnetInformationSysteam.Data.Migrations
                         name: "FK_Subjects_Semesters_SemesterId",
                         column: x => x.SemesterId,
                         principalTable: "Semesters",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    CourseId = table.Column<int>(nullable: false),
+                    SpecialityId = table.Column<int>(nullable: false),
+                    Identifier = table.Column<string>(nullable: true),
+                    FullName = table.Column<string>(nullable: true),
+                    Gender = table.Column<string>(nullable: true),
+                    FatherName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Specialities_SpecialityId",
+                        column: x => x.SpecialityId,
+                        principalTable: "Specialities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GroupSubjects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SubjectId = table.Column<int>(nullable: false),
+                    GroupId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupSubjects", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroupSubjects_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupSubjects_Subjects_SubjectId",
+                        column: x => x.SubjectId,
+                        principalTable: "Subjects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lesssons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 20, nullable: false),
+                    SubjectId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lesssons", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Lesssons_Subjects_SubjectId",
+                        column: x => x.SubjectId,
+                        principalTable: "Subjects",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -294,7 +360,6 @@ namespace StudnetInformationSysteam.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: true),
                     AppUserId = table.Column<string>(nullable: true),
                     GroupId = table.Column<int>(nullable: false)
                 },
@@ -316,48 +381,27 @@ namespace StudnetInformationSysteam.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GroupSubjects",
+                name: "UserLessons",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SubjectId = table.Column<int>(nullable: false),
-                    GrupId = table.Column<int>(nullable: false),
-                    GroupId = table.Column<int>(nullable: true)
+                    LessonId = table.Column<int>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GroupSubjects", x => x.Id);
+                    table.PrimaryKey("PK_UserLessons", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GroupSubjects_Groups_GroupId",
-                        column: x => x.GroupId,
-                        principalTable: "Groups",
+                        name: "FK_UserLessons_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_GroupSubjects_Subjects_SubjectId",
-                        column: x => x.SubjectId,
-                        principalTable: "Subjects",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Lesssons",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 20, nullable: false),
-                    SubjectId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Lesssons", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Lesssons_Subjects_SubjectId",
-                        column: x => x.SubjectId,
-                        principalTable: "Subjects",
+                        name: "FK_UserLessons_Lesssons_LessonId",
+                        column: x => x.LessonId,
+                        principalTable: "Lesssons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -415,33 +459,6 @@ namespace StudnetInformationSysteam.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "UserLessons",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LessonId = table.Column<int>(nullable: false),
-                    UserId = table.Column<string>(nullable: true),
-                    AppUserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserLessons", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserLessons_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_UserLessons_Lesssons_LessonId",
-                        column: x => x.LessonId,
-                        principalTable: "Lesssons",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -485,6 +502,11 @@ namespace StudnetInformationSysteam.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_SpecialityId",
+                table: "AspNetUsers",
+                column: "SpecialityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exams_AppUserId",
@@ -621,6 +643,9 @@ namespace StudnetInformationSysteam.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Specialities");
 
             migrationBuilder.DropTable(
                 name: "Semesters");

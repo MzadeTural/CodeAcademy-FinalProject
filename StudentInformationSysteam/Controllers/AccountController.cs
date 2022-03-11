@@ -119,24 +119,21 @@ namespace StudentInformationSysteam.Controllers
         {
 
 
-            // first we create Admin rool    
 
+           //var user = new AppUser();
+           // user.UserName = "201906140";
+           // user.Email = "default@defaultcode.com";
+           // user.Identifier = "AZE18062523";
+           // user.FatherName = "Vüsal";
+           // user.CourseId = 1;
+           // user.GenderId = 1;
+           // user.FullName = "Tural Memmedzade";
+           // user.SpecialityId = 1;
 
-            //Here we create a Admin super user who will maintain the website                   
+           // string userPWD = "Student123@";
 
-            //var user = new AppUser();
-            //user.UserName = "default";
-            //user.Email = "default@defaultcode.com";
-            //user.Identifier = 201906138;
-            //user.FatherName = "Ariz";
-            //user.CourseId = 1;
-            //user.Gender = "Male";
-            //user.FullName = "ILkin Memmedzade";
-
-            //string userPWD = "Tural123@";
-
-            //IdentityResult chkUser = await _userManager.CreateAsync(user, userPWD);
-            //await _userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
+           // IdentityResult chkUser = await _userManager.CreateAsync(user, userPWD);
+           // await _userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
 
             //Add default User to Role Admin    
 

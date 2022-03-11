@@ -25,6 +25,8 @@ namespace StudnetInformationSysteam.Data.DAL
         public DbSet<SubjectExam> SubjectExams{ get; set; }
         public DbSet<UserGroup> UserGroups{ get; set; }
         public DbSet<UserLesson> UserLessons { get; set; }
+        public DbSet<Speciality> Specialities { get; set; }
+        public DbSet<Gender> Genders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

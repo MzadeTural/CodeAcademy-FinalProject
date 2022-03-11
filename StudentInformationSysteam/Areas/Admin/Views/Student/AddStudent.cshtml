@@ -2,21 +2,31 @@
     Layout = null;
     }
 *@
+@model CreateVM
 <section class="my-5">
     <form id="register" method="post" enctype="multipart/form-data">
         <h2 id="register__title" class="text-center">Add new student</h2>
         <div class="register__box">
-            <label for="user">User<i class="fas fa-asterisk"></i></label>
-            <input id="user" type="text" maxLength="64" required placeholder="Username">
+            <label for="user">Full Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="FullName"  maxLength="64" required placeholder="Full Name">
+        </div>
+        <div class="register__box">
+            <label for="user">User Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="UserName"  maxLength="64" required placeholder="User Name">
+        </div>
+        <div class="register__box">
+            <label >Father Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="FatherName"  maxLength="64" required placeholder="Father Name">
+        </div>
+       <div class="register__box">
+            <label asp-for="Identifier">Identifier<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="Identifier"  maxLength="64" required placeholder="Father Name">
         </div>
         <div class="register__box">
             <label for="mail">E-mail<i class="fas fa-asterisk"></i></label>
             <input id="mail" type="email" size="64" maxLength="64" required placeholder="Example@gmail.com" title="Example@gmail.com">
         </div>
-        <div class="register__box">
-            <label for="password">Password<i class="fas fa-asterisk"></i></label>
-            <input id="password" type="password" minLength="6" required placeholder="Password">
-        </div>
+       
         <div class="register__box conteiner__check">
             <label for="genders">Gender</label>
             <ul class="conteiner__check">
@@ -36,29 +46,17 @@
 
             </ul>
         </div>
-        <div class="register__box">
-            <label for="age">Age</label>
-            <input id="age" type="date" minLength="2">
-        </div>
+     
         <div class="register__box">
 
-            <label>Coure</label>
-            <div class="select">
-                <select>
-                    <option value="1">First</option>
-                    <option value="2">Second</option>
-                    <option value="3">Third!</option>
-                </select>
+            <label>Course</label>
+            <div class="select" style="width:6vw !important;font-family: ui-rounded;">
+               <select asp-for="CourseId"  asp-items="@ViewBag.Courses" >
+                   </select>
             </div>
 
         </div>
-        <div class="register__box">
-            <label for="image">Choose profile picture</label>
-            <input type="file" id="image" name="image" accept="image/*">
-            <div id="preview">
-                <p>No files currently selected for upload</p>
-            </div>
-        </div>
+      
         <input type="button" value="Create profile" id="register__btn">
     </form>
     <div id="overlay" class="hidden">

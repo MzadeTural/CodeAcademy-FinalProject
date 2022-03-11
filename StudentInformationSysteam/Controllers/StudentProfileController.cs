@@ -25,7 +25,7 @@ namespace StudentInformationSysteam.Controllers
         {        
             AppUser userI = await _userManager.GetUserAsync(User);
                    
-            AppUser bookDetails = await _context.Users
+            AppUser userDetails = await _context.Users
                .Include(ab => ab.UserGroups)
                .ThenInclude(b => b.Group)
                .ThenInclude(b=>b.Faculty)
@@ -34,7 +34,7 @@ namespace StudentInformationSysteam.Controllers
                .FirstOrDefaultAsync(n => n.Id == userI.Id);
 
          
-            return View(bookDetails);
+            return View(userDetails);
 
 
            

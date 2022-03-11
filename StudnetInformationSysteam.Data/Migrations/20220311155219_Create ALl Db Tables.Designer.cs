@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudnetInformationSysteam.Data.DAL;
 
 namespace StudnetInformationSysteam.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220311155219_Create ALl Db Tables")]
+    partial class CreateALlDbTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,8 +180,8 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GenderId")
-                        .HasColumnType("int");
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Identifier")
                         .HasColumnType("nvarchar(max)");
@@ -223,10 +225,6 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
-
-                    b.HasIndex("GenderId")
-                        .IsUnique()
-                        .HasFilter("[GenderId] IS NOT NULL");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -347,21 +345,6 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Faculties");
-                });
-
-            modelBuilder.Entity("StudentIformationSysteam.Core.Models.Gender", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genders");
                 });
 
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Group", b =>
@@ -619,10 +602,6 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("StudentIformationSysteam.Core.Models.Gender", "Gender")
-                        .WithOne("AppUser")
-                        .HasForeignKey("StudentIformationSysteam.Core.Models.AppUser", "GenderId");
 
                     b.HasOne("StudentIformationSysteam.Core.Models.Speciality", "Speciality")
                         .WithMany("AppUsers")

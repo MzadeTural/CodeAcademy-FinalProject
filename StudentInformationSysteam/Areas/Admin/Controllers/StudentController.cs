@@ -25,12 +25,13 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
        
         public async Task<IActionResult> Index()
         {
-            ViewBag.Categories = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
+          
             return View();
         }
 
-        public IActionResult AddStudent()
+        public async Task<IActionResult> AddStudent()
         {
+            ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
             return View();
         }
         [HttpPost]
@@ -49,7 +50,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                FullName=createVM.FullName,
                FatherName=createVM.FatherName,
                UserName=createVM.UserName,
-               Gender=createVM.Gender,
+               GenderId=createVM.GenderId,
                CourseId=createVM.CourseId,             
 
             };

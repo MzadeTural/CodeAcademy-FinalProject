@@ -10,8 +10,8 @@ using StudnetInformationSysteam.Data.DAL;
 namespace StudnetInformationSysteam.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220307144855_Create DB Tabls")]
-    partial class CreateDBTabls
+    [Migration("20220311202740_Add gender column appUser")]
+    partial class AddgendercolumnappUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -180,11 +180,11 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Gender")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Identifier")
+                    b.Property<int?>("GenderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Identifier")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -212,6 +212,9 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SpecialityId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -223,6 +226,10 @@ namespace StudnetInformationSysteam.Data.Migrations
 
                     b.HasIndex("CourseId");
 
+                    b.HasIndex("GenderId")
+                        .IsUnique()
+                        .HasFilter("[GenderId] IS NOT NULL");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -230,6 +237,8 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("SpecialityId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -342,6 +351,21 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.ToTable("Faculties");
                 });
 
+            modelBuilder.Entity("StudentIformationSysteam.Core.Models.Gender", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genders");
+                });
+
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Group", b =>
                 {
                     b.Property<int>("Id")
@@ -379,10 +403,7 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("GroupId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GrupId")
+                    b.Property<int>("GroupId")
                         .HasColumnType("int");
 
                     b.Property<int>("SubjectId")
@@ -434,6 +455,21 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Semesters");
+                });
+
+            modelBuilder.Entity("StudentIformationSysteam.Core.Models.Speciality", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Specialities");
                 });
 
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Subject", b =>
@@ -496,9 +532,6 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.Property<int>("GroupId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
@@ -520,9 +553,6 @@ namespace StudnetInformationSysteam.Data.Migrations
 
                     b.Property<int>("LessonId")
                         .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -591,6 +621,16 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("StudentIformationSysteam.Core.Models.Gender", "Gender")
+                        .WithOne("AppUser")
+                        .HasForeignKey("StudentIformationSysteam.Core.Models.AppUser", "GenderId");
+
+                    b.HasOne("StudentIformationSysteam.Core.Models.Speciality", "Speciality")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("SpecialityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Evaluation", b =>
@@ -632,7 +672,9 @@ namespace StudnetInformationSysteam.Data.Migrations
                 {
                     b.HasOne("StudentIformationSysteam.Core.Models.Group", "Group")
                         .WithMany("GroupSubjects")
-                        .HasForeignKey("GroupId");
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StudentIformationSysteam.Core.Models.Subject", "Subject")
                         .WithMany("GroupSubjects")
