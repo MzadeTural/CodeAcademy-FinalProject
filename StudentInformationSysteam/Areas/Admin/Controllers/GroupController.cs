@@ -46,7 +46,13 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             StudentShowVM student = new StudentShowVM
             {
-                AppUsers = _context.Users.Where(a => userids.Any(c => c == a.Id) && usergrp.Any(c => c == a.Id)).ToList()
+                AppUsers = _context.Users
+                                         .Include(u=>u.Gender)
+                                         .Include(u=>u.UserGroups)
+                                         .ThenInclude(u=>u.Group)
+                                         .Where(a => userids
+                                         .Any(c => c == a.Id) && usergrp
+                                         .Any(c => c == a.Id)).ToList()
             };
             return View(student);
         }

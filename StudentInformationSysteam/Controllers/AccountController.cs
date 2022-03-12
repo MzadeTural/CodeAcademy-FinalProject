@@ -77,9 +77,13 @@ namespace StudentInformationSysteam.Controllers
             {
                 return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
+            else if (await _userManager.IsInRoleAsync(user, "Teacher"))
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+            }
             else
             {
-                return Json("Index");
+                return RedirectToAction("Index", "Home");
             }
         }
         public async Task<IActionResult> Logout()
