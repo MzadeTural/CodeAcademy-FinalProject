@@ -47,8 +47,15 @@ using StudentInformationSysteam.Business.ViewModel.Group;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.UserGroup;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ff41d8463725771c50cb2d8f28756ccd58de086b", @"/Areas/Admin/Views/Student/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6bf62be1a437f32501b67dc6a5b1091ca0b090fd", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a1598c4e5c23b94986104874ffc85086e4d85323", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Student_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -91,7 +98,7 @@ using StudentInformationSysteam.Business.ViewModel.Group;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!doctype html>\r\n<html lang=\"en\">\r\n  ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b5737", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b5993", async() => {
                 WriteLiteral(@"
     <!-- Required meta tags -->
     <meta charset=""utf-8"">
@@ -102,7 +109,7 @@ using StudentInformationSysteam.Business.ViewModel.Group;
 
     <title>Hello, world!</title>
    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ff41d8463725771c50cb2d8f28756ccd58de086b6428", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ff41d8463725771c50cb2d8f28756ccd58de086b6684", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -129,12 +136,12 @@ using StudentInformationSysteam.Business.ViewModel.Group;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n  ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b8314", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b8570", async() => {
                 WriteLiteral("\r\n    \r\n\r\n   <div class=\"form_wrapper\">\r\n  <div class=\"form_container\">\r\n    <div class=\"title_container\">\r\n      <h2>Responsive Registration Form</h2>\r\n    </div>\r\n    <div class=\"row clearfix\">\r\n      <div");
                 BeginWriteAttribute("class", " class=\"", 789, "\"", 797, 0);
                 EndWriteAttribute();
                 WriteLiteral(">\r\n        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b8966", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b9222", async() => {
                     WriteLiteral(@"
           <div class=""input_field""> <span><i aria-hidden=""true"" class=""fa fa-envelope""></i></span>
             <input type=""email"" name=""email"" placeholder=""Email"" required />
@@ -167,7 +174,7 @@ using StudentInformationSysteam.Business.ViewModel.Group;
               <div class=""input_field select_option"">
                 <select>
                   ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b10929", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b11185", async() => {
                         WriteLiteral("Select a country");
                     }
                     );
@@ -181,7 +188,7 @@ using StudentInformationSysteam.Business.ViewModel.Group;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                  ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b12028", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b12284", async() => {
                         WriteLiteral("Option 1");
                     }
                     );
@@ -195,7 +202,7 @@ using StudentInformationSysteam.Business.ViewModel.Group;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                  ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b13119", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff41d8463725771c50cb2d8f28756ccd58de086b13375", async() => {
                         WriteLiteral("Option 2");
                     }
                     );

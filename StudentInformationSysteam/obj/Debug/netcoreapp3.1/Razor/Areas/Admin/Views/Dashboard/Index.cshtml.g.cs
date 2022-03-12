@@ -47,8 +47,15 @@ using StudentInformationSysteam.Business.ViewModel.Group;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.UserGroup;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"305529b740642f7a7b18b567436e8b62ea2b6b56", @"/Areas/Admin/Views/Dashboard/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6bf62be1a437f32501b67dc6a5b1091ca0b090fd", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a1598c4e5c23b94986104874ffc85086e4d85323", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Dashboard_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
