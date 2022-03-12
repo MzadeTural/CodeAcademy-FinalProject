@@ -24,7 +24,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         public IActionResult Index()
         {
 
-            ViewBag.UserStudent = _context.UserRoles.Where(x => x.RoleId == "f00cc3f4-d208-4597-9179-ba035b34c6b6").Count(); 
+            ViewBag.UserStudent = _context.UserRoles.Where(x => x.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Count(); 
             ViewBag.TeacherCount = _context.UserRoles.Where(x => x.RoleId == "b7fa0d73-4cc0-401e-8d91-60485688424e").Count();
             ViewBag.SubjectCount = _context.Subjects.Count();
 

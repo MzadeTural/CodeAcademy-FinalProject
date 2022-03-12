@@ -4,21 +4,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.UserGroup;
 using StudnetInformationSysteam.Data.DAL;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class UserGroupController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly UserManager<AppUser> _userManeger;
+        private readonly UserManager<AppUser> _userManager;
 
-        public UserGroupController( AppDbContext context , UserManager<AppUser> userManager)
+        public UserGroupController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
-            _userManeger = userManager;
+            _userManager = userManager;
         }
         // GET: UserGroupController
         public ActionResult Index()
@@ -33,16 +36,24 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: UserGroupController/Create
-        public async Task<ActionResult> AddStudentToGroup()
+        public ActionResult AddStudentToGroup(int id)
+
         {
-            //ViewBag.Students = new SelectList(await _context.UserRoles.Where(x => x.RoleId == "f00cc3f4-d208-4597-9179-ba035b34c6b6")
+           
 
-            //                                                           .ToListAsync(), "Id", "Name");
-            //ViewBag.Students = new SelectList(await _userManeger.Users.Include(u=>u.AppUserRoles).Where(x => x. == "f00cc3f4-d208-4597-9179-ba035b34c6b6")
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "6f1424c2-9a2d-4b38-95b6-cdac46fcf023").Select(b => b.UserId).Distinct().ToList();
+            List<string> usergrp = _context.UserGroups.Where(a => a.GroupId == 0).Select(b => b.AppUserId).Distinct().ToList();
 
-            //                                                          .ToListAsync(), "Id", "Name");
-            return View();
-        }
+            StudentShowVM student = new StudentShowVM
+            {
+                AppUsers = _context.Users.Where(a => userids.Any(c => c == a.Id) && usergrp.Any(c => c == a.Id)).ToList()
+            };
+        return View(student);
+    }
+        
+            
+    
+
 
         // POST: UserGroupController/Create
         [HttpPost]

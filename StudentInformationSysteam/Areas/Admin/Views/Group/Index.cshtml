@@ -10,7 +10,7 @@
         @foreach (var group in Model.Groups)
        {
            <div class="col-md-4 col-6">
-                  <a class="card">
+                  <a class="card"  asp-action="Details"  asp-route-id="@group.Id">
                     <div class="card-header mx-4 p-3 text-center">
                       <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
                         <i class="fas fa-users opacity-10"></i>

@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20220311202627_Add gender column appUser.cs" />
     <Compile Remove="Migrations\20220311202627_Add gender column appUser.Designer.cs" />
+    <Compile Remove="Migrations\20220312123502_Add new TAble.cs" />
+    <Compile Remove="Migrations\20220312123502_Add new TAble.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

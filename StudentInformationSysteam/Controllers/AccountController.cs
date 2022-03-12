@@ -47,7 +47,7 @@ namespace StudentInformationSysteam.Controllers
             {
                 return View(userModel);
             }
-          var user=await _userManager.FindByNameAsync(userModel.UserName);
+           AppUser user=await _userManager.FindByNameAsync(userModel.UserName);
             if (user == null)
             {
                 ModelState.AddModelError(String.Empty, "Email or Pasword is wrong");
@@ -72,13 +72,15 @@ namespace StudentInformationSysteam.Controllers
             {
                 return Redirect(returnUrl);
             }
-            //if (await _userManager.IsInRoleAsync(user,"SuperAdmin"))
-            //{
-            //    return RedirectToAction("Index", "Dashboard", new { area = "AdminFiorella" });
-            //}
 
-            return RedirectToAction("Index", "Home");
-
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+            }
+            else
+            {
+                return Json("Index");
+            }
         }
         public async Task<IActionResult> Logout()
         {

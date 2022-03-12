@@ -2,6 +2,14 @@
 @{
     ViewData["Title"] = "AddStudentToGroup";
 }
+@model StudentShowVM
 
-<h1>AddStudentToGroup</h1>
+<ul>
+<select  asp-items="@ViewBag.StudentList">
+                            </select>
+@foreach (var item in Model.AppUsers)
+{
+    <li>@item.FullName</li>
+}
+</ul>
 

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+@model StudentShowVM
+
+<ul class="my-5">
+    
+@foreach (var item in Model.AppUsers)
+{
+    <li>@item.FullName</li>
+}
+</ul>
+
