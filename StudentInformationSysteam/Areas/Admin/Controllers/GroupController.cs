@@ -1,10 +1,27 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.Group;
+using StudnetInformationSysteam.Data.DAL;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
-    public class FroupController : Controller
+    [Area("Admin")]
+    public class GroupController : Controller
     {
+        private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+
+        public GroupController(UserManager<AppUser> userManager, AppDbContext context)
+        {
+            _userManager = userManager;
+            _context = context;
+        }
         // GET: FroupController
         public ActionResult Index()
         {
@@ -18,24 +35,39 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: FroupController/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
+            ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
+            ViewBag.Faculty = new SelectList(await _context.Faculties.ToListAsync(), "Id", "Name");
             return View();
         }
 
         // POST: FroupController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(GroupCreateVM groupCreate)
         {
-            try
+            if (!ModelState.IsValid) return View();
+            bool IsExist = _context.Groups
+                                 .Any(c => c.Name.ToLower().Trim() == groupCreate.Name.ToLower().Trim());
+            if (IsExist)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
+                ModelState.AddModelError("Group Name", "This category already exist");
                 return View();
             }
+
+            Group group = new Group
+            {
+                Name = groupCreate.Name,
+                FacultyId = groupCreate.FacultyId,
+                CourseId = groupCreate.CourseId,
+            };
+
+            await _context.Groups.AddAsync(group);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Create));
+
         }
 
         // GET: FroupController/Edit/5

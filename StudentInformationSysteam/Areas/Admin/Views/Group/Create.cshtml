@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+@model GroupCreateVM
+<section class="my-5">
+    <form id="register" method="post" enctype="multipart/form-data">
+        <h2 id="register__title" class="text-center">Add new student</h2>
+        <div class="register__box">
+            <label for="user"> Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="Name" maxLength="64" required placeholder="Full Name">
+        </div>
+     
+        <div class="container my-lg-3">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="register__box conteiner__check">
+                        <label for="genders">Gender</label>
+                        <div class="select" style="font-family: ui-rounded;width:100% !important">
+
+                            <select asp-for="FacultyId" asp-items="@ViewBag.Faculty">
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+               
+                 <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="register__box">
+
+                        <label>Course</label>
+                        <div class="select" style="width:100% !important;font-family: ui-rounded;">
+                            <select asp-for="CourseId" asp-items="@ViewBag.Courses">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                 
+               
+            </div>
+        </div>
+
+        <button id="register__btn">Add Group</button>
+    </form>
+    <div id="overlay" class="hidden">
+        <div id="avatar"></div>
+    </div>
+</section>
+

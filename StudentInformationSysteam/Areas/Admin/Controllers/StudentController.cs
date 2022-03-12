@@ -23,7 +23,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
        
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
           
             return View();
@@ -72,8 +72,8 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 return View(createVM);
             }
             await _userManager.AddToRoleAsync(newUser, UserRoles.Student.ToString());
-           
-            return View();
+
+            return RedirectToAction(nameof(AddStudent));
         }
     }
 }
