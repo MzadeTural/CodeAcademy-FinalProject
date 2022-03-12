@@ -35,8 +35,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
             ViewBag.Genders = new SelectList(await _context.Genders.ToListAsync(), "Id", "Name");
 
-
-
+          
 
             return View();
         }

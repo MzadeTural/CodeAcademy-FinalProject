@@ -15,8 +15,9 @@ namespace StudentInformationSysteam.Business.ViewModel.Student
         public string Email { get; set; }
         public int SpecialityId { get; set; }
         public int CourseId { get; set; }
-      
-     
+        public List<Gender> Genders { get; set; }
+
+
         public string Identifier { get; set; }
 
     }

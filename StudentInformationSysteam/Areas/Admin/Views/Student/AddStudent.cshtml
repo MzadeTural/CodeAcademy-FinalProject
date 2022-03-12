@@ -8,60 +8,64 @@
         <h2 id="register__title" class="text-center">Add new student</h2>
         <div class="register__box">
             <label for="user">Full Name<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="FullName"  maxLength="64" required placeholder="Full Name">
+            <input id="user" asp-for="FullName" maxLength="64" required placeholder="Full Name">
         </div>
         <div class="register__box">
             <label for="user">User Name<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="UserName"  maxLength="64" required placeholder="User Name">
+            <input id="user" asp-for="UserName" maxLength="64" required placeholder="User Name">
         </div>
         <div class="register__box">
-            <label >Father Name<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="FatherName"  maxLength="64" required placeholder="Father Name">
+            <label>Father Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="FatherName" maxLength="64" required placeholder="Father Name">
         </div>
-       <div class="register__box">
+        <div class="register__box">
             <label asp-for="Identifier">Identifier<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="Identifier"  maxLength="64" required placeholder="Father Name">
+            <input id="user" asp-for="Identifier" maxLength="64" required placeholder="Father Name">
         </div>
         <div class="register__box">
             <label for="mail">E-mail<i class="fas fa-asterisk"></i></label>
             <input id="mail" type="email" size="64" maxLength="64" required placeholder="Example@gmail.com" title="Example@gmail.com">
         </div>
-       
-        <div class="register__box conteiner__check">
-            <label for="genders">Gender</label>
-            <ul class="conteiner__check">
-                 <label>Speciality</label>
-            <div class="select" style="font-family: ui-rounded;">
-               <select asp-for="GenderId"  asp-items="@ViewBag.Genders" >
-                   </select>
-            </div>
+        <div class="container my-lg-3">
+            <div class="row">
 
-            
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="register__box conteiner__check">
+                        <label for="genders">Gender</label>
+                        <div class="select" style="font-family: ui-rounded;;width:100% !important">
+
+                            <select asp-for="GenderId" asp-items="@ViewBag.Genders">
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
                
-               
-            </ul>
-        </div>
-      <div class="register__box">
+                 <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="register__box">
 
-            <label>Speciality</label>
-            <div class="select" style="font-family: ui-rounded;">
-               <select asp-for="SpecialityId"  asp-items="@ViewBag.Specality" >
-                   </select>
+                        <label>Course</label>
+                        <div class="select" style="width:100% !important;font-family: ui-rounded;">
+                            <select asp-for="CourseId" asp-items="@ViewBag.Courses">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="register__box">
+
+                        <label>Speciality</label>
+                        <div class="select" style="font-family: ui-rounded;width:100% !important">
+                            <select asp-for="SpecialityId" asp-items="@ViewBag.Specality">
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <div class="register__box">
 
-            <label>Course</label>
-            <div class="select" style="width:6vw !important;font-family: ui-rounded;">
-               <select asp-for="CourseId"  asp-items="@ViewBag.Courses" >
-                   </select>
-            </div>
-
-        </div>
-      
-       
-        <button id="register__btn">Add Student"</button>
+        <button id="register__btn">Add Student</button>
     </form>
     <div id="overlay" class="hidden">
         <div id="avatar"></div>
