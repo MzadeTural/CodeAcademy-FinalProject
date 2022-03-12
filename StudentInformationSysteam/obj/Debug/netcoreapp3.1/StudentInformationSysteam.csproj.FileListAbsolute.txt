@@ -178,3 +178,4 @@ C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\D
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\Create.cshtml.g.cs
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\UserGroup\Index.cshtml.g.cs
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\Index.cshtml.g.cs
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\UserGroup\AddStudentToGroup.cshtml.g.cs

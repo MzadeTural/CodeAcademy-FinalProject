@@ -11,6 +11,8 @@ namespace StudentIformationSysteam.Core.Models
         public ICollection<UserLesson> UserLessons { get; set; }
         public ICollection<Evaluation> Evaluations { get; set; }
         public ICollection<UserGroup> UserGroups { get; set; }
+        public ICollection<AppUserRole> AppUserRoles { get; set; }
+
         public int CourseId { get; set; }
         public Course Course { get; set; }     
         public int SpecialityId { get; set; }

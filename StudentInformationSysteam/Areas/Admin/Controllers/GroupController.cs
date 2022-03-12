@@ -23,9 +23,17 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _context = context;
         }
         // GET: FroupController
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            GroupInfoVM groupInfo = new GroupInfoVM
+            {
+                Groups = await _context.Groups
+                                              .Include(g=>g.Faculty) 
+                                              .Include(g=>g.Course)
+                                             .ToListAsync()
+            };
+            ViewBag.StudentCount = _context.UserGroups.Where(g => g.GroupId == 1).Count();
+            return View(groupInfo);
         }
 
         // GET: FroupController/Details/5
