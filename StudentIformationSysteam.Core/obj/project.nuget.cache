@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/sQnWMkYnDRPVzuevDrsj8ofCDOnkmhoNRmE+/VK+Mp+g5LarorWsCxhVvNcTH5hBYxrkBN5OKoIX9E+8IWwjQ==",
+  "dgSpecHash": "3jN1ZO2BxdHXQF4PE72ZohiqC0y8V6ArBkrNfSFg7RIufJpCmUbsUYZ7izMEFfJ1v65L3Iwgn648FrdUghWWLw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
+  "projectFilePath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tural\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Tural\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",

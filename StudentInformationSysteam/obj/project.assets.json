@@ -8889,11 +8889,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
+      "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
       "projectName": "StudentInformationSysteam",
-      "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
+      "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
       "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\obj\\",
+      "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8910,8 +8910,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj": {
-              "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj"
+            "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj": {
+              "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj"
             }
           }
         }

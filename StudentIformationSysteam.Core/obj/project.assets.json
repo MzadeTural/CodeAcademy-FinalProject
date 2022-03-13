@@ -5677,11 +5677,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
+      "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
       "projectName": "StudentIformationSysteam.Core",
-      "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
+      "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
       "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\obj\\",
+      "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",

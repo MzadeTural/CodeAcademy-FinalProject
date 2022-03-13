@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj": {}
+    "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj": {
+    "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
+        "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
         "projectName": "StudentIformationSysteam.Core",
-        "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
+        "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
         "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\obj\\",
+        "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,14 +92,14 @@
         }
       }
     },
-    "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj": {
+    "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
+        "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
         "projectName": "StudentInformationSysteam.Business",
-        "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
+        "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
         "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\obj\\",
+        "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -116,8 +116,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj": {
-                "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj"
+              "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj": {
+                "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj"
               }
             }
           }
@@ -180,14 +180,14 @@
         }
       }
     },
-    "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj": {
+    "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
+        "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
         "projectName": "StudentInformationSysteam",
-        "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
+        "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\StudentInformationSysteam.csproj",
         "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam\\obj\\",
+        "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -204,8 +204,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj": {
-                "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj"
+              "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj": {
+                "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj"
               }
             }
           }
@@ -285,14 +285,14 @@
         }
       }
     },
-    "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj": {
+    "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj",
+        "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj",
         "projectName": "StudnetInformationSysteam.Data",
-        "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj",
+        "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj",
         "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\obj\\",
+        "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -309,8 +309,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj": {
-                "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj"
+              "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj": {
+                "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj"
               }
             }
           }

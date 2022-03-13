@@ -5722,11 +5722,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
+      "projectUniqueName": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
       "projectName": "StudentInformationSysteam.Business",
-      "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
+      "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\StudentInformationSysteam.Business.csproj",
       "packagesPath": "C:\\Users\\Tural\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudentInformationSysteam.Business\\obj\\",
+      "outputPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentInformationSysteam.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tural\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5743,8 +5743,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj": {
-              "projectPath": "C:\\Users\\Tural\\Desktop\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj"
+            "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj": {
+              "projectPath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudnetInformationSysteam.Data\\StudnetInformationSysteam.Data.csproj"
             }
           }
         }
