@@ -54,8 +54,15 @@ using StudentInformationSysteam.Business.ViewModel.UserGroup;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.FacultyVM;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1f1a5f581c28918b217d70cce18f168469661fdc", @"/Areas/Admin/Views/Group/Create.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a1598c4e5c23b94986104874ffc85086e4d85323", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2af65a67bd881d664e3efcbbca62a8bf6fc00afa", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Group_Create : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<GroupCreateVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("user"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -101,9 +108,9 @@ using StudentInformationSysteam.Business.ViewModel.UserGroup;
 #line hidden
 #nullable disable
             WriteLiteral("<section class=\"my-5\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f1a5f581c28918b217d70cce18f168469661fdc7043", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f1a5f581c28918b217d70cce18f168469661fdc7299", async() => {
                 WriteLiteral("\r\n        <h2 id=\"register__title\" class=\"text-center\">Add new group</h2>\r\n        <div class=\"register__box\">\r\n            <label > Name<i class=\"fas fa-asterisk\"></i></label>\r\n            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1f1a5f581c28918b217d70cce18f168469661fdc7503", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1f1a5f581c28918b217d70cce18f168469661fdc7759", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -141,7 +148,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                         <div class=""select"" style=""font-family: ui-rounded;width:100% !important"">
 
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f1a5f581c28918b217d70cce18f168469661fdc10016", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f1a5f581c28918b217d70cce18f168469661fdc10272", async() => {
                     WriteLiteral("\r\n                            ");
                 }
                 );
@@ -183,7 +190,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = ViewBag.Faculty;
                         <label>Course</label>
                         <div class=""select"" style=""width:100% !important;font-family: ui-rounded;"">
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f1a5f581c28918b217d70cce18f168469661fdc12520", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f1a5f581c28918b217d70cce18f168469661fdc12776", async() => {
                     WriteLiteral("\r\n                            ");
                 }
                 );

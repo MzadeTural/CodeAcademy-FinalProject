@@ -90,7 +90,7 @@ namespace StudentInformationSysteam.Controllers
         {
             await _signInManager.SignOutAsync();
 
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction(nameof(AccountController.Index), "Login");
         }
         public async Task<IActionResult> Register(RegisterVM register)
         {

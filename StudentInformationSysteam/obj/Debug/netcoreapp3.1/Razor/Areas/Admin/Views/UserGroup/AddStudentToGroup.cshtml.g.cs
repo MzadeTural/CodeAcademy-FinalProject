@@ -54,8 +54,15 @@ using StudentInformationSysteam.Business.ViewModel.UserGroup;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.FacultyVM;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a5636637995d20ea5dce5d410a7d2dba17fffb7e", @"/Areas/Admin/Views/UserGroup/AddStudentToGroup.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a1598c4e5c23b94986104874ffc85086e4d85323", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2af65a67bd881d664e3efcbbca62a8bf6fc00afa", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_UserGroup_AddStudentToGroup : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<StudentShowVM>
     {
         #line hidden
@@ -92,7 +99,7 @@ using StudentInformationSysteam.Business.ViewModel.UserGroup;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<ul>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a5636637995d20ea5dce5d410a7d2dba17fffb7e4669", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a5636637995d20ea5dce5d410a7d2dba17fffb7e4925", async() => {
                 WriteLiteral("\r\n                            ");
             }
             );

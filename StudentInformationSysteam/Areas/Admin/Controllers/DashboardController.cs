@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.StudentProfile;
 using StudnetInformationSysteam.Data.DAL;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,14 +22,27 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _userManager = userManager;
           
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
             ViewBag.UserStudent = _context.UserRoles.Where(x => x.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Count(); 
             ViewBag.TeacherCount = _context.UserRoles.Where(x => x.RoleId == "b7fa0d73-4cc0-401e-8d91-60485688424e").Count();
             ViewBag.SubjectCount = _context.Subjects.Count();
+            ViewBag.GroupCount = _context.Groups.Count();
+            ViewBag.FacultyCount = _context.Faculties.Count();
+            ViewBag.SpecalityCount = _context.Specialities.Count();
 
-            return View();
+            AppUser userI = await _userManager.GetUserAsync((System.Security.Claims.ClaimsPrincipal)User);
+            var user = _userManager.Users.Where(u => u.UserName == userI.UserName).Select(c => new ProfileVM
+            {
+
+                FullName = c.FullName,
+
+
+
+            }).FirstOrDefault();
+
+            return View(user);
         }
     }
 }

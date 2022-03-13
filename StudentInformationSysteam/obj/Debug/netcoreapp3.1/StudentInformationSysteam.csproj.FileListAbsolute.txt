@@ -180,3 +180,5 @@ C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\D
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\StudentInformationSysteam.pdb
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\StudentInformationSysteam.genruntimeconfig.cache
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\Details.cshtml.g.cs
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\Components\AdminHeader\Default.cshtml.g.cs
+C:\Users\Tural\Desktop\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Faculty\Index.cshtml.g.cs
