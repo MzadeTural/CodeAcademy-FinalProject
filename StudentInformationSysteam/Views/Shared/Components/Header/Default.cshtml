@@ -10,5 +10,12 @@
                         <img style="padding:0.5rem 0;" src="~/assets/img/logo.png" alt=""></a>
                 </div>
             </nav>
-            <ul class="navbar-nav ms-auto "><li><a style="color: white !Important;" class="user-link" href=""><i class="fas fa-user"></i><span class="username">@Model.FullName</span></a></li></ul>
+            <ul class="navbar-nav ms-auto "><li><a style="color: white !Important;" class="user-link" href=""><i class="fas fa-user"></i><span class="username">@Model.FullName</span></a></li>
+                 <li>
+                    <a class="signout" asp-action="LogOut" asp-controller="Account" >
+                        <i class="fad fa-sign-out"></i>
+                    </a>
+                </li>
+            </ul>
+        </header>
         </header>

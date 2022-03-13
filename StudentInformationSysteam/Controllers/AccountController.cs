@@ -90,8 +90,9 @@ namespace StudentInformationSysteam.Controllers
         {
             await _signInManager.SignOutAsync();
 
-           // return RedirectToAction(nameof(AccountController.Index), "Login");
-            return RedirectToAction("Account", "Login", new { area = "default" });
+            return RedirectToAction(nameof(AccountController.Login), "Account");
+           
+
         }
         public async Task<IActionResult> Register(RegisterVM register)
         {
@@ -118,8 +119,31 @@ namespace StudentInformationSysteam.Controllers
 
             return RedirectToAction();
 
+        }
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordVM changePassword)
+        {
+            if (!ModelState.IsValid) return View(changePassword);
+            AppUser user = await _userManager.GetUserAsync(User);
+            if (user == null) return Content("NULL");
 
+            var changetPassResult = await _userManager.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
+            if (!changetPassResult.Succeeded)
+            {
 
+                foreach (var error in changetPassResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(changePassword);
+            }
+
+            return RedirectToAction(nameof(Login));
         }
         #region
         //public async Task CreateRolesandUsers()
