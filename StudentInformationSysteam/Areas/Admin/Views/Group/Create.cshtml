@@ -6,9 +6,11 @@
 <section class="my-5">
     <form id="register" method="post" enctype="multipart/form-data">
         <h2 id="register__title" class="text-center">Add new group</h2>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="register__box">
             <label > Name<i class="fas fa-asterisk"></i></label>
             <input id="user" asp-for="Name" maxLength="64" required placeholder="Full Name">
+            <span asp-validation-for="Name"></span>
         </div>
      
         <div class="container my-lg-3">

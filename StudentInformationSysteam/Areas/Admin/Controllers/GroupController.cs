@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel;
 using StudentInformationSysteam.Business.ViewModel.Group;
 using StudentInformationSysteam.Business.ViewModel.UserGroup;
 using StudnetInformationSysteam.Data.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,18 +27,48 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _context = context;
         }
         // GET: FroupController
-        public async Task<ActionResult> Index(int id)
+        public IActionResult Index(int id, int page = 1)
         {
-            GroupInfoVM groupInfo = new GroupInfoVM
-            {
-                Groups = await _context.Groups
-                                              .Include(g=>g.Faculty)
-                                              .Where(g=>g.FacultyId==id)
-                                              .Include(g=>g.Course)
-                                             .ToListAsync()
-            };
+            int count = 2;
+            ViewBag.TakeCount = count;
+            var Groups =  _context.Groups.Skip((page - 1) * count)
+                                              .Take(count)
+                                            .Include(g => g.Faculty)
+                                            .Where(g => g.FacultyId == id)
+                                            .Include(g => g.Course)
+                                           .ToList();
+
+            
+
+            var optionVm = GetProductList(Groups);
+            int pageCount = GetPageCount(count);
+           Paginate<GroupInfoVM> model = new Paginate<GroupInfoVM>(optionVm, page, pageCount);
             //ViewBag.StudentCount = _context.UserGroups.Where(g => g.GroupId == 1).Count();
-            return View(groupInfo);
+            return View(model);
+        }
+        private int GetPageCount(int take)
+        {
+            var prodCount = _context.Groups.Count();
+            return (int)Math.Ceiling((decimal)prodCount / take);
+        }
+        private List<GroupInfoVM> GetProductList(List<Group> options)
+        {
+            List<GroupInfoVM> model = new List<GroupInfoVM>();
+            foreach (var item in options)
+            {
+                var option = new GroupInfoVM
+
+                {
+                    Id=item.Id,
+                    GroupName=item.Name,
+                    Course=item.Course.Name,
+                    FacultyName=item.Faculty.Name
+
+
+                };
+                model.Add(option);
+            }
+            return model;
         }
 
         // GET: FroupController/Details/5
@@ -77,7 +109,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             if (IsExist)
             {
                 ModelState.AddModelError("Group Name", "This category already exist");
-                return View();
+                return RedirectToAction(nameof(Create));
             }
 
             Group group = new Group

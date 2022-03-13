@@ -36,14 +36,39 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: UserGroupController/Create
-        public ActionResult AddStudentToGroup(int id)
+        public ActionResult AddStudentToGroup()
 
         {
-           
+            ViewBag.Users = _context.Users;
+            ViewBag.GroupList = new SelectList( _context.Groups.ToList(), "Id", "Name");
 
-          
-        return View();
-    }
+
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddStudentToGroup(int id,string [] AppUserId)
+
+        {
+            UserGroup userGroup = new UserGroup();
+            List<UserGroup> _toSave = new List<UserGroup>();
+            foreach (var item in AppUserId)
+            {
+              
+                userGroup.Id = id;
+                userGroup.AppUserId = item;
+               
+                _toSave.Add(userGroup);
+            }
+
+            _context.UserGroups.AddRange(_toSave);
+
+            await _context.SaveChangesAsync();
+
+
+
+            return View();
+          }
         
             
     

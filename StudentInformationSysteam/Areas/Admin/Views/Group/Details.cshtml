@@ -7,7 +7,7 @@
 
 <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-12"> <a class=" text-white btn bg-gradient-faded-success"><i class="fas fa-plus"></i> Student</a></></div>
+        <div class="col-12"> <a class=" text-white btn bg-gradient-faded-success" asp-action="AddStudentToGroup" asp-controller="UserGroup" asp-route-id=""   ><i class="fas fa-plus"></i> Student</a></></div>
         <div class="col-12">
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -56,6 +56,7 @@
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">@user.Identifier</span>
                                             </td>
+                                           
                                             <td class="align-middle">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                     Edit
