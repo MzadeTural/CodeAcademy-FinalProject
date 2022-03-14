@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.Validators.Group;
 using StudentInformationSysteam.Business.ViewModel;
 using StudentInformationSysteam.Business.ViewModel.Group;
 using StudentInformationSysteam.Business.ViewModel.UserGroup;
@@ -26,6 +27,26 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _userManager = userManager;
             _context = context;
         }
+        public IActionResult GroupsTable(int page = 1)
+        {
+            int count = 2;
+            ViewBag.TakeCount = count;
+            var Groups = _context.Groups
+                                          .Include(g => g.Faculty)
+                                            .Where(g => g.FacultyId == 1)
+                                            .Include(g => g.Course)
+                                            . Skip((page - 1) * count)
+                                              .Take(count)
+                                           .ToList();
+
+
+
+            var optionVm = GetProductList(Groups);
+            int pageCount = GetPageCount(count);
+            Paginate<GroupInfoVM> model = new Paginate<GroupInfoVM>(optionVm, page, pageCount);
+            //ViewBag.StudentCount = _context.UserGroups.Where(g => g.GroupId == 1).Count();
+            return View(model);
+        }
         // GET: FroupController
         public IActionResult Index(int id, int page = 1)
         {
@@ -45,6 +66,30 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
            Paginate<GroupInfoVM> model = new Paginate<GroupInfoVM>(optionVm, page, pageCount);
             //ViewBag.StudentCount = _context.UserGroups.Where(g => g.GroupId == 1).Count();
             return View(model);
+        }
+        public IActionResult AddSubject()
+        {
+            ViewBag.Subjects =_context.Subjects.ToList();
+            return View();
+        }
+
+        // POST: GroupSubjectController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddSubject(int id, int[] SubjectIds)
+        {
+            foreach (var sbjId in SubjectIds)
+            {
+
+                GroupSubject subject = new GroupSubject
+                {
+                    GroupId = id,
+                    SubjectId = sbjId
+                };
+                await _context.GroupSubjects.AddAsync(subject);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
         }
         private int GetPageCount(int take)
         {
@@ -108,7 +153,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                                  .Any(c => c.Name.ToLower().Trim() == groupCreate.Name.ToLower().Trim());
             if (IsExist)
             {
-                ModelState.AddModelError("Group Name", "This category already exist");
+                ModelState.AddModelError("Group Name", "This name already exist");
                 return RedirectToAction(nameof(Create));
             }
 
@@ -121,30 +166,35 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             await _context.Groups.AddAsync(group);
             await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Create));
+            ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
+            ViewBag.Faculty = new SelectList(await _context.Faculties.ToListAsync(), "Id", "Name");
+            //  return RedirectToAction(nameof(Create));
+            return View(group);   
 
         }
 
         // GET: FroupController/Edit/5
-        public ActionResult Edit(int id)
+        public IActionResult GroupSubject(int id)
         {
-            return View();
+              
+         //   List<int> userids = _context.Subjects.Where(a => a.sub == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
+            List<int> usergrp = _context.GroupSubjects.Where(a => a.GroupId == id).Select(b => b.SubjectId).Distinct().ToList();
+
+            GroupSubjectVM subjects = new GroupSubjectVM
+            {
+                Subjects = _context.Subjects.Where(a => usergrp.Any(c => c == a.Id)).ToList()
+            };
+           
+            return View(subjects);
         }
 
-        // POST: FroupController/Edit/5
+        // POST: GroupSubjectController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> GroupSubject(int id, int[] SubjectIds)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+           
+            return RedirectToAction("Index");
         }
 
         // GET: FroupController/Delete/5

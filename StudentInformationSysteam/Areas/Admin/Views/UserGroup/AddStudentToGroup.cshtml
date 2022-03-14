@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "AddStudentToGroup";
 }
-@model UserGroup
+
 
 <div class="container-fluid my-5">
     <form method="post" asp-action="AddStudentToGroup" enctype="multipart/form-data">
@@ -12,13 +12,12 @@
                             </select>*@
 @foreach (var item in   ViewBag.Users)
 {
-    <li style="list-style: none;"> <input style="width: 1% !important;" type="checkbox" class="mx-2" value="@item.Id"/>@item.FullName </li>
+    <li style="list-style: none;"> <input style="width: 1% !important;" name="AppUserIds" type="checkbox" class="mx-2" value="@item.Id"/>@item.FullName </li>
 }
 </ul>
 <div class="my-4">
-         <select asp-for="GroupId" asp-items="  ViewBag.GroupList">
-                            </select>
+        
 </div>
-<button class="btn btn-outline-success">Add</button>
+<button type="submit" class="btn btn-outline-success">Add</button>
 </form>
 </div>

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "GroupSubject";
+}
+@model GroupSubjectVM
+<div class="container-fluid py-4">
+      <div class="row">
+          <div class="col-lg-12"> <a class="btn btn-outline-success" asp-controller=""></a></div>
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Group table</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Faculty</th>
+                      
+                     
+                      <th class="text-secondary opacity-7">Settings</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      @foreach (var group in Model.Subjects)
+                     {
+                          <tr>
+                      
+                     
+                      <td class="align-middle text-center text-sm">
+                        <h5 class="badge badge-sm bg-gradient-success">@group.Name</h5>
+                      </td>
+                      <td class="align-middle text-center">
+                           <h5 class="mb-0"> @group.Semester </h5>
+                      </td>
+                      <td class="align-middle mx-2">
+                        <a  class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          <span class="badge badge-sm bg-gradient-secondary"><i class="fas fa-edit"></i></span> 
+                        </a>
+                       
+                      </td>
+                    </tr>
+                     }
+                   
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    
+

@@ -47,15 +47,23 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddStudentToGroup(int id,string [] AppUserId)
+        public async Task<IActionResult> AddStudentToGroup(int id,string [] AppUserIds)
 
         {
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
+            List<string> usergrp = _context.UserGroups.Where(a => a.GroupId == id).Select(b => b.AppUserId).Distinct().ToList();
+
+            StudentShowVM student = new StudentShowVM
+            {
+                AppUsers = _context.Users.Where(a => userids.Any(c => c == a.Id) && usergrp.Any(c => c == a.Id)).ToList()
+            };
+
             UserGroup userGroup = new UserGroup();
             List<UserGroup> _toSave = new List<UserGroup>();
-            foreach (var item in AppUserId)
+            foreach (var item in AppUserIds)
             {
               
-                userGroup.Id = id;
+                userGroup.Id = 1;
                 userGroup.AppUserId = item;
                
                 _toSave.Add(userGroup);
