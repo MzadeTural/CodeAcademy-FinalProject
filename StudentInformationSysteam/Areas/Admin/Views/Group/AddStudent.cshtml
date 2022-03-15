@@ -2,9 +2,105 @@
 @{
     ViewData["Title"] = "AddStudent";
 }
-
+@{
+    ViewData["Title"] = "AddSubject";
+}
+@*<div class="container-fluid my-5">
  <div class="select" font-family: ui-rounded;">
                             <select  asp-items="@ViewBag.Specality">
                             </select>
                         </div>
+    </div>
 
+
+
+
+
+<div class="container-fluid my-5">
+    <form method="post" asp-action="AddSubject" enctype="multipart/form-data">
+
+        <div class="col-lg-2 mx-2"><button type="submit" class="btn btn-outline-success">Add</button> </div>
+<ul style="padding:0">
+
+                  
+@foreach (var item in   ViewBag.Students )
+{
+    <li class="subjects my-2" > <input style="width: 1% !important;" name="SubjectIds" type="checkbox" class="mx-2" value="@item.Id"/>@item.FullName </li>
+}
+</ul>
+<div class="my-4">
+        
+</div>
+
+</form>*@
+@*</div>*@
+<div class="container-fluid py-4">
+      <div class="row">
+           <form method="post" asp-action="AddStudent" enctype="multipart/form-data">
+           <div class="col-lg-2 mx-2"><button type="submit" class="btn btn-outline-success">Add</button> </div>
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Group table</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><i class="fas fa-check-square"></i></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Full Name</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User Name</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Father Name</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                      
+                      @foreach (var group in ViewBag.Students)
+                     {
+                          <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <input style="width: 1% !important;" name="StudentId" type="checkbox" class="mx-2" value="@group.Id"/>
+                        </div>
+                      </td>
+                     
+                      <td class="align-middle text-center" >
+                        <h2 class="badge  ">@group.FullName</h2>
+                      </td>
+                      <td class="align-middle text-center">
+                           <h5 class="mb-0 bg-gradient-success"> @group.UserName </h5>
+                      </td>
+                       <td class="align-middle text-center">
+                           <h5 class="mb-0"> @group.FatherName </h5>
+                      </td>
+                     
+                    </tr>
+                     }
+                   
+                   
+              
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+              </form>
+        </div>
+        </div>
+
+<style>
+    .subjects{
+            list-style: none;
+    background: #1f283e;
+   
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 2.4rem;
+    }
+
+</style>

@@ -200,10 +200,18 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
         public async Task<IActionResult> AddStudent(int id)
         {
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
+            List<string> usergrp = _context.UserGroups.Where(a => a.GroupId != 0).Select(b => b.AppUserId).Distinct().ToList();
+
+
+          var  AppUsers = _context.Users                                    
+                                     .Where(a => userids
+                                     .Any(c => c == a.Id) && !usergrp
+                                     .Any(c => c == a.Id)).ToList();
 
 
 
-
+            ViewBag.Students = AppUsers;
             ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
             return View();
 
@@ -212,10 +220,20 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             // POST: GroupSubjectController/Create
          [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddStudent(int id, int[] SubjectIds)
+        public async Task<IActionResult> AddStudent(int id, string[] StudentId)
         {
-           
-            return RedirectToAction("Index");
+            foreach (var userId in StudentId)
+            {
+
+                UserGroup users = new UserGroup
+                {
+                    GroupId = id,
+                    AppUserId = userId
+                };
+                await _context.UserGroups.AddAsync(users);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Details", new { Id = id });
         }
 
         // GET: FroupController/Delete/5
