@@ -372,3 +372,4 @@ D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformatio
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\AddSubject.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\GroupSubject.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\AddStudent.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs

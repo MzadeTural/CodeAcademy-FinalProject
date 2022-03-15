@@ -236,7 +236,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             return RedirectToAction("Details", new { Id = id });
         }
 
-        // GET: FroupController/Delete/5
+        // GET: FroupController/Delete/5 
         public ActionResult Delete(int id)
         {
             return View();
