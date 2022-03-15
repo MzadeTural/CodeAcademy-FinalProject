@@ -41,7 +41,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
 
 
-            var optionVm = GetProductList(Groups);
+            var optionVm = GetGroupList(Groups);
             int pageCount = GetPageCount(count);
             Paginate<GroupInfoVM> model = new Paginate<GroupInfoVM>(optionVm, page, pageCount);
             //ViewBag.StudentCount = _context.UserGroups.Where(g => g.GroupId == 1).Count();
@@ -61,15 +61,25 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             
 
-            var optionVm = GetProductList(Groups);
+            var optionVm = GetGroupList(Groups);
             int pageCount = GetPageCount(count);
            Paginate<GroupInfoVM> model = new Paginate<GroupInfoVM>(optionVm, page, pageCount);
             //ViewBag.StudentCount = _context.UserGroups.Where(g => g.GroupId == 1).Count();
             return View(model);
         }
-        public IActionResult AddSubject()
+        public IActionResult AddSubject(int id)
         {
-            ViewBag.Subjects =_context.Subjects.ToList();
+
+           // List<string> userids = _context.gr.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
+            List<int> sbjIds = _context.GroupSubjects.Where(a => a.GroupId == 1).Select(b => b.SubjectId).Distinct().ToList();
+
+
+            var subjects = _context.Subjects
+                                      
+                                        .Where(a => !sbjIds
+                                        .Any(c => c == a.Id)).ToList();
+            
+            ViewBag.Subjects = subjects;
             return View();
         }
 
@@ -89,16 +99,17 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 await _context.GroupSubjects.AddAsync(subject);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("GroupSubject", new { Id = id });
         }
         private int GetPageCount(int take)
         {
             var prodCount = _context.Groups.Count();
             return (int)Math.Ceiling((decimal)prodCount / take);
         }
-        private List<GroupInfoVM> GetProductList(List<Group> options)
+        private List<GroupInfoVM> GetGroupList(List<Group> options)
         {
             List<GroupInfoVM> model = new List<GroupInfoVM>();
+           
             foreach (var item in options)
             {
                 var option = new GroupInfoVM
@@ -107,8 +118,8 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                     Id=item.Id,
                     GroupName=item.Name,
                     Course=item.Course.Name,
-                    FacultyName=item.Faculty.Name
-
+                    FacultyName=item.Faculty.Name,
+                   
 
                 };
                 model.Add(option);
@@ -178,20 +189,30 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         {
               
          //   List<int> userids = _context.Subjects.Where(a => a.sub == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
-            List<int> usergrp = _context.GroupSubjects.Where(a => a.GroupId == id).Select(b => b.SubjectId).Distinct().ToList();
+            List<int> sbjId = _context.GroupSubjects.Where(a => a.GroupId == id).Select(b => b.SubjectId).Distinct().ToList();
 
             GroupSubjectVM subjects = new GroupSubjectVM
             {
-                Subjects = _context.Subjects.Where(a => usergrp.Any(c => c == a.Id)).ToList()
+                Subjects = _context.Subjects.Where(a => sbjId.Any(c => c == a.Id)).ToList()
             };
            
             return View(subjects);
         }
+        public async Task<IActionResult> AddStudent(int id)
+        {
 
-        // POST: GroupSubjectController/Create
-        [HttpPost]
+
+
+
+            ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
+            return View();
+
+        }
+
+            // POST: GroupSubjectController/Create
+         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> GroupSubject(int id, int[] SubjectIds)
+        public async Task<IActionResult> AddStudent(int id, int[] SubjectIds)
         {
            
             return RedirectToAction("Index");

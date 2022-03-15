@@ -20,7 +20,12 @@
       "ProjectGuid": "d61d9b37-343b-4853-ab23-ca03c7381e74",
       "DisplayName": "StudnetInformationSysteam.Data",
       "ColorIndex": 2
+    },
+    "14dda758-c47e-4773-baee-36785b5a2652": {
+      "ProjectGuid": "14dda758-c47e-4773-baee-36785b5a2652",
+      "DisplayName": "StudentIformationSysteam.Core",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

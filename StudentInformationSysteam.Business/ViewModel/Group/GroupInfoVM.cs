@@ -12,5 +12,6 @@ namespace StudentInformationSysteam.Business.ViewModel.Group
         public string GroupName { get; set; }
         public string FacultyName { get; set; }
         public string Course { get; set; }
+        
     }
 }
