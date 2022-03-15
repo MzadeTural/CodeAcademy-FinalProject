@@ -8,19 +8,31 @@
 <div class="container-fluid my-5">
     <form method="post" asp-action="AddSubject" enctype="multipart/form-data">
 
-<ul>
+        <div class="col-lg-2 mx-2"><button type="submit" class="btn btn-outline-success">Add</button> </div>
+<ul style="padding:0">
 
                   
 @foreach (var item in    ViewBag.Subjects)
 {
-    <li style="list-style: none;"> <input style="width: 1% !important;" name="SubjectIds" type="checkbox" class="mx-2" value="@item.Id"/>@item.Name </li>
+    <li class="subjects" > <input style="width: 1% !important;" name="SubjectIds" type="checkbox" class="mx-2" value="@item.Id"/>@item.Name </li>
 }
 </ul>
 <div class="my-4">
         
 </div>
-<button type="submit" class="btn btn-outline-success">Add</button>
+
 </form>
 </div>
 
 
+<style>
+    .subjects{
+            list-style: none;
+    background: #1f283e;
+   
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 2.4rem;
+    }
+
+</style>

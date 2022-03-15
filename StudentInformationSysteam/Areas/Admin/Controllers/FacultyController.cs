@@ -31,7 +31,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                                                .ToListAsync();
 
 
-            var optionVm = GetProductList(Faculties);
+            var optionVm = GetFacultyList(Faculties);
             int pageCount = GetPageCount(count);
             Paginate<FacultyListVM> model = new Paginate<FacultyListVM>(optionVm, page, pageCount);
             return View(model);
@@ -47,7 +47,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                                                .ToListAsync();
 
 
-            var optionVm = GetProductList(Faculties);
+            var optionVm = GetFacultyList(Faculties);
             int pageCount = GetPageCount(count);
             Paginate<FacultyListVM> model = new Paginate<FacultyListVM>(optionVm, page, pageCount);
             return View(model);
@@ -58,7 +58,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             var prodCount = _context.Groups.Count();
             return (int)Math.Ceiling((decimal)prodCount / take);
         }
-        private List<FacultyListVM> GetProductList(List<Faculty> options)
+        private List<FacultyListVM> GetFacultyList(List<Faculty> options)
         {
             List<FacultyListVM> model = new List<FacultyListVM>();
             foreach (var item in options)

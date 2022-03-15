@@ -13,31 +13,98 @@
     int next = Model.CurrentPage + 1;
 }
 
-  <div class="container-fluid py-4">
-    <div class="row">
-       
-       @foreach (var item in Model.Item)
-      {
-          
-      
-           <div class="col-md-4 col-6">
-                  <a class="card"  asp-action="Index" asp-controller="Group"  asp-route-id="@item.Id"> 
-                    <div class="card-header mx-4 p-3 text-center">
-                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                          <i class="material-icons opacity-10">account_balance</i>
-                      </div>
-                    </div>
-                    <div class="card-body pt-0 p-3 text-center">
-                      <h3 class="text-center mb-0"> @item.Name</h3>
-                      <span class="text-xl"></span>
-                      <hr class="horizontal dark my-3">
-                      <h6 class="mb-0">Group Count:@item.GroupCount </h6>
-                    
-                    </div>
-                  </a>
-                  <div>  </div>
+
+
+
+
+<div class="container-fluid py-4 justify-content-center">
+      <div class="row justify-content-center">
+            <div class="col-8">
+                <a class="btn btn-outline-success"><i style="color: #4bab4f;" class="fas fa-plus"></i> Faculty</a>
                 </div>
-       }
-         
-    </div>
-</div>
+        <div class="col-8">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Faculties table</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Group Count</th>
+                     
+                      <th class="text-secondary opacity-7">Settings</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      @foreach (var item in Model.Item)
+      {
+                          <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <h6 class="text-center mb-0"> @item.Name</h6>
+                        </div>
+                      </td>
+                     
+                      <td class="align-middle text-center text-sm">
+                        <h4 class="badge badge-sm bg-gradient-success">@item.GroupCount</h4>
+                      </td>
+                      
+                      <td class="align-middle mx-2">
+                        <a  class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          <span class="badge badge-sm bg-gradient-primary"><i class="fas fa-edit"></i></span> 
+                        </a>
+                        <a class="text-secondary font-weight-bold text-xs" asp-action="AddSubject" asp-controller="Group" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-success"> <i class="fas fa-users"></i></span> 
+                        </a>
+                        
+                      
+                      </td>
+                    </tr>
+                     }
+                   
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+         @if (Model.PageCount!=1)
+                      {
+                           <div class="col-lg-12 grid-margin stretch-card d-flex justify-content-center mt-4 mb-0">
+                                <nav aria-label="...">
+                                    <ul class="pagination pagination-md">
+                                        <li class="page-item @(Model.CurrentPage<3?"d-none":"")">
+                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="1">First</a>
+                                        </li>
+                                        <li class="page-item @(Model.CurrentPage==1   ?"d-none":"")">
+                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="@previous"><i class="fas fa-angle-double-left"></i></a>
+                                        </li>
+
+                                        @if (Model.CurrentPage >= 2 && Model.CurrentPage < Model.PageCount)
+                                        {
+                                            @for (int i = Model.CurrentPage - 1; i <= Model.CurrentPage + 1; i++)
+                                            {
+                                                <li class="page-item @(Model.CurrentPage==i?"active":"")">
+                                                    <a class="page-link    @(Model.CurrentPage==i?"disable":"")" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="@i">@i</a>
+                                                </li>
+                                            }
+                                        }
+                                        <li class="page-item @(Model.CurrentPage==Model.PageCount?"d-none":"")">
+                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="@next"><i class="fas fa-angle-double-right"></i> </a>
+                                        </li>
+                                        <li class="page-item @(Model.CurrentPage==Model.PageCount?"d-none":"")">
+                                            <a class="page-link" style="background-color: #1f283e;" asp-action="GroupsTable" asp-route-page="@Model.PageCount">Last</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>  
+                      }
+ </div> 

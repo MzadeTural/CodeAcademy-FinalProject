@@ -1,15 +1,25 @@
 ﻿<style>
-    .card-footer {
+ /*   .card-footer {
       overflow:hidden;
           padding:0rem !important;
         transition:0.6s;
         height:0;
         z-index:3;
-    }
-    .card:hover .card-footer {
+    }*/
+      .card {
        /*padding:1.5rem !important;*/
-       height:1.5rem;
-        transition:0.6s;
+          border-left: 0px solid #e43370;
+            border-right: 0px solid #e43370 ;
+             transition:0.6s;
+
+    }
+    .card:hover {
+       /*padding:1.5rem !important;*/
+          border-left: 11px solid #e43370 ;
+           border-right: 11px solid #e43370 ;
+             transition:0.6s;
+           transform: scale(1.1)
+
     }
 </style>
 <div class="container-fluid py-4">
@@ -145,8 +155,7 @@
                 </div>
 
                 <hr class="dark horizontal my-0">
-                <div class="card-footer d-flex ">
-                  <h2 class="text-success text-sm font-weight-bolder text-center"><span class="text-success text-sm font-weight-bolder">+Go Detail </span> </h4>
+               <div class="card-footer p-3">
                 </div>
             </a>
         </div>
