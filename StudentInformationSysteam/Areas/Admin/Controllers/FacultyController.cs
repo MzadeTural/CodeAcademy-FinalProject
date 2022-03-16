@@ -22,7 +22,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _context = context;
         }
         // GET: FacultyController
-        public async Task<IActionResult> Index( int page = 1)
+        public async Task<IActionResult> Index(int page = 1)
         {
             int count = 6;
             ViewBag.TakeCount = count;
@@ -36,9 +36,9 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             Paginate<FacultyListVM> model = new Paginate<FacultyListVM>(optionVm, page, pageCount);
             return View(model);
 
-            
+
         }
-        public async Task<IActionResult> FacultyTable(int page=1)
+        public async Task<IActionResult> FacultyTable(int page = 1)
         {
             int count = 6;
             ViewBag.TakeCount = count;
@@ -101,9 +101,10 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 ModelState.AddModelError("Name", "This name already exist");
                 return RedirectToAction(nameof(Index));
             }
-            Faculty faculty = new Faculty { 
-            
-            Name = facultyCreateVM.Name 
+            Faculty faculty = new Faculty
+            {
+
+                Name = facultyCreateVM.Name
             };
             await _context.Faculties.AddAsync(faculty);
             await _context.SaveChangesAsync();
@@ -111,61 +112,84 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: FacultyController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            return View();
+            Faculty faculty = await _context.Faculties.FindAsync(id);
+            if (faculty == null) return NotFound();
+            return View(faculty);
         }
 
         // POST: FacultyController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Update(int id, Faculty faculty)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+          
+            if (!ModelState.IsValid) return View();
+            if (id != faculty.Id) return BadRequest();
 
-        // GET: FacultyController/Delete/5
-        public async Task<IActionResult> Delete(int id)
-        {
-          //  Faculty faculty = await _context.Faculties.Where( f=>f.Id == id).FirstOrDefaultAsync();
-          //  var facultyGroupList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
-          ////  var classUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
-          //  var classSubjextList = _context.Subjects.Include(x => x.GroupSubjects).Select(x => x.GroupSubjects.Where(x => x.GroupId == id));
-          //  if (faculty == null) return NotFound();
-          //  foreach (var item in classUserList)
-          //  {
-          //      _context.UserGroups.RemoveRange(item);
-          //  }
-          //  foreach (var sbj in classSubjextList)
-          //  {
-          //      _context.GroupSubjects.RemoveRange(sbj);
-          //  }
-
-          //  _context.Groups.Remove(group);
-          //  await _context.SaveChangesAsync();
-            return RedirectToAction("GroupSubject");
-        }
-
-        // POST: FacultyController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            Faculty dbCategory = await _context.Faculties.Where(c => c.Id == id).FirstOrDefaultAsync();
+            if (faculty.Name != null)
             {
-                return RedirectToAction(nameof(Index));
+               if (dbCategory == null) return NotFound();
+                if (dbCategory.Name.ToLower().Trim() == faculty.Name.ToLower().Trim())
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                bool IsExist = _context.Faculties
+                                    .Any(c => c.Name.ToLower().Trim() == faculty.Name.ToLower().Trim());
+                if (IsExist)
+                {
+                    ModelState.AddModelError("Name", "This category already exist");
+                    return View(dbCategory);
+                }
+
+                dbCategory.Name = faculty.Name;
             }
-            catch
-            {
-                return View();
-            }
+            else
+                dbCategory.Name = dbCategory.Name;
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(FacultyTable));
         }
     }
+
+    // GET: FacultyController/Delete/5
+    //public async Task<IActionResult> Delete(int id)
+    //{
+    //  //  Faculty faculty = await _context.Faculties.Where( f=>f.Id == id).FirstOrDefaultAsync();
+    //  //  var facultyGroupList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
+    //  ////  var classUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
+    //  //  var classSubjextList = _context.Subjects.Include(x => x.GroupSubjects).Select(x => x.GroupSubjects.Where(x => x.GroupId == id));
+    //  //  if (faculty == null) return NotFound();
+    //  //  foreach (var item in classUserList)
+    //  //  {
+    //  //      _context.UserGroups.RemoveRange(item);
+    //  //  }
+    //  //  foreach (var sbj in classSubjextList)
+    //  //  {
+    //  //      _context.GroupSubjects.RemoveRange(sbj);
+    //  //  }
+
+    //  //  _context.Groups.Remove(group);
+    //  //  await _context.SaveChangesAsync();
+    //    return View();
+    //}
+
+    //// POST: FacultyController/Delete/5
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Delete(int id, IFormCollection collection)
+    //{
+    //    try
+    //    {
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    catch
+    //    {
+    //        return View();
+    //    }
+    //}
+
+   
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudentIformationSysteam.Core.Models;
 using StudentInformationSysteam.Business.Validators.Account;
+using StudentInformationSysteam.Business.Validators.Group;
 using StudnetInformationSysteam.Data.DAL;
 
 using System;
@@ -36,7 +37,7 @@ namespace StudentInformationSysteam
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration["ConnectionStrings:Default"]);
             });
-            services.AddControllersWithViews().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<LoginVMValidation>()).AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
+            services.AddControllersWithViews().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<GroupCreateVMValidation>()).AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,5 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
+
 
 @model Paginate<FacultyListVM>
 @{
@@ -39,8 +37,8 @@
                      
                       <span class="text-xl"></span>
                       <hr class="horizontal dark my-2">
-                        <a style="font-size: 1.1rem !important;  class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          <span class="badge badge-sm bg-gradient-primary"><i class="fas fa-edit"></i></span> 
+                        <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Update" asp-controller="Faculty" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-primary"><i class="fas fa-edit"></i></span> 
                         </a>
                           <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Delete" asp-controller="Faculty" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-danger"> <i class="fas fa-trash"></i></span> 

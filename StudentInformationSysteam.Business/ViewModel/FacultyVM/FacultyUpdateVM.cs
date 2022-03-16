@@ -7,5 +7,6 @@ namespace StudentInformationSysteam.Business.ViewModel.FacultyVM
     public class FacultyUpdateVM
     {
         public string Name { get; set; }
+        public int Id { get; set; }
     }
 }
