@@ -1,4 +1,4 @@
-﻿
+﻿ 
 @{
     ViewData["Title"] = "GroupSubject";
 }
@@ -6,7 +6,7 @@
 <div class="container-fluid py-4">
       <div class="row justify-content-center">
      
-        <div class="col-6">
+        <div class="col-12">
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary text-center shadow-primary border-radius-lg pt-4 pb-3">
@@ -18,7 +18,9 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Subject Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Teacher Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Setting</th>
                       
                       
                      
@@ -32,9 +34,16 @@
                       
                      
                       <td class="align-middle text-center ">
-                        <h2 style="font-size: 1.8rem;" class="badge  bg-gradient-success">@group.Name</h2>
+                        <h2 style="font-size: 1.8rem;" class="badge ">@group.Name</h2>
                       </td>
-                     
+                       <td class="align-middle text-center ">
+                        <h2 style="font-size: 1.8rem;" class="badge ">Kamran Jabiyev</h2>
+                      </td>
+                      <td class="align-middle text-center ">
+                        <a class="text-secondary font-weight-bold text-xs" asp-action="Details" asp-controller="Group" asp-route-id="@group.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-warning"> <i class="fas fa-user-plus"></i></span> 
+                        </a>
+                      </td>
                      
                        
                      

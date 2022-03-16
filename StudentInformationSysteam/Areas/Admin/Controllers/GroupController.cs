@@ -29,7 +29,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
         public IActionResult GroupsTable(int page = 1)
         {
-            int count = 2;
+            int count = 5;
             ViewBag.TakeCount = count;
             var Groups = _context.Groups
                                           .Include(g => g.Faculty)

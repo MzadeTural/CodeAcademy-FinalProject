@@ -11,3 +11,16 @@ C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\o
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.runtimeconfig.json
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.runtimeconfig.dev.json
 C:\Users\Tural\Desktop\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.genruntimeconfig.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.deps.json
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.runtimeconfig.json
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.runtimeconfig.dev.json
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.dll
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\bin\Debug\netcoreapp3.1\StudentIformationSysteam.Core.pdb
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.csproj.AssemblyReference.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.AssemblyInfoInputs.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.AssemblyInfo.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.csproj.CoreCompileInputs.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.dll
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.pdb
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentIformationSysteam.Core\obj\Debug\netcoreapp3.1\StudentIformationSysteam.Core.genruntimeconfig.cache
