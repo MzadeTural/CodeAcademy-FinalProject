@@ -18,12 +18,14 @@
 
           </div>
     <div class="row">
-       
+        <div class="col-12">
+                <a class="btn btn-outline-success" asp-action="Create" asp-controller="Faculty"><i style="color: #4bab4f;" class="fas fa-plus"></i> Faculty</a>
+                </div>
        @foreach (var item in Model.Item)
       {
           
       
-           <div class="col-md-4 col-6">
+           <div class="col-md-4 col-6 my-3">
                   <div class="card"  > 
                     <a class="card-header mx-4 p-2 text-center" asp-action="GroupsTable" asp-controller="Group"  asp-route-id="@item.Id">
                       <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg my-3">

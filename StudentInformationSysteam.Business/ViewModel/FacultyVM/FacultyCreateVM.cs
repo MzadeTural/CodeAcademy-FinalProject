@@ -4,8 +4,8 @@ using System.Text;
 
 namespace StudentInformationSysteam.Business.ViewModel.FacultyVM
 {
-    public class FacultyUpdateVM
+    public class FacultyCreateVM
     {
-        public string Name { get; set; }
+        public string Name{ get; set; }
     }
 }

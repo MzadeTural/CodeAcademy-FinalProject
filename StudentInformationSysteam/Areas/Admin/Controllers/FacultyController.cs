@@ -24,7 +24,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // GET: FacultyController
         public async Task<IActionResult> Index( int page = 1)
         {
-            int count = 2;
+            int count = 6;
             ViewBag.TakeCount = count;
             var Faculties = await _context.Faculties
                                                .Include(f => f.Groups)
@@ -38,9 +38,9 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             
         }
-        public async Task<IActionResult> FacultyTable(int page)
+        public async Task<IActionResult> FacultyTable(int page=1)
         {
-            int count = 2;
+            int count = 6;
             ViewBag.TakeCount = count;
             var Faculties = await _context.Faculties
                                                .Include(f => f.Groups)
@@ -91,16 +91,23 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // POST: FacultyController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(FacultyCreateVM facultyCreateVM)
         {
-            try
+            if (!ModelState.IsValid) return View();
+            bool IsExist = _context.Faculties
+                                 .Any(c => c.Name.ToLower().Trim() == facultyCreateVM.Name.ToLower().Trim());
+            if (IsExist)
             {
+                ModelState.AddModelError("Name", "This name already exist");
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            Faculty faculty = new Faculty { 
+            
+            Name = facultyCreateVM.Name 
+            };
+            await _context.Faculties.AddAsync(faculty);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(FacultyTable));
         }
 
         // GET: FacultyController/Edit/5

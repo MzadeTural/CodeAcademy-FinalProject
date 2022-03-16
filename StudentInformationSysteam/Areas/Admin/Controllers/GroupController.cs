@@ -50,7 +50,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // GET: FroupController
         public IActionResult Index(int id, int page = 1)
         {
-            int count = 2;
+            int count = 3;
             ViewBag.TakeCount = count;
             var Groups =  _context.Groups.Skip((page - 1) * count)
                                               .Take(count)
