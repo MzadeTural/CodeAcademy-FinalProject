@@ -125,9 +125,25 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: FacultyController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+          //  Faculty faculty = await _context.Faculties.Where( f=>f.Id == id).FirstOrDefaultAsync();
+          //  var facultyGroupList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
+          ////  var classUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
+          //  var classSubjextList = _context.Subjects.Include(x => x.GroupSubjects).Select(x => x.GroupSubjects.Where(x => x.GroupId == id));
+          //  if (faculty == null) return NotFound();
+          //  foreach (var item in classUserList)
+          //  {
+          //      _context.UserGroups.RemoveRange(item);
+          //  }
+          //  foreach (var sbj in classSubjextList)
+          //  {
+          //      _context.GroupSubjects.RemoveRange(sbj);
+          //  }
+
+          //  _context.Groups.Remove(group);
+          //  await _context.SaveChangesAsync();
+            return RedirectToAction("GroupSubject");
         }
 
         // POST: FacultyController/Delete/5
