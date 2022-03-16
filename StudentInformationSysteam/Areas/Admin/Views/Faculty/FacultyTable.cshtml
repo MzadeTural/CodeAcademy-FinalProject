@@ -21,20 +21,27 @@
           
       
            <div class="col-md-4 col-6">
-                  <a class="card"  asp-action="GroupsTable" asp-controller="Group"  asp-route-id="@item.Id"> 
-                    <div class="card-header mx-4 p-3 text-center">
-                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                  <div class="card"  > 
+                    <a class="card-header mx-4 p-2 text-center" asp-action="GroupsTable" asp-controller="Group"  asp-route-id="@item.Id">
+                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg my-3">
                           <i class="material-icons opacity-10">account_balance</i>
                       </div>
-                    </div>
-                    <div class="card-body pt-0 p-3 text-center">
-                      <h3 class="text-center mb-0"> @item.Name</h3>
-                      <span class="text-xl"></span>
-                      <hr class="horizontal dark my-3">
-                      <h6 class="mb-0">Group Count:@item.GroupCount </h6>
+                       <h3 class="text-center mb-0"> @item.Name</h3>
+                        <h6 class="mb-0py-2">Group Count:@item.GroupCount </h6>
                     
+                    </a>
+                    <div style="padding:0.6rem" class="card-body pt-0  text-center">
+                     
+                      <span class="text-xl"></span>
+                      <hr class="horizontal dark my-2">
+                       <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Delete" asp-controller="Group" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-warning"> <i class="fas fa-trash"></i></span> 
+                        </a>
+                          <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Delete" asp-controller="Faculty" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-danger"> <i class="fas fa-trash"></i></span> 
+                        </a>
                     </div>
-                  </a>
+                  </div>
                   <div>  </div>
                 </div>
        }

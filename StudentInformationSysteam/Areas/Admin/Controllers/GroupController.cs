@@ -27,13 +27,13 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _userManager = userManager;
             _context = context;
         }
-        public IActionResult GroupsTable(int page = 1)
+        public IActionResult GroupsTable(int id,int page = 1)
         {
             int count = 5;
             ViewBag.TakeCount = count;
             var Groups = _context.Groups
                                           .Include(g => g.Faculty)
-                                            .Where(g => g.FacultyId == 1)
+                                            .Where(g => g.FacultyId == id)
                                             .Include(g => g.Course)
                                             . Skip((page - 1) * count)
                                               .Take(count)
@@ -179,7 +179,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
             ViewBag.Faculty = new SelectList(await _context.Faculties.ToListAsync(), "Id", "Name");
-            //  return RedirectToAction(nameof(Create));
+         
             return View(group);   
 
         }
@@ -274,10 +274,26 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             return RedirectToAction("GroupSubject", new { Id = id });
 
         }
+    
         // GET: FroupController/Delete/5 
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            Group group = await _context.Groups.Where(c => c.IsDeleted == false && c.Id == id).FirstOrDefaultAsync();
+            var classUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.GroupId == id));
+            var classSubjextList = _context.Subjects.Include(x => x.GroupSubjects).Select(x => x.GroupSubjects.Where(x => x.GroupId == id));
+            if (group == null) return NotFound();
+            foreach (var item in classUserList)
+            {
+                _context.UserGroups.RemoveRange(item);
+            }
+            foreach (var sbj in classSubjextList)
+            {
+                _context.GroupSubjects.RemoveRange(sbj);
+            }
+
+            _context.Groups.Remove(group);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("GroupSubject");
         }
 
         // POST: FroupController/Delete/5
