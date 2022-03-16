@@ -193,8 +193,10 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             GroupSubjectVM subjects = new GroupSubjectVM
             {
-                Subjects = _context.Subjects.Where(a => sbjId.Any(c => c == a.Id)).ToList()
+                Subjects = _context.Subjects.Where(a => sbjId.Any(c => c == a.Id)).Include(s => s.SubjectTeachers).ToList(),
+
             };
+            //var sbj=_context.Subjects.Include(s=>s.SubjectTeachers).Th
            
             return View(subjects);
         }
@@ -235,7 +237,43 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             }
             return RedirectToAction("Details", new { Id = id });
         }
+        public async Task<IActionResult> AddTeacherToSubject(int id)
+        {
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "dcd64b81-e06e-41e3-8da5-0d1bb45cc2bd").Select(b => b.UserId).Distinct().ToList();
+            List<string> usergrp = _context.SubjectTeachers.Where(a => a.SubjectId != id).Select(b => b.AppUserId).Distinct().ToList();
 
+
+            var AppUsers = _context.Users
+                                       .Where(a => userids
+                                       .Any(c => c == a.Id) && !usergrp
+                                       .Any(c => c == a.Id)).ToList();
+
+
+
+            ViewBag.Teachers = AppUsers;
+            ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
+            return View();
+        }
+
+        // POST: GroupController/
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddTeacherToSubject(int id,string [] teacherIds)
+        {
+            foreach (var tchId in teacherIds)
+            {
+                SubjectTeacher subjectTeacher = new SubjectTeacher
+                {
+                    SubjectId = id,
+                    AppUserId = tchId
+
+                };
+                await _context.SubjectTeachers.AddAsync(subjectTeacher);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("GroupSubject", new { Id = id });
+
+        }
         // GET: FroupController/Delete/5 
         public ActionResult Delete(int id)
         {

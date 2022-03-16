@@ -152,19 +152,19 @@ namespace StudentInformationSysteam.Controllers
 
 
         //    var user = new AppUser();
-        //    user.UserName = "201906140";
+        //user.UserName = "201906119";
         //    user.Email = "default@defaultcode.com";
         //    user.Identifier = "AZE18062523";
-        //    user.FatherName = "Vüsal";
+        //    user.FatherName = "Xxxx";
         //    user.CourseId = 1;
         //    user.GenderId = 1;
-        //    user.FullName = "Tural Memmedzade";
+        //    user.FullName = "Farid Mammedov";
         //    user.SpecialityId = 1;
 
         //    string userPWD = "Student123@";
 
-        //    IdentityResult chkUser = await _userManager.CreateAsync(user, userPWD);
-        //    await _userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
+        //IdentityResult chkUser = await _userManager.CreateAsync(user, userPWD);
+        //await _userManager.AddToRoleAsync(user, UserRoles.Teacher.ToString());
 
 
         //}

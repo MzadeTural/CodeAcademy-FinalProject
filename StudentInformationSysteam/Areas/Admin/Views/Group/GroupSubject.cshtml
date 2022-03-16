@@ -28,19 +28,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                      @foreach (var group in Model.Subjects)
+                      @foreach (var sbj in Model.Subjects)
                      {
                           <tr>
                       
                      
                       <td class="align-middle text-center ">
-                        <h2 style="font-size: 1.8rem;" class="badge ">@group.Name</h2>
+                        <h2 style="font-size: 1.8rem;" class="badge ">@sbj.Name</h2>
                       </td>
                        <td class="align-middle text-center ">
-                        <h2 style="font-size: 1.8rem;" class="badge ">Kamran Jabiyev</h2>
+                        <h2 style="font-size: 1.8rem;" class="badge ">  
+                  </h2>
                       </td>
                       <td class="align-middle text-center ">
-                        <a class="text-secondary font-weight-bold text-xs" asp-action="Details" asp-controller="Group" asp-route-id="@group.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <a class="text-secondary font-weight-bold text-xs" asp-action="AddTeacherToSubject" asp-controller="Group" asp-route-id="@sbj.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-warning"> <i class="fas fa-user-plus"></i></span> 
                         </a>
                       </td>
@@ -49,8 +50,7 @@
                      
                     </tr>
                      }
-                   
-                   
+                
                   </tbody>
                 </table>
               </div>
