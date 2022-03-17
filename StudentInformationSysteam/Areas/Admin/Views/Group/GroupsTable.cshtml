@@ -66,7 +66,7 @@
                           <a style="font-size: 1.1rem !important; class="text-secondary font-weight-bold text-xs" asp-action="Details" asp-controller="Group" asp-route-id="@group.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-warning">  <i class="fas fa-users"></i></span> 
                         </a>
-                       <a style="font-size: 1.1rem !important; class="text-secondary font-weight-bold text-xs" asp-action="Delete" asp-controller="Group" asp-route-id="@group.Id" data-toggle="tooltip" data-original-title="Edit user">
+                       <a style="font-size: 1.1rem !important; class="text-secondary font-weight-bold text-xs" class="delete-btn" asp-action="Delete" asp-controller="Group" asp-route-id="@group.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-danger"> <i class="fas fa-trash"></i></span> 
                         </a>
 
@@ -116,3 +116,7 @@
                             </div>  
                       }
  </div> 
+ @section ScriptModal{
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+<script src="~/admin/assets/js/AlertModal.js"></script>
+}

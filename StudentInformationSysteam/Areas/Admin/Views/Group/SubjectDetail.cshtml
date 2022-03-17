@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "SubjectDetail";
+}
+@model List<AppUser>
+
+
+    @foreach (var item in Model)
+   {
+       <h1>@item.FullName</h1>
+   }
+

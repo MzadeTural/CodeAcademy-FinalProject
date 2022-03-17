@@ -40,9 +40,9 @@
                         <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Update" asp-controller="Faculty" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-primary"><i class="fas fa-edit"></i></span> 
                         </a>
-                          <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Delete" asp-controller="Faculty" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
+                         @* <a style="font-size: 1.1rem !important;" class="text-secondary font-weight-bold text-xs" asp-action="Delete" asp-controller="Faculty" asp-route-id="@item.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-danger"> <i class="fas fa-trash"></i></span> 
-                        </a>
+                        </a>*@
                     </div>
                   </div>
                   <div>  </div>
@@ -57,10 +57,10 @@
                                 <nav aria-label="...">
                                     <ul class="pagination pagination-md">
                                         <li class="page-item @(Model.CurrentPage<3?"d-none":"")">
-                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="1">First</a>
+                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="FacultyTable" asp-route-page="1">First</a>
                                         </li>
                                         <li class="page-item @(Model.CurrentPage==1   ?"d-none":"")">
-                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="@previous"><i class="fas fa-angle-double-left"></i></a>
+                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="FacultyTable" asp-route-page="@previous"><i class="fas fa-angle-double-left"></i></a>
                                         </li>
 
                                         @if (Model.CurrentPage >= 2 && Model.CurrentPage < Model.PageCount)
@@ -68,15 +68,15 @@
                                             @for (int i = Model.CurrentPage - 1; i <= Model.CurrentPage + 1; i++)
                                             {
                                                 <li class="page-item @(Model.CurrentPage==i?"active":"")">
-                                                    <a class="page-link    @(Model.CurrentPage==i?"disable":"")" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="@i">@i</a>
+                                                    <a class="page-link    @(Model.CurrentPage==i?"disable":"")" style="background-color: #1f283e;"  asp-action="FacultyTable" asp-route-page="@i">@i</a>
                                                 </li>
                                             }
                                         }
                                         <li class="page-item @(Model.CurrentPage==Model.PageCount?"d-none":"")">
-                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="GroupsTable" asp-route-page="@next"><i class="fas fa-angle-double-right"></i> </a>
+                                            <a class="page-link" style="background-color: #1f283e;"  asp-action="FacultyTable" asp-route-page="@next"><i class="fas fa-angle-double-right"></i> </a>
                                         </li>
                                         <li class="page-item @(Model.CurrentPage==Model.PageCount?"d-none":"")">
-                                            <a class="page-link" style="background-color: #1f283e;" asp-action="GroupsTable" asp-route-page="@Model.PageCount">Last</a>
+                                            <a class="page-link" style="background-color: #1f283e;" asp-action="FacultyTable" asp-route-page="@Model.PageCount">Last</a>
                                         </li>
                                     </ul>
                                 </nav>

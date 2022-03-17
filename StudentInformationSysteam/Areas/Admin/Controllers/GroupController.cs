@@ -71,7 +71,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         {
 
            // List<string> userids = _context.gr.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
-            List<int> sbjIds = _context.GroupSubjects.Where(a => a.GroupId == 1).Select(b => b.SubjectId).Distinct().ToList();
+            List<int> sbjIds = _context.GroupSubjects.Where(a => a.GroupId == id).Select(b => b.SubjectId).Distinct().ToList();
 
 
             var subjects = _context.Subjects
@@ -187,20 +187,38 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // GET: FroupController/Edit/5
         public IActionResult GroupSubject(int id)
         {
-              
-         //   List<int> userids = _context.Subjects.Where(a => a.sub == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
+              ViewBag.GroupId=id;
+           
+           // return Json(user);
+
             List<int> sbjId = _context.GroupSubjects.Where(a => a.GroupId == id).Select(b => b.SubjectId).Distinct().ToList();
 
             GroupSubjectVM subjects = new GroupSubjectVM
             {
-                Subjects = _context.Subjects.Where(a => sbjId.Any(c => c == a.Id)).Include(s => s.SubjectTeachers).ToList(),
+                Subjects = _context.Subjects.Where(a => sbjId.Any(c => c == a.Id)).Include(s=>s.SubjectTeachers).ToList(),
+               
 
             };
+          
             //var sbj=_context.Subjects.Include(s=>s.SubjectTeachers).Th
-           
+
             return View(subjects);
         }
-        public async Task<IActionResult> AddStudent(int id)
+        public IActionResult SubjectDetail(int id, int groupId)
+        {
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "dcd64b81-e06e-41e3-8da5-0d1bb45cc2bd").Select(b => b.UserId).Distinct().ToList();
+            List<string> userSbj = _context.SubjectTeachers.Where(a => a.SubjectId == id).Select(b => b.AppUserId).Distinct().ToList();
+            List<string> sbjTeacher = _context.UserGroups.Where(a => a.GroupId == groupId).Select(b => b.AppUserId).Distinct().ToList();
+            //  var abc=_context.UserGroups
+            var user = _context.Users.Where(a => userids
+                                     .Any(c => c == a.Id) && userSbj
+                                     .Any(c => c == a.Id) && sbjTeacher
+                                     .Any(c => c == a.Id)).ToList();
+           // return Json(user);
+            return View(user);
+        }
+
+            public async Task<IActionResult> AddStudent(int id)
         {
             List<string> userids = _context.UserRoles.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
             List<string> usergrp = _context.UserGroups.Where(a => a.GroupId != 0).Select(b => b.AppUserId).Distinct().ToList();
@@ -240,15 +258,13 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         public async Task<IActionResult> AddTeacherToSubject(int id)
         {
             List<string> userids = _context.UserRoles.Where(a => a.RoleId == "dcd64b81-e06e-41e3-8da5-0d1bb45cc2bd").Select(b => b.UserId).Distinct().ToList();
-            List<string> usergrp = _context.SubjectTeachers.Where(a => a.SubjectId != id).Select(b => b.AppUserId).Distinct().ToList();
-
+            List<string> usergrp = _context.SubjectTeachers.Where(a => a.SubjectId == id).Select(b => b.AppUserId).Distinct().ToList();
+         
 
             var AppUsers = _context.Users
                                        .Where(a => userids
                                        .Any(c => c == a.Id) && !usergrp
                                        .Any(c => c == a.Id)).ToList();
-
-
 
             ViewBag.Teachers = AppUsers;
             ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
@@ -258,7 +274,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // POST: GroupController/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddTeacherToSubject(int id,string [] teacherIds)
+        public async Task<IActionResult> AddTeacherToSubject(int id,int groupId, string [] teacherIds)
         {
             foreach (var tchId in teacherIds)
             {
@@ -268,6 +284,12 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                     AppUserId = tchId
 
                 };
+                UserGroup userGroup = new UserGroup
+                {
+                    AppUserId = tchId,
+                    GroupId = groupId
+                };
+                await _context.UserGroups.AddAsync(userGroup);
                 await _context.SubjectTeachers.AddAsync(subjectTeacher);
                 await _context.SaveChangesAsync();
             }

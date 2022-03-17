@@ -24,17 +24,18 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // GET: FacultyController
         public async Task<IActionResult> Index(int page = 1)
         {
-            int count = 6;
-            ViewBag.TakeCount = count;
-            var Faculties = await _context.Faculties
-                                               .Include(f => f.Groups)
-                                               .ToListAsync();
+            //int count = 6;
+            //ViewBag.TakeCount = count;
+            //var Faculties = await _context.Faculties
+            //                                   .Include(f => f.Groups)
+            //                                   .ToListAsync();
 
 
-            var optionVm = GetFacultyList(Faculties);
-            int pageCount = GetPageCount(count);
-            Paginate<FacultyListVM> model = new Paginate<FacultyListVM>(optionVm, page, pageCount);
-            return View(model);
+            //var optionVm = GetFacultyList(Faculties);
+            //int pageCount = GetPageCount(count);
+            //Paginate<FacultyListVM> model = new Paginate<FacultyListVM>(optionVm, page, pageCount);
+            //return View(model);
+            return View();
 
 
         }
@@ -44,10 +45,12 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             ViewBag.TakeCount = count;
             var Faculties = await _context.Faculties
                                                .Include(f => f.Groups)
+                                                .Skip((page - 1) * count)
+                                              .Take(count)
                                                .ToListAsync();
 
 
-            var optionVm = GetFacultyList(Faculties);
+            var optionVm = GetFacultyList(Faculties); 
             int pageCount = GetPageCount(count);
             Paginate<FacultyListVM> model = new Paginate<FacultyListVM>(optionVm, page, pageCount);
             return View(model);
@@ -55,7 +58,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
         private int GetPageCount(int take)
         {
-            var prodCount = _context.Groups.Count();
+            var prodCount = _context.Faculties.Count();
             return (int)Math.Ceiling((decimal)prodCount / take);
         }
         private List<FacultyListVM> GetFacultyList(List<Faculty> options)

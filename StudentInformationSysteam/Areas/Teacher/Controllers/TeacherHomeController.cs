@@ -2,6 +2,7 @@
 
 namespace StudentInformationSysteam.Areas.Teacher.Controllers
 {
+    [Area("Teacher")]
     public class TeacherHomeController : Controller
     {
         public IActionResult Index()
