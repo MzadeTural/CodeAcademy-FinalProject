@@ -50,7 +50,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // GET: FroupController
         public IActionResult Index(int id, int page = 1)
         {
-            int count = 3;
+            int count = 5;
             ViewBag.TakeCount = count;
             var Groups =  _context.Groups.Skip((page - 1) * count)
                                               .Take(count)
@@ -294,6 +294,21 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             _context.Groups.Remove(group);
             await _context.SaveChangesAsync();
             return RedirectToAction("GroupSubject");
+        }
+        public async Task<IActionResult> DeleteStudentFromGroup(string id)
+        {
+            AppUser user = await _context.Users.Where(c=>c.Id == id).FirstOrDefaultAsync();
+            var classUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.AppUserId == id));
+            if (user == null) return NotFound();
+            foreach (var item in classUserList)
+            {
+                _context.UserGroups.RemoveRange(item);
+            }
+           
+
+           
+            await _context.SaveChangesAsync(); 
+            return RedirectToAction("Index","Faculty");
         }
 
         // POST: FroupController/Delete/5

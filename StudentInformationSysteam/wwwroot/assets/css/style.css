@@ -212,7 +212,7 @@ body {
   visibility: hidden !important;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  position: fixed;
+  position: absolute;
   z-index: 100;
   left: 237px;
   -webkit-transition: 0.2s;

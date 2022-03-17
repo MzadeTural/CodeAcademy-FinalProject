@@ -17,64 +17,72 @@
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Father Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Gender </th>
+                        @if (Model.AppUsers.Count > 0)
+                        {
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Father Name</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Gender </th>
 
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Identifier</th>
-                                    <th class="text-secondary opacity-7"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (Model.AppUsers.Count > 0)
-                                {
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Identifier</th>
+                                        <th class="text-secondary opacity-7">Setting</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
                                     @foreach (var user in Model.AppUsers)
                                     {
 
 
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex px-2 py-1">
 
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm"> @user.FullName</h6>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm"> @user.FullName</h6>
 
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">@user.FatherName</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">@user.FatherName</p>
 
-                                            </td>
-                                            <td class="align-middle justify-content-center ">
-                                                <span class="badge badge-sm text-xs bg-gradient-success">@user.Gender.Name</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">@user.Identifier</span>
-                                            </td>
-                                           
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                    </td>
+                                                    <td class="align-middle justify-content-center ">
+                                                        <span class="badge badge-sm text-xs bg-gradient-success">@user.Gender.Name</span>
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        <span class="text-secondary text-xs font-weight-bold">@user.Identifier</span>
+                                                    </td>
+
+                                                    <td class="align-middle">
+                                                       
+                                                        <a asp-action="DeleteStudentFromGroup" asp-controller="Group" asp-route-id="@user.Id" style="font-size: 1.1rem !important; class="text-secondary font-weight-bold text-xs"  data-toggle="tooltip" data-original-title="Edit user">
+                                                           <span class="badge badge-sm bg-gradient-danger"> <i class="fas fa-trash"></i></span> 
+                                                           </a>
+                                                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                            Edit
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                     }
-                                }
-                                else
-                                {
-                                    <tr class="align-middle text-center"> 
-                                        <td class="align-middle"> <h1 class="align-middle text-center">No </h1></td> 
-                                        <td class="align-middle"> <h1 class="align-middle text-center"> students </h1></td> 
-                                        <td class="align-middle"> <h1 class="align-middle text-center"> yet</h1></td> 
-                                        </tr>
+                                        </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            @* <tr class="align-middle text-center"> 
+                                <td class="align-middle"> <h1 class="align-middle text-center">No </h1></td> 
+                                <td class="align-middle"> <h1 class="align-middle text-center"> students </h1></td> 
+                                <td class="align-middle"> <h1 class="align-middle text-center"> yet</h1></td> 
+                                </tr>*@
+                                            <h2 class="text-center">No Yet Student</h2>
 
-                                }
-                            </tbody>
-                        </table>
+                        }
+
                     </div>
                 </div>
             </div>

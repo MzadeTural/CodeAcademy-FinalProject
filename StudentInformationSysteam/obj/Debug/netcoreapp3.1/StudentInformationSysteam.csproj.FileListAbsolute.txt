@@ -376,3 +376,7 @@ D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformatio
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Group\AddTeacherToSubject.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Faculty\Create.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Faculty\Update.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\_TeacherLayout.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\Components\TeacherAside\Default.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\Components\TeacherHeader\Default.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherHome\Index.cshtml.g.cs

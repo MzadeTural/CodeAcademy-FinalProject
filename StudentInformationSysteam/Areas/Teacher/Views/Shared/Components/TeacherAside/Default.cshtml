@@ -1,38 +1,37 @@
-﻿@*@model AppUser *@
-
-<aside id="Aside">
+﻿    <aside id="Aside">
             <a  class="logo-container">
-                <img src="~/assets/img/logo.png" alt=""></a>
+                <img src="/FinalProject/assets/img/logo.png" alt=""></a>
            
-            <p class="sidebar-heading">Student</p>
-              <a id="CloseBtn" class="close-aside" ><i class="fas fa-times"></i></a>
+            <p class="sidebar-heading">Teacher</p>
+            <a id="CloseBtn" class="close-aside" ><i class="fas fa-times"></i></a>
             <nav>
                 <ul class="sidebar-menu">
                     <li class="sidebar-menu-item ">
-                        <a asp-action="Index" asp-controller="Home" class="aside-link active">
+                        <a href="" class="aside-link active">
                             <i class="fa fa-home aside-icon " aria-hidden="true"></i>
+                           
                             <span class="aside-title">Home</span></a>
                     </li>
                     <li class="sidebar-menu-item">
-                        <a asp-action="Index" asp-controller="StudentProfile" class="aside-link">
+                        <a href="/pages/teacher/personalInfo.html" class="aside-link">
                             <i class="fa fa-user aside-icon" aria-hidden="true"></i>
-                            <span class="aside-title">Student Dahsboard</span></a>
+                            <span class="aside-title">Personel Information</span></a>
                     </li>
                     <li class="sidebar-menu-item">
-                        <a  asp-action="Index" asp-controller="Lesson" class="aside-link">
+                        <a href="/pages/teacher/teachLesson.html" class="aside-link">
                             <i class="fas fa-book-open aside-icon" aria-hidden="true"></i>
-                            <span class="aside-title">Lessons</span></a>
+                            <span class="aside-title">Lesson</span></a>
                 
                         </li>
 
                     <li class="sidebar-menu-item">
-                        <a asp-action="Index" asp-controller="Transcript"  class="aside-link">
+                        <a href="/pages/transcript.html" class="aside-link">
                             
                             <i class="fas fa-list-alt aside-icon" aria-hidden="true"></i>
                             <span class="aside-title">Transcript</span></a>
                 
                         </li>
-                   
+                    </li>
                     <li class="sidebar-menu-item"></li>
                     <li class="sidebar-menu-item"></li>
                     <li class="sidebar-menu-item"></li>

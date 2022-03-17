@@ -65,6 +65,11 @@ namespace StudentInformationSysteam
             {
                 endpoints.MapControllerRoute(
                   name: "areas",
+                 
+                  pattern: "{area:exists}/{controller=TeacherHome}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                  name: "areas",
                   pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
