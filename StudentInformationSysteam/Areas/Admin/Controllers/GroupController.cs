@@ -88,8 +88,28 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddSubject(int id, int[] SubjectIds)
         {
+            List<string> getClassToUserIds = _context.UserGroups
+                                                .Where(a => a.GroupId == id)
+                                                .Select(b => b.AppUserId)
+                                                .Distinct()
+                                                .ToList();
+            List<string> getStudentToUserIds =  _context.UserRoles.Where(a => a.RoleId == "dcd64b81-e06e-41e3-8da5-0d1bb45cc2bd").Select(b => b.UserId).Distinct().ToList();
+            var getClassToStudentIds = _context.Users
+                                          .Where(a => getClassToUserIds.Any(c => c == a.Id) && getStudentToUserIds.Any(c => c == a.Id)).Select(p => p.Id)
+                                          .ToList();
             foreach (var sbjId in SubjectIds)
             {
+                foreach (var stu in getClassToStudentIds)
+                {
+                    SubjectTeacher userSubject = new SubjectTeacher
+                    {
+                        AppUserId = stu,
+                        SubjectId = sbjId
+
+                    };
+                    await _context.SubjectTeachers.AddAsync(userSubject);
+                    await _context.SaveChangesAsync();
+                }
 
                 GroupSubject subject = new GroupSubject
                 {
@@ -242,9 +262,23 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddStudent(int id, string[] StudentId)
         {
+            var subjectIds = _context.GroupSubjects.Where(i => i.GroupId == id).Select(i => i.SubjectId).ToList();
+            var subjectId = _context.GroupSubjects.Where(i => i.GroupId == id).Select(i => i.SubjectId).FirstOrDefault();
+           
             foreach (var userId in StudentId)
             {
+                foreach (var subId in subjectIds)
+                {
 
+                    SubjectTeacher userSubject = new SubjectTeacher
+                    {
+                        SubjectId = subId,
+                        AppUserId = userId
+                    };
+                    await _context.SubjectTeachers.AddAsync(userSubject);
+                    await _context.SaveChangesAsync();
+                }
+               
                 UserGroup users = new UserGroup
                 {
                     GroupId = id,

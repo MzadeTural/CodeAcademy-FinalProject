@@ -381,5 +381,8 @@ D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformatio
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherHome\Index.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\Components\TeacherHeader\Default.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\Components\TeacherAside\Default.cshtml.g.cs
-D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\_ViewImports.cshtml.g.cs
-D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Shared\_ViewStart.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\_ViewImports.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\_ViewStart.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherSubject\Details.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherSubject\Index.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherSubject\AddEvaluation.cshtml.g.cs

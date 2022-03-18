@@ -11,6 +11,7 @@ namespace StudentIformationSysteam.Core.Models
         public ICollection<Lesson> Lessons { get; set; }
         public Semester Semester { get; set; }
         public int SemesterId { get; set; }
+        public ICollection<Document> Documents { get; set; }
         public ICollection<GroupSubject> GroupSubjects { get; set; }
         public ICollection<SubjectExam> SubejctExams { get; set; }
         public ICollection<SubjectTeacher> SubjectTeachers { get; set; }

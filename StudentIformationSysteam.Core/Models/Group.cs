@@ -12,6 +12,7 @@ namespace StudentIformationSysteam.Core.Models
         public Course Course { get; set; }
         public int FacultyId { get; set; }
         public Faculty Faculty { get; set; }
+        public ICollection<Document> Documents { get; set; }
         public ICollection<GroupSubject> GroupSubjects { get; set; }
         public ICollection<UserGroup> UserGroups { get; set; }
     }

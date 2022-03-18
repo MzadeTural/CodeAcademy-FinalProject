@@ -11,5 +11,6 @@ namespace StudentIformationSysteam.Core.Models
         public AppUser AppUser { get; set; }
         public int ExamId { get; set; }
         public Exam Exam { get; set; }
+        public double Scoor { get; set; }
     }
 }

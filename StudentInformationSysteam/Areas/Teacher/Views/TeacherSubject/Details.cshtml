@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Teacher/Views/Shared/_TeacherLayout.cshtml";
+    int count = 1;
+}
+@model List<AppUser>
+ <section>
+           <link
+                href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
+                rel="stylesheet">
+
+            <div class="layout">
+                <input
+                    name="nav"
+                    type="radio"
+                    class="nav home-radio"
+                    id="home"
+                    checked="checked"/>
+                <div class="page home-page">
+                    <div class="page-contents">
+                        <div class="container my-3">
+                            <a class="btn btn-success">Add Material</a>
+                            <ul class="responsive-table">
+                                <li class="table-header">
+                                    <div class="col col-2">№</div>
+                                    <div class="col col-6">File Name</div>
+                                    <div class="col col-2">Dwonload</div>
+
+                                </li>
+
+                                <li class=" table-row">
+                                    <div class="col col-2" data-label="№">1</div>
+                                    <div class="col col-6" data-label="File Name">Muhazire.docx
+                                    </div>
+                                    <div class="col col-2" data-label="Attendance">
+                                        <i class="fas fa-file-download"></i>
+                                    </div>
+
+                                </li>
+                                <li class=" table-row">
+                                    <div class="col col-2" data-label="№">2</div>
+                                    <div class="col col-6" data-label="File Name">lesson.pptx</div>
+                                    <div class="col col-2" data-label="Download">
+                                        <a href="">
+                                            <i class="fas fa-file-download"></i>
+                                        </a>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <label class="nav" for="home">
+                    <span>
+                        <i class="fas fa-file-alt"></i>
+                    </polyline>
+                </svg>
+                Didactic material
+            </span>
+        </label>
+
+        <input name="nav" type="radio" class="about-radio" id="about"/>
+        <div class="page about-page">
+            <div class="page-contents">
+                <div class="container my-3">
+                    <form action="">
+                        <input type="date" name="" id="">
+                        <ul class="attendance-table my-4">
+                            <li class="table-header">
+                                <div class="col col-1">№</div>
+                                <div class="col col-4">Studnet Name</div>
+                                <div class="col col-4">Attendance</div>
+
+                            </li>
+
+                            <li class=" table-row">
+                                <div class="col col-1" data-label="№">1</div>
+                                <div class="col col-lg-4" data-label="Lesson Date">Tural Memmedzade
+                                </div>
+                                <div class="col col-3 " data-label="Attendance">
+                                    <label class="onoffbtn"><input type="checkbox"></label>
+                                </div>
+
+                            </li>
+                            <li class=" table-row">
+                                <div class="col col-1" data-label="№">2</div>
+                                <div class="col col-4" data-label="Lesson Date">Orkhan Ganbarov</div>
+                                <div class="col col-3" data-label="Download">
+                                    <label class="onoffbtn"><input type="checkbox"></label>
+                                </div>
+
+                            </li>
+
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <label class="nav" for="about">
+            <span>
+                <svg><use href="~/assets/img/attendance.svg"/></svg>
+                <svg
+                    viewbox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="css-i6dzq1">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12" y2="17"></line>
+                </svg>
+                Attendance
+            </span>
+        </label>
+
+                <input name="nav" type="radio" class="contact-radio" id="contact"/>
+                <div class="page contact-page">
+                    <div class="page-contents">
+                      <div class="col-lg-10"> <a asp-route-id="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="AddEvaluation" asp-controller="TeacherSubject"  class="btn btn-outline-success">Add</a> </div>
+                       
+                <section class="mt-5 ">
+    <div class="container animate_animated animatebackInDown animate_delay-0.5s">
+        
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Students name</th>
+                        <th scope="col">Kol-1</th>
+                        <th scope="col">Kol-2</th>
+                        <th scope="col">Kol-3</th>
+                        <th scope="col">Final-Exam</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                         
+                             @foreach(var i in Model){
+                               <tr> 
+                        <th scope="row">@i.FullName</th>
+                        @foreach (var exam in i.UserExams)
+                        {
+
+                             <td>@exam.Scoor</td>
+                                
+                        }
+                            
+                            </tr>   
+                             } 
+                        
+                       
+                        
+                
+                    </tbody>
+                  </table>
+                
+            </div>
+            <div class="col-12 my-4">
+              @*  <a asp-action=GetClases class=" min-card">Back</a>
+                
+                   @{
+                   var user = Model.FirstOrDefault();
+                    if(user.UserExams.Count()!=4)
+                        {
+                              <a asp-action=AddEvaluation asp-route-id=@ViewBag.Class.Id  class="create-btn">Added</a>
+                        }else{
+                            <span class="btn btn-danger text-light py-2 ">All values ​​have already been entered </span>
+                        }
+                
+               }
+               *@
+            </div>
+        </div>
+    </div>
+
+</section>
+
+                       
+                    </div>
+                </div>
+                <label class="nav" for="contact">
+                    <span>
+                        <svg
+                            viewbox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="css-i6dzq1">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        Evaluation
+                    </span>
+
+                </label>
+            </div>
+        </section>
+
