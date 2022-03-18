@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
 using StudnetInformationSysteam.Data.DAL;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,17 +59,32 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
                                                .Select(b => b.AppUserId)
                                                .Distinct()
                                                .ToList();
+            List<int> documentGroupId = _context.Documents
+                                               .Where(a => a.GroupId == id)
+                                               .Select(b => b.Id)
+                                               .Distinct()
+                                               .ToList();
+            List<int> documenSubjectId = _context.Documents
+                                               .Where(a => a.SubjectId == sbjId)
+                                               .Select(b => b.Id)
+                                               .Distinct()
+                                               .ToList();
             List<string> getStudentToUserIds = _context.UserRoles.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
 
             var getClassToStudent = _context.Users
                                           .Where(a => getClassToUserIds.Any(c => c == a.Id) && getStudentToUserIds.Any(c => c == a.Id) && getSubjectToUserIds.Any(c => c == a.Id)).Include(i => i.UserExams).ThenInclude(i => i.Exam).ToList();
 
+            SubjectDetailVM subjectDetail = new SubjectDetailVM
+            {
+                AppUsers= getClassToStudent,
+                Documents =_context.Documents.Where(a => documentGroupId.Any(c => c == a.Id) && documenSubjectId.Any(c => c == a.Id) ).ToList()
 
+              };
             
             ViewBag.GroupId = id;
             ViewBag.SubjectId = sbjId;
 
-            return View(getClassToStudent);
+            return View(subjectDetail);
           
         }
         public async Task<IActionResult> AddEvaluation(int id,int sbjId)

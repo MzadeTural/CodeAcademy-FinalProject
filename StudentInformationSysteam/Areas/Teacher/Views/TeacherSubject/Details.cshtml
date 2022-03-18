@@ -3,8 +3,9 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Teacher/Views/Shared/_TeacherLayout.cshtml";
     int count = 1;
+    int docCount = 1;
 }
-@model List<AppUser>
+@model SubjectDetailVM
  <section>
            <link
                 href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
@@ -20,7 +21,7 @@
                 <div class="page home-page">
                     <div class="page-contents">
                         <div class="container my-3">
-                            <a class="btn btn-success">Add Material</a>
+                            <a  class="btn btn-outline-success my-3" asp-route-id="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="Upload" asp-controller="Document" >Add Material</a>
                             <ul class="responsive-table">
                                 <li class="table-header">
                                     <div class="col col-2">№</div>
@@ -28,26 +29,33 @@
                                     <div class="col col-2">Dwonload</div>
 
                                 </li>
-
-                                <li class=" table-row">
-                                    <div class="col col-2" data-label="№">1</div>
-                                    <div class="col col-6" data-label="File Name">Muhazire.docx
+                        @if (Model.Documents.Count() != 0)
+                        {
+                            
+                      
+                        @foreach (var doc in Model.Documents)
+                               {
+                                    <li class=" table-row">
+                                    <div class="col col-2" data-label="№">@docCount</div>
+                                    <div class="col col-6" data-label="File Name"> @doc.Title
                                     </div>
                                     <div class="col col-2" data-label="Attendance">
-                                        <i class="fas fa-file-download"></i>
+                                       <a asp-action="DownloadFile" asp-controller="Document" asp-route-id="@doc.Id"> <i class="fas fa-file-download"></i></a>
                                     </div>
 
-                                </li>
-                                <li class=" table-row">
-                                    <div class="col col-2" data-label="№">2</div>
-                                    <div class="col col-6" data-label="File Name">lesson.pptx</div>
-                                    <div class="col col-2" data-label="Download">
-                                        <a href="">
-                                            <i class="fas fa-file-download"></i>
-                                        </a>
-                                    </div>
-
-                                </li>
+                            </li>
+                            docCount++;
+                        }
+                                }
+                                else
+                                {
+                                    <li class=" table-row">
+                                        <div class="col-lg-12">
+                                            <h2 class="text-center">No Yet Document</h2>
+                                        </div>
+                                   </li>
+                                }
+                                
 
                             </ul>
                         </div>
@@ -143,7 +151,7 @@
                     </thead>
                     <tbody>
                          
-                             @foreach(var i in Model){
+                             @foreach(var i in Model.AppUsers){
                                <tr> 
                         <th scope="row">@i.FullName</th>
                         @foreach (var exam in i.UserExams)

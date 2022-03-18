@@ -277,6 +277,34 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("StudentIformationSysteam.Core.Models.Document", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("Documents");
+                });
+
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Exam", b =>
                 {
                     b.Property<int>("Id")
@@ -633,6 +661,21 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.HasOne("StudentIformationSysteam.Core.Models.Speciality", "Speciality")
                         .WithMany("AppUsers")
                         .HasForeignKey("SpecialityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("StudentIformationSysteam.Core.Models.Document", b =>
+                {
+                    b.HasOne("StudentIformationSysteam.Core.Models.Group", "Group")
+                        .WithMany("Documents")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StudentIformationSysteam.Core.Models.Subject", "Subject")
+                        .WithMany("Documents")
+                        .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
