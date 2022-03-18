@@ -5,8 +5,59 @@
 @model List<AppUser>
 
 
-    @foreach (var item in Model)
-   {
-       <h1>@item.FullName</h1>
-   }
+   <div class="container-fluid py-4">
+      <div class="row justify-content-center">
+     
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary text-center shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Subjects table</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Subject Name</th>
+                    
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Setting</th>
+                      
+                      
+                     
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                      @foreach (var sbj in Model)
+                     {
+                          <tr>
+                                        
+                      <td class="align-middle text-center ">
+                        <h2 style="font-size: 1.8rem;" class="badge ">@sbj.FullName</h2>
+                      </td>
+
+                    
+                      <td class="align-middle text-center ">
+                            <a style="width:3rem !important"  class="text-secondary font-weight-bold text-xs" asp-route-groupId="@ViewBag.GroupId"  asp-action="AddTeacherToSubject" asp-controller="Group" asp-route-id="@sbj.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-warning"> <i class="fas fa-user-plus"></i></span> 
+                         </a>
+                    
+                      </td>
+                     
+                       
+                     
+                    </tr>
+                     }
+                
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    
+
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudnetInformationSysteam.Data.DAL;
 
 namespace StudnetInformationSysteam.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220318063814_Add new table")]
+    partial class Addnewtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,7 +164,7 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -635,7 +637,9 @@ namespace StudnetInformationSysteam.Data.Migrations
                 {
                     b.HasOne("StudentIformationSysteam.Core.Models.Course", "Course")
                         .WithMany()
-                        .HasForeignKey("CourseId");
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StudentIformationSysteam.Core.Models.Gender", "Gender")
                         .WithMany("AppUsers")
@@ -738,7 +742,7 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("StudentIformationSysteam.Core.Models.Exam", "Exam")
-                        .WithMany("UserExams")
+                        .WithMany()
                         .HasForeignKey("ExamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

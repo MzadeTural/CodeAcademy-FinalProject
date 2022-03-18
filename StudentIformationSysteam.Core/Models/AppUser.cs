@@ -8,13 +8,15 @@ namespace StudentIformationSysteam.Core.Models
     public class AppUser : IdentityUser
 
     {
+        
         public ICollection<UserLesson> UserLessons { get; set; }
-        public ICollection<Evaluation> Evaluations { get; set; }
+        public ICollection<UserExam> UserExams { get; set; }
+       
         public ICollection<UserGroup> UserGroups { get; set; }
         public ICollection<SubjectTeacher> SubjectTeachers { get; set; }
       
 
-        public int CourseId { get; set; }
+        public int? CourseId { get; set; }
         public Course Course { get; set; }     
         public int SpecialityId { get; set; }
         public Speciality Speciality { get; set; }

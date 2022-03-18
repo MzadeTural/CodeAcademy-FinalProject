@@ -15,7 +15,7 @@ namespace StudnetInformationSysteam.Data.DAL
 
         public DbSet<Group> Groups { get; set; }
         public DbSet<Exam> Exams { get; set; }
-        public DbSet<Evaluation> Evaluations { get; set; }
+      
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<GroupSubject> GroupSubjects { get; set; }
@@ -28,15 +28,16 @@ namespace StudnetInformationSysteam.Data.DAL
         public DbSet<Speciality> Specialities { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<SubjectTeacher> SubjectTeachers { get; set; }
-
+        public DbSet<UserExam> UserExams { get; set; }
 
         
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AttendanceConfiguration());
             modelBuilder.ApplyConfiguration(new CourseConfiguration());
             modelBuilder.ApplyConfiguration(new ExamConfiguration());
-            modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
+           
             modelBuilder.ApplyConfiguration(new FacultyConfiguration());
             modelBuilder.ApplyConfiguration(new GroupConfiguration());
             modelBuilder.ApplyConfiguration(new LessonConfiguration());

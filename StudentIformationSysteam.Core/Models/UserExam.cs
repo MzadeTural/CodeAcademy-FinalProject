@@ -4,11 +4,12 @@ using System.Text;
 
 namespace StudentIformationSysteam.Core.Models
 {
-    public class Evaluation
+    public class UserExam
     {
         public int Id { get; set; }
-        public double Point { get; set; }
-        public Exam Exam { get; set; }
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         public int ExamId { get; set; }
+        public Exam Exam { get; set; }
     }
 }

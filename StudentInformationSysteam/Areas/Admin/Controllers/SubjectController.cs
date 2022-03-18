@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class SubjectController : Controller
     {
         // GET: SubjectController

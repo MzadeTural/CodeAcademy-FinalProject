@@ -42,13 +42,12 @@
                             <a style="width:3rem !important"  class="text-secondary font-weight-bold text-xs" asp-route-groupId="@ViewBag.GroupId"  asp-action="AddTeacherToSubject" asp-controller="Group" asp-route-id="@sbj.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-warning"> <i class="fas fa-user-plus"></i></span> 
                          </a>
-                          <form >
-                               <input name="groupId" hidden value="@ViewBag.GroupId"/>
+                          
                               
-                                <button style="width:3rem !important" type="submit" asp-action="SubjectDetail" class="text-secondary font-weight-bold text-xs" asp-controller="Group" asp-route-id="@sbj.Id"> <span class="badge badge-sm bg-gradient-warning"><i class="fas fa-info-circle"></i></span></button>
+                                <a style="width:3rem !important" type="submit"  asp-route-groupId="@ViewBag.GroupId" asp-action="SubjectDetail" class="text-secondary font-weight-bold text-xs" asp-controller="Group" asp-route-id="@sbj.Id"> <span class="badge badge-sm bg-gradient-warning"><i class="fas fa-info-circle"></i></span></a>
                            
                             
-                            </form>
+                           
                        
                       </td>
                      

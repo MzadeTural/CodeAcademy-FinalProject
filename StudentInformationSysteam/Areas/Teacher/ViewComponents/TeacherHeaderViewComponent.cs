@@ -31,4 +31,4 @@ namespace StudentInformationSysteam.Areas.Teacher.ViewComponents
 
         }
     }
-    }
+}

@@ -15,12 +15,14 @@
             crossorigin="anonymous">
     </head>
     <body id="Bdy">
-     <main id="Main" class="bg">
-           @await Component.InvokeAsync("TeacherHeader")
-            @await Component.InvokeAsync("TeacherAside")
+       
+ @await Component.InvokeAsync("TeacherHeader")
+   
+     @await Component.InvokeAsync("TeacherAside")
+        <main id="Main" >
         @RenderBody()
     </main>
-             <!--==JQuary==-->
+  <!--==JQuary==-->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <!--==Fonyaswome==-->
         <script src="https://kit.fontawesome.com/7c8b79bb9f.js" crossorigin="anonymous"></script>
@@ -35,5 +37,5 @@
             crossorigin="anonymous"></script>
         <!--==MainJs==-->
         <script src="~/assets/js/script.js"></script>
-</body>
+    </body>
 </html>
