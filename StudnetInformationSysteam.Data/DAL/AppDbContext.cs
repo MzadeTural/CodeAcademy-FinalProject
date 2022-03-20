@@ -31,6 +31,7 @@ namespace StudnetInformationSysteam.Data.DAL
         public DbSet<UserExam> UserExams { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<LessonType> LessonTypes { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         
 

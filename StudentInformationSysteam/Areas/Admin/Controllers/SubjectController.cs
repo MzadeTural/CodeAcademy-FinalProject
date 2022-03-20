@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.SubjectVMs;
+using StudnetInformationSysteam.Data.DAL;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
@@ -8,6 +13,12 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class SubjectController : Controller
     {
+        private readonly AppDbContext _context;
+
+        public SubjectController(AppDbContext context)
+        {
+            _context = context;
+        }
         // GET: SubjectController
         public ActionResult Index()
         {
@@ -29,16 +40,24 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // POST: SubjectController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(SubjectCreateVM subjectCreate)
         {
-            try
+            if (!ModelState.IsValid) return View();
+            bool IsExist = _context.Faculties
+                                 .Any(c => c.Name.ToLower().Trim() == subjectCreate.Name.ToLower().Trim());
+            if (IsExist)
             {
+                ModelState.AddModelError("Name", "This name already exist");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            Subject sibject = new Subject
             {
-                return View();
-            }
+
+                Name = subjectCreate.Name
+            };
+            await _context.Subjects.AddAsync(sibject);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Create));
         }
 
         // GET: SubjectController/Edit/5

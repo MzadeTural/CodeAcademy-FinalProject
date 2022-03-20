@@ -68,8 +68,22 @@ using StudentInformationSysteam.Business.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.SubjectVMs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.Notification;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae2c94d47ec97ff11c1883a4906ec888b8c1222f", @"/Areas/Admin/Views/Faculty/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"42947ea54445d08770d7576797391323b0074e32", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9278acb795010fedc20b7630880cb5551640700f", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Faculty_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Paginate<FacultyListVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-outline-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -131,7 +145,7 @@ using StudentInformationSysteam.Business.ViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n\r\n\r\n\r\n<div class=\"container-fluid py-4 justify-content-center\">\r\n      <div class=\"row justify-content-center\">\r\n            <div class=\"col-8\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f9585", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f10130", async() => {
                 WriteLiteral("<i style=\"color: #4bab4f;\" class=\"fas fa-plus\"></i> Faculty");
             }
             );
@@ -203,7 +217,7 @@ using StudentInformationSysteam.Business.ViewModel;
                           <span class=""badge badge-sm bg-gradient-primary""><i class=""fas fa-edit""></i></span> 
                         </a>
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f14005", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f14551", async() => {
                 WriteLiteral("\r\n                        <span class=\"badge badge-sm bg-gradient-success\"> <i class=\"fas fa-users\"></i></span> \r\n                        ");
             }
             );
@@ -270,7 +284,7 @@ WriteAttributeValue(" ", 3617, Model.CurrentPage<3?"d-none":"", 3618, 34, false)
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f18621", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f19167", async() => {
                 WriteLiteral("First");
             }
             );
@@ -305,7 +319,7 @@ WriteAttributeValue(" ", 3919, Model.CurrentPage==1   ?"d-none":"", 3920, 38, fa
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f21109", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f21655", async() => {
                 WriteLiteral("<i class=\"fas fa-angle-double-left\"></i>");
             }
             );
@@ -367,7 +381,7 @@ WriteAttributeValue(" ", 4592, Model.CurrentPage==i?"active":"", 4593, 35, false
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f25086", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f25632", async() => {
 #nullable restore
 #line 96 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\Faculty\Index.cshtml"
                                                                                                                                                                                              Write(i);
@@ -442,7 +456,7 @@ WriteAttributeValue(" ", 5039, Model.CurrentPage==Model.PageCount?"d-none":"", 5
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f29742", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f30288", async() => {
                 WriteLiteral("<i class=\"fas fa-angle-double-right\"></i> ");
             }
             );
@@ -486,7 +500,7 @@ WriteAttributeValue(" ", 5397, Model.CurrentPage==Model.PageCount?"d-none":"", 5
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f32904", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae2c94d47ec97ff11c1883a4906ec888b8c1222f33450", async() => {
                 WriteLiteral("Last");
             }
             );

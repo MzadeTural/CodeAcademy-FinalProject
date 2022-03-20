@@ -68,8 +68,22 @@ using StudentInformationSysteam.Business.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.SubjectVMs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.Notification;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"372c5b0a62dfd84dab454f48c6d145ff43784617", @"/Areas/Admin/Views/Shared/Components/AdminHeader/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"42947ea54445d08770d7576797391323b0074e32", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9278acb795010fedc20b7630880cb5551640700f", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared_Components_AdminHeader_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ProfileVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav-link text-white d-flex "), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -124,7 +138,7 @@ using StudentInformationSysteam.Business.ViewModel;
           <ul class=""navbar-nav  justify-content-end"">
             <li class=""nav-item d-flex align-items-center"">
               ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "372c5b0a62dfd84dab454f48c6d145ff437846177654", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "372c5b0a62dfd84dab454f48c6d145ff437846178199", async() => {
                 WriteLiteral(@"
             <div class=""text-white text-center me-2 d-flex align-items-center justify-content-center"">
               <i class=""material-icons opacity-10"">login</i>

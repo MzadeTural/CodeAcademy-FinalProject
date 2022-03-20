@@ -68,8 +68,22 @@ using StudentInformationSysteam.Business.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.SubjectVMs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Admin\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.Notification;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e16f748ecb5134ea6458007cc0795b7662dfbaa7", @"/Areas/Admin/Views/Group/AddTeacherToSubject.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"42947ea54445d08770d7576797391323b0074e32", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9278acb795010fedc20b7630880cb5551640700f", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Group_AddTeacherToSubject : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,7 +114,7 @@ using StudentInformationSysteam.Business.ViewModel;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n\r\n<div class=\"container-fluid py-4\">\r\n      <div class=\"row\">\r\n           ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e16f748ecb5134ea6458007cc0795b7662dfbaa75870", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e16f748ecb5134ea6458007cc0795b7662dfbaa76415", async() => {
                 WriteLiteral(@"
            <div class=""col-lg-2 mx-2""><button type=""submit"" class=""btn btn-outline-success"">Add</button> </div>
         <div class=""col-12"">

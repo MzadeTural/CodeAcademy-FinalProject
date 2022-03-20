@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.Notification;
+using StudnetInformationSysteam.Data.DAL;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
@@ -9,6 +14,12 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class NotificationController : Controller
     {
+        private readonly AppDbContext _context;
+
+        public NotificationController( AppDbContext context)
+        {
+            _context = context;
+        }
         // GET: NotificationController
         public ActionResult Index()
         {
@@ -30,16 +41,26 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // POST: NotificationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(CreateNotificationVM createNotification)
         {
-            try
+            if (!ModelState.IsValid) return View();
+            bool IsExist = _context.Notifications
+                                 .Any(c => c.Title.ToLower().Trim() == createNotification.Title.ToLower().Trim());
+            if (IsExist)
             {
+                ModelState.AddModelError("Title", "This name already exist");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            Notification notification = new Notification
             {
-                return View();
-            }
+
+                Title = createNotification.Title,
+                Message=createNotification.Description
+                
+            };
+            await _context.Notifications.AddAsync(notification);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Create));
         }
 
         // GET: NotificationController/Edit/5
