@@ -392,3 +392,4 @@ D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformatio
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Teacher\Create.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherProfile\Index.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Subject\Create.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Views\NorFoundError\Index.cshtml.g.cs
