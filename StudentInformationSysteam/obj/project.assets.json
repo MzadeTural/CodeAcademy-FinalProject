@@ -2721,7 +2721,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "FluentValidation.AspNetCore": "10.3.6",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.23",
           "Microsoft.EntityFrameworkCore": "3.1.22",
@@ -2756,7 +2755,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "FluentValidation.AspNetCore": "10.3.6",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.22",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.23",
           "Microsoft.EntityFrameworkCore": "3.1.22",

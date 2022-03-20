@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "3jN1ZO2BxdHXQF4PE72ZohiqC0y8V6ArBkrNfSFg7RIufJpCmUbsUYZ7izMEFfJ1v65L3Iwgn648FrdUghWWLw==",
+  "dgSpecHash": "uW8IX9pUWgwfQhXBULujFGXsU8uU0pHeylrS05TKN7MfrdQGKwtcpMpTT8p6B8Cu1h3UVE/2mtv72z+Z8RUE2Q==",
   "success": true,
   "projectFilePath": "D:\\Folders\\CodeAcademyProjetc(Final)\\StudentInformationSysteam\\StudentIformationSysteam.Core\\StudentIformationSysteam.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Tural\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
-    "C:\\Users\\Tural\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
-    "C:\\Users\\Tural\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
     "C:\\Users\\Tural\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.22\\microsoft.aspnetcore.cryptography.internal.3.1.22.nupkg.sha512",
     "C:\\Users\\Tural\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.22\\microsoft.aspnetcore.cryptography.keyderivation.3.1.22.nupkg.sha512",
     "C:\\Users\\Tural\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.22\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.22.nupkg.sha512",

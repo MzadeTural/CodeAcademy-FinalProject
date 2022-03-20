@@ -10,7 +10,7 @@ namespace StudentInformationSysteam.Business.Validators.Faculty
     {
         public FacultyCreateVMValidation()
         {
-            RuleFor(r => r.Name).NotNull().NotNull();
+            RuleFor(r => r.Name).NotNull().NotEmpty();
 
         }
     }
