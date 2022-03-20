@@ -389,7 +389,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
 
             await _context.SaveChangesAsync(); 
-            return RedirectToAction("Index","Faculty");
+            return RedirectToAction("Index","Dashboard");
         }
 
         // POST: FroupController/Delete/5
