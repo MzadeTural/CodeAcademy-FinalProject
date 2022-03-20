@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StudentIformationSysteam.Core.Models
+namespace StudentInformationSysteam.Business.ViewModel.SubjectVMs
 {
-    public class Semester:BaseEntity
+    public class SubjectCreateVM
     {
         public string Name { get; set; }
-       
     }
 }

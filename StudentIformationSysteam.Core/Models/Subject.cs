@@ -10,7 +10,7 @@ namespace StudentIformationSysteam.Core.Models
         public bool IsDeleted { get; set; }
         public ICollection<Lesson> Lessons { get; set; }
         public Semester Semester { get; set; }
-        public int SemesterId { get; set; }
+       
         public ICollection<Document> Documents { get; set; }
         public ICollection<GroupSubject> GroupSubjects { get; set; }
         public ICollection<SubjectExam> SubejctExams { get; set; }

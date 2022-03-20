@@ -169,7 +169,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: FroupController/Create
-        public async Task<ActionResult> Create()
+        public async Task<IActionResult> Create()
         {
             ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
             ViewBag.Faculty = new SelectList(await _context.Faculties.ToListAsync(), "Id", "Name");
@@ -179,7 +179,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         // POST: FroupController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(GroupCreateVM groupCreate)
+        public async Task<IActionResult> Create(GroupCreateVM groupCreate)
         {
             if (!ModelState.IsValid) return View();
             bool IsExist = _context.Groups
@@ -199,10 +199,9 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             await _context.Groups.AddAsync(group);
             await _context.SaveChangesAsync();
-            ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
-            ViewBag.Faculty = new SelectList(await _context.Faculties.ToListAsync(), "Id", "Name");
-         
-            return View(group);   
+
+
+            return RedirectToAction("Create");
 
         }
 
@@ -223,7 +222,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             };
           
             //var sbj=_context.Subjects.Include(s=>s.SubjectTeachers).Th
-
+            
             return View(subjects);
         }
         public IActionResult SubjectDetail(int id, int groupId)
@@ -329,10 +328,29 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 await _context.SubjectTeachers.AddAsync(subjectTeacher);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction("GroupSubject", new { Id = id });
+            return RedirectToAction("GroupSubject", new { Id = groupId });
 
         }
-    
+        public async Task<IActionResult> DeleteTeacherFromSubject(string id)
+        {
+            AppUser user = await _context.Users.Where(c => c.Id == id).FirstOrDefaultAsync();
+            var groupUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.AppUserId == id));
+            var subjectUserList = _context.Subjects.Include(x => x.SubjectTeachers).Select(x => x.SubjectTeachers.Where(x => x.AppUserId == id));
+            if (user == null) return NotFound();
+            foreach (var item in groupUserList)
+            {
+                _context.UserGroups.RemoveRange(item);
+            }
+            foreach (var sbjUsr in subjectUserList)
+            {
+                _context.SubjectTeachers.RemoveRange(sbjUsr);
+            }
+
+
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("FacultyTable","Faculty");
+        }
         // GET: FroupController/Delete/5 
         public async Task<IActionResult> Delete(int id)
         {
@@ -351,20 +369,25 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             _context.Groups.Remove(group);
             await _context.SaveChangesAsync();
-            return RedirectToAction("GroupSubject");
+            return RedirectToAction("FacultyTable","Faculty");
         }
         public async Task<IActionResult> DeleteStudentFromGroup(string id)
         {
             AppUser user = await _context.Users.Where(c=>c.Id == id).FirstOrDefaultAsync();
-            var classUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.AppUserId == id));
+            var groupUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.AppUserId == id));
+            var subjectUserList = _context.Subjects.Include(x => x.SubjectTeachers).Select(x => x.SubjectTeachers.Where(x => x.AppUserId == id));
             if (user == null) return NotFound();
-            foreach (var item in classUserList)
+            foreach (var item in groupUserList)
             {
                 _context.UserGroups.RemoveRange(item);
             }
-           
+            foreach (var sbjUsr in subjectUserList)
+            {
+                _context.SubjectTeachers.RemoveRange(sbjUsr);
+            }
 
-           
+
+
             await _context.SaveChangesAsync(); 
             return RedirectToAction("Index","Faculty");
         }

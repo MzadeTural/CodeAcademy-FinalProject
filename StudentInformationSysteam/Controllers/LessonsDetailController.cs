@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
 using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
 using StudnetInformationSysteam.Data.DAL;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,11 +16,26 @@ namespace StudentInformationSysteam.Controllers
     {
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IWebHostEnvironment _env;
 
-        public LessonsDetailController(AppDbContext context,UserManager<AppUser> userManager)
+        public LessonsDetailController(AppDbContext context,UserManager<AppUser> userManager, IWebHostEnvironment env)
         {
             _context = context;
             _userManager = userManager;
+            _env = env;
+        }
+        public IActionResult DownloadFile(int id)
+        {
+            // Since this is just and example, I am using a local file located inside wwwroot
+            // Afterwards file is converted into a stream
+            var userFromSubject = _context.Documents.Where(i => i.Id == id).Select(i => i.FilePath).FirstOrDefault();
+
+            string resultPath = Path.Combine("assets/document", userFromSubject);
+            var path = Path.Combine(_env.WebRootPath, resultPath);
+            var fs = new FileStream(path, FileMode.Open);
+
+            // Return the file. A byte array can also be used instead of a stream
+            return File(fs, "assets/document", userFromSubject);
         }
         public async Task<IActionResult> Index(int sbjId,int id)
         {

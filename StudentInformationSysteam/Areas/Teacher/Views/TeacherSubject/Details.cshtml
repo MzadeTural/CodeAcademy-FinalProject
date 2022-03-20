@@ -19,7 +19,7 @@
                     id="home"
                     checked="checked"/>
                 <div class="page home-page">
-                    <div class="page-contents">
+                    <div class="page-contents" style="margin-top: 6rem;">
                         <div class="container my-3">
                             <a  class="btn btn-outline-success my-3" asp-route-id="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="Upload" asp-controller="Document" >Add Material</a>
                             <ul class="responsive-table">
@@ -62,7 +62,10 @@
 
                     </div>
                 </div>
-                <label class="nav" for="home">
+                <label class="nav" for="home"style="position: relative;
+                                                            left: 45%; "
+                    
+                        Didactic material>
                     <span>
                         <i class="fas fa-file-alt"></i>
                     </polyline>
@@ -71,63 +74,7 @@
             </span>
         </label>
 
-        <input name="nav" type="radio" class="about-radio" id="about"/>
-        <div class="page about-page">
-            <div class="page-contents">
-                <div class="container my-3">
-                    <form action="">
-                        <input type="date" name="" id="">
-                        <ul class="attendance-table my-4">
-                            <li class="table-header">
-                                <div class="col col-1">№</div>
-                                <div class="col col-4">Studnet Name</div>
-                                <div class="col col-4">Attendance</div>
-
-                            </li>
-
-                            <li class=" table-row">
-                                <div class="col col-1" data-label="№">1</div>
-                                <div class="col col-lg-4" data-label="Lesson Date">Tural Memmedzade
-                                </div>
-                                <div class="col col-3 " data-label="Attendance">
-                                    <label class="onoffbtn"><input type="checkbox"></label>
-                                </div>
-
-                            </li>
-                            <li class=" table-row">
-                                <div class="col col-1" data-label="№">2</div>
-                                <div class="col col-4" data-label="Lesson Date">Orkhan Ganbarov</div>
-                                <div class="col col-3" data-label="Download">
-                                    <label class="onoffbtn"><input type="checkbox"></label>
-                                </div>
-
-                            </li>
-
-                        </ul>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <label class="nav" for="about">
-            <span>
-                <svg><use href="~/assets/img/attendance.svg"/></svg>
-                <svg
-                    viewbox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="css-i6dzq1">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                    <line x1="12" y1="17" x2="12" y2="17"></line>
-                </svg>
-                Attendance
-            </span>
-        </label>
+      
 
                 <input name="nav" type="radio" class="contact-radio" id="contact"/>
                 <div class="page contact-page">
@@ -211,7 +158,8 @@
                        
                     </div>
                 </div>
-                <label class="nav" for="contact">
+                <label class="nav" for="contact" style="position: relative;
+                                                            left: 50%; ">
                     <span>
                         <svg
                             viewbox="0 0 24 24"
