@@ -9,7 +9,7 @@ namespace StudentIformationSysteam.Core.Models
 
     {
         
-        public ICollection<UserLesson> UserLessons { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
         public ICollection<UserExam> UserExams { get; set; }
        
         public ICollection<UserGroup> UserGroups { get; set; }

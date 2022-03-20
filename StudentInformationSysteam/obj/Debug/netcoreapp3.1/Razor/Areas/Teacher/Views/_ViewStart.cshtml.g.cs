@@ -47,8 +47,15 @@ using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Teacher\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.TeacherLesson;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3a3636c811d71c4eadec9b787343a358eb20dae4", @"/Areas/Teacher/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a2fe00bbe40c169b7f841b51deaee334e35468ec", @"/Areas/Teacher/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c8dd124ccff6ff2118fcf27d8e93f62f90c9a4", @"/Areas/Teacher/Views/_ViewImports.cshtml")]
     public class Areas_Teacher_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

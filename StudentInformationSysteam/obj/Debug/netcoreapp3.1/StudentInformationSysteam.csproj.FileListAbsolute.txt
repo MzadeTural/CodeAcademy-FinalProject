@@ -387,3 +387,4 @@ D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformatio
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherSubject\Index.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherSubject\AddEvaluation.cshtml.g.cs
 D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\Document\Upload.cshtml.g.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\obj\Debug\netcoreapp3.1\Razor\Areas\Teacher\Views\TeacherLesson\Create.cshtml.g.cs

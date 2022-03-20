@@ -47,8 +47,15 @@ using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Areas\Teacher\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.TeacherLesson;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"231ce3974b9900fed8728d27cdebd2f5ecf5b8e8", @"/Areas/Teacher/Views/Shared/Components/TeacherAside/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a2fe00bbe40c169b7f841b51deaee334e35468ec", @"/Areas/Teacher/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c8dd124ccff6ff2118fcf27d8e93f62f90c9a4", @"/Areas/Teacher/Views/_ViewImports.cshtml")]
     public class Areas_Teacher_Views_Shared_Components_TeacherAside_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/img/logo.png"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,7 +89,7 @@ using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("   <aside id=\"Aside\">\r\n            <a  class=\"logo-container\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "231ce3974b9900fed8728d27cdebd2f5ecf5b8e86182", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "231ce3974b9900fed8728d27cdebd2f5ecf5b8e86458", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -118,7 +125,7 @@ using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
                     </li>
                     <li class=""sidebar-menu-item"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "231ce3974b9900fed8728d27cdebd2f5ecf5b8e88421", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "231ce3974b9900fed8728d27cdebd2f5ecf5b8e88697", async() => {
                 WriteLiteral("\r\n                            <i class=\"fas fa-book-open aside-icon\" aria-hidden=\"true\"></i>\r\n                            <span class=\"aside-title\">Subject</span>");
             }
             );

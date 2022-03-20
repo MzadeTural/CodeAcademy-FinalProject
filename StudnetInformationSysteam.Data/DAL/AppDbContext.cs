@@ -30,6 +30,7 @@ namespace StudnetInformationSysteam.Data.DAL
         public DbSet<SubjectTeacher> SubjectTeachers { get; set; }
         public DbSet<UserExam> UserExams { get; set; }
         public DbSet<Document> Documents { get; set; }
+        public DbSet<LessonType> LessonTypes { get; set; }
 
         
 

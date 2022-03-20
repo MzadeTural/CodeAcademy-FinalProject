@@ -132,7 +132,7 @@
                 <input name="nav" type="radio" class="contact-radio" id="contact"/>
                 <div class="page contact-page">
                     <div class="page-contents">
-                      <div class="col-lg-10"> <a asp-route-id="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="AddEvaluation" asp-controller="TeacherSubject"  class="btn btn-outline-success">Add</a> </div>
+                      <div class="col-lg-10"> <a asp-route-groupId="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="Create" asp-controller="TeacherLesson"  class="btn btn-outline-success">Add</a> </div>
                        
                 <section class="mt-5 ">
     <div class="container animate_animated animatebackInDown animate_delay-0.5s">
@@ -143,23 +143,28 @@
                     <thead>
                       <tr>
                         <th scope="col">Students name</th>
-                        <th scope="col">Kol-1</th>
-                        <th scope="col">Kol-2</th>
-                        <th scope="col">Kol-3</th>
-                        <th scope="col">Final-Exam</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Topic</th>
+                        <th scope="col">Score</th>
+                       
                       </tr>
                     </thead>
                     <tbody>
                          
-                             @foreach(var i in Model.AppUsers){
+                             @foreach(var lesson in Model.Lessons){
                                <tr> 
-                        <th scope="row">@i.FullName</th>
-                        @foreach (var exam in i.UserExams)
-                        {
-
-                             <td>@exam.Scoor</td>
-                                
-                        }
+                                   <td>
+                                       @lesson.AppUser.FullName
+                                   </td>
+                                    <td>
+                                       @lesson.LessonType.Name
+                                   </td>
+                                   <td>
+                                       @lesson.Name
+                                   </td>
+                                    <td>
+                                       @lesson.Score
+                                   </td>
                             
                             </tr>   
                              } 

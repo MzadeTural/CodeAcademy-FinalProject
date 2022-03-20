@@ -7,7 +7,7 @@ namespace StudentInformationSysteam.Business.ViewModel.TeacherSubject
 {
     public class SubjectDetailVM
     {
-        public List<AppUser> AppUsers { get; set; }
+        public List<Lesson> Lessons { get; set; }
         public List<Document> Documents { get; set; }
 
     }

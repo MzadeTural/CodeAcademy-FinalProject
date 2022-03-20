@@ -47,9 +47,8 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
         public async Task<IActionResult> Details(int id,int sbjId)
         {
             var currentUser = await _userManager.GetUserAsync(User);
-            var subjectId = _context.SubjectTeachers.Where(i => i.AppUserId == currentUser.Id).Select(i => i.Subject.Id).FirstOrDefault();
 
-            List<string> getClassToUserIds = _context.UserGroups
+            List<string> getGroupToUserIds = _context.UserGroups
                                                  .Where(a => a.GroupId == id)
                                                  .Select(b => b.AppUserId)
                                                  .Distinct()
@@ -59,6 +58,12 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
                                                .Select(b => b.AppUserId)
                                                .Distinct()
                                                .ToList();
+            List<string> getExamToUserIds = _context.UserExams
+                                               .Where(a => a.SubjectId == sbjId)
+                                               .Select(b => b.AppUserId)
+                                               .Distinct()
+                                               .ToList();
+           
             List<int> documentGroupId = _context.Documents
                                                .Where(a => a.GroupId == id)
                                                .Select(b => b.Id)
@@ -72,11 +77,19 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
             List<string> getStudentToUserIds = _context.UserRoles.Where(a => a.RoleId == "36f0a116-ef5a-49ad-8395-1d542cb45174").Select(b => b.UserId).Distinct().ToList();
 
             var getClassToStudent = _context.Users
-                                          .Where(a => getClassToUserIds.Any(c => c == a.Id) && getStudentToUserIds.Any(c => c == a.Id) && getSubjectToUserIds.Any(c => c == a.Id)).Include(i => i.UserExams).ThenInclude(i => i.Exam).ToList();
+                                          .Where(a => getGroupToUserIds.Any(c => c == a.Id) && getStudentToUserIds.Any(c => c == a.Id) && getExamToUserIds.Any(c => c == a.Id) && getSubjectToUserIds.Any(c => c == a.Id)).Include(i => i.UserExams).ThenInclude(i => i.Exam).ToList();
+        
+            var getClassToStudents = _context.Users                                        
+                .Where(a => getGroupToUserIds.Any(c => c == a.Id)).Include(i => i.UserExams).ThenInclude(i => i.Exam).ToList();
+            //////
+               var lessons = _context.Lesssons.Where(a => getGroupToUserIds.Any(c => c == a.AppUserId) && a.SubjectId == sbjId).Include(x => x.AppUser).Include(s=>s.LessonType).ToList();
 
+
+
+            ////
             SubjectDetailVM subjectDetail = new SubjectDetailVM
             {
-                AppUsers= getClassToStudent,
+                Lessons= lessons,
                 Documents =_context.Documents.Where(a => documentGroupId.Any(c => c == a.Id) && documenSubjectId.Any(c => c == a.Id) ).ToList()
 
               };
@@ -126,7 +139,7 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
             }
 
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","TeacherSubject");
         }
        
 

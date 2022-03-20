@@ -412,19 +412,47 @@ namespace StudnetInformationSysteam.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("LessonTypeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("LessonTypeId");
+
                     b.HasIndex("SubjectId");
 
                     b.ToTable("Lesssons");
+                });
+
+            modelBuilder.Entity("StudentIformationSysteam.Core.Models.LessonType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LessonTypes");
                 });
 
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Semester", b =>
@@ -543,6 +571,9 @@ namespace StudnetInformationSysteam.Data.Migrations
 
                     b.Property<double>("Scoor")
                         .HasColumnType("float");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -712,6 +743,16 @@ namespace StudnetInformationSysteam.Data.Migrations
 
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Lesson", b =>
                 {
+                    b.HasOne("StudentIformationSysteam.Core.Models.AppUser", "AppUser")
+                        .WithMany("Lessons")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("StudentIformationSysteam.Core.Models.LessonType", "LessonType")
+                        .WithMany("Lesson")
+                        .HasForeignKey("LessonTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("StudentIformationSysteam.Core.Models.Subject", "Subject")
                         .WithMany("Lessons")
                         .HasForeignKey("SubjectId")
@@ -785,11 +826,11 @@ namespace StudnetInformationSysteam.Data.Migrations
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.UserLesson", b =>
                 {
                     b.HasOne("StudentIformationSysteam.Core.Models.AppUser", "AppUser")
-                        .WithMany("UserLessons")
+                        .WithMany()
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("StudentIformationSysteam.Core.Models.Lesson", "Lessson")
-                        .WithMany("UserLessons")
+                        .WithMany()
                         .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

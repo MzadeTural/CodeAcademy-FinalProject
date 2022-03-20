@@ -41,7 +41,7 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
         public async Task<IActionResult> Upload( UploadVM upload,int id,int sbjId)
         {
             if (!ModelState.IsValid) return View();
-            if (!CheckImageValid(upload.File))
+            if (!CheckFileValid(upload.File))
             {
                 ModelState.AddModelError("Files", _errorMessage);
                 return View();
@@ -74,7 +74,7 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
             // Return the file. A byte array can also be used instead of a stream
             return File(fs, "assets/document", userFromSubject);
         }
-        private bool CheckImageValid(IFormFile file)
+        private bool CheckFileValid(IFormFile file)
         {
             int size = 300;
 
