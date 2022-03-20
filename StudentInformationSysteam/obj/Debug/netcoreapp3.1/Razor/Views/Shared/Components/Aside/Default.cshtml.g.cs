@@ -33,8 +33,15 @@ using StudentInformationSysteam.Business.ViewModel.StudentProfile;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudentInformationSysteam\Views\_ViewImports.cshtml"
+using StudentInformationSysteam.Business.ViewModel.TeacherSubject;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"29e48124c602a151220061bce0d602c9f2a989e0", @"/Views/Shared/Components/Aside/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d3b41313482990f2a25baee5b04e4a5a8b1df1ce", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"75d3b29760879f223548e023442c6451b5aa6794", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Aside_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/img/logo.png"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -72,7 +79,7 @@ using StudentInformationSysteam.Business.ViewModel.StudentProfile;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<aside id=\"Aside\">\r\n            <a  class=\"logo-container\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "29e48124c602a151220061bce0d602c9f2a989e06745", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "29e48124c602a151220061bce0d602c9f2a989e07008", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -94,7 +101,7 @@ using StudentInformationSysteam.Business.ViewModel.StudentProfile;
                 <ul class=""sidebar-menu"">
                     <li class=""sidebar-menu-item "">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e08164", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e08427", async() => {
                 WriteLiteral("\r\n                            <i class=\"fa fa-home aside-icon \" aria-hidden=\"true\"></i>\r\n                            <span class=\"aside-title\">Home</span>");
             }
             );
@@ -113,7 +120,7 @@ using StudentInformationSysteam.Business.ViewModel.StudentProfile;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </li>\r\n                    <li class=\"sidebar-menu-item\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e09875", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e010138", async() => {
                 WriteLiteral("\r\n                            <i class=\"fa fa-user aside-icon\" aria-hidden=\"true\"></i>\r\n                            <span class=\"aside-title\">Student Dahsboard</span>");
             }
             );
@@ -132,7 +139,7 @@ using StudentInformationSysteam.Business.ViewModel.StudentProfile;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </li>\r\n                    <li class=\"sidebar-menu-item\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e011598", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e011862", async() => {
                 WriteLiteral("\r\n                            <i class=\"fas fa-book-open aside-icon\" aria-hidden=\"true\"></i>\r\n                            <span class=\"aside-title\">Lessons</span>");
             }
             );
@@ -151,7 +158,7 @@ using StudentInformationSysteam.Business.ViewModel.StudentProfile;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                \r\n                        </li>\r\n\r\n                    <li class=\"sidebar-menu-item\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e013346", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29e48124c602a151220061bce0d602c9f2a989e013610", async() => {
                 WriteLiteral("\r\n                            \r\n                            <i class=\"fas fa-list-alt aside-icon\" aria-hidden=\"true\"></i>\r\n                            <span class=\"aside-title\">Transcript</span>");
             }
             );

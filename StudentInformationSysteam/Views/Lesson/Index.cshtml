@@ -10,39 +10,25 @@
 </section>
 <section class="py-5">
     <div class="container-fluid">
-       @* <ol class="ol-cards">
-            @foreach (var item in Model.UserGroups)
+<ol class="ol-cards">
+       @foreach (var item in Model.UserGroups)
 
             { 
                 @foreach (var iterator in item.Group.GroupSubjects)
                 {
+                    
                     <li style="--accent-color: #EE5830" class="lesson-items">
-                        <div class="icon"><i class="fas fa-book-reader"></i></div>
-
-                        <a asp-action="Index" asp-controller="LessonsDetail" class="title">@iterator.Subject.Name</a>
-
-                    </li>
-                    
-                }
-            }
-
-
-        </ol>*@
-        @foreach (var item in Model.UserGroups)
-
-            { 
-                @foreach (var iterator in item.Group.GroupSubjects)
-                {
-                    
-                    <div class="col-lg-4">
-                     
-                           <div id="react-root">   <a asp-action="Index" asp-controller="LessonsDetail" class="title">@iterator.Subject.Name</a></div>
-                           </div>
+        <div class="icon"><i class="fas fa-book-reader"></i></div>
+        <a  asp-route-id="@iterator.GroupId" asp-route-sbjId="@iterator.Subject.Id" asp-action="Index" asp-controller="LessonsDetail" class="title"> @iterator.Subject.Name </a>
+       
+    </li>
                  
                 }
             }
-     
-    </div>
+   
+    
+</ol>
+</div>
 </section>
 <script>
 

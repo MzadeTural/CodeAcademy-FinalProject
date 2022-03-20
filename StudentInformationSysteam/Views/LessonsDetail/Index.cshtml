@@ -1,4 +1,9 @@
-﻿<section>
+﻿
+@model SubjectDetailVM
+@{
+    int docCount = 1;
+}
+<section>
             <link
                 href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
                 rel="stylesheet">
@@ -23,18 +28,33 @@
                                 
                               </li>
 
-                              <li class=" table-row">
-                                <div class="col col-2" data-label="№">1</div>
-                                <div class="col col-6" data-label="File Name">Muhazire.docx </div>
-                                <div class="col col-2" data-label="Attendance"><i class="fas fa-file-download"></i></div>
+                              @if (Model.Documents.Count() != 0)
+                        {
+                            
+                      
+                        @foreach (var doc in Model.Documents)
+                               {
+                                    <li class=" table-row">
+                                    <div class="col col-2" data-label="№">@docCount</div>
+                                    <div class="col col-6" data-label="File Name"> @doc.Title
+                                    </div>
+                                    <div class="col col-2" data-label="Download">
+                                       <a asp-action="DownloadFile" asp-controller="Document" asp-route-id="@doc.Id"> <i class="fas fa-file-download"></i></a>
+                                    </div>
+
+                            </li>
+                            docCount++;
+                        }
+                                }
+                                else
+                                {
+                                    <li class=" table-row">
+                                        <div class="col-lg-12">
+                                            <h2 class="text-center">No Yet Document</h2>
+                                        </div>
+                                   </li>
+                                }
                                 
-                              </li>
-                              <li class=" table-row">
-                                <div class="col col-2" data-label="№">2</div>
-                                <div class="col col-6" data-label="File Name">lesson.pptx</div>
-                                <div class="col col-2" data-label="Download"> <a href=""><i class="fas fa-file-download"></i>  </a></div>
-                              
-                              </li>
                              
                              
                             </ul>
@@ -42,127 +62,99 @@
 
                     </div>
                 </div>
-                <label class="nav" for="home">
+                <label class="nav" for="home" style="position: relative;
+    left: 45%;">
                     
                         Didactic material
                     </span>
                 </label>
 
-                <input name="nav" type="radio" class="about-radio" id="about"/>
-                <div class="page about-page">
-                    <div class="page-contents">
-                        <div class="container my-3">
-
-                            <ul class="attendance-table">
-                              <li class="table-header">
-                                <div class="col col-2">№</div>
-                                <div class="col col-4">Lesson Date</div>
-                                <div class="col col-3">Attendance</div>
-                                
-                              </li>
-
-                              <li class=" table-row">
-                                <div class="col col-2" data-label="№">1</div>
-                                <div class="col col-4" data-label="Lesson Date">28/02 </div>
-                                <div class="col col-3" data-label="Attendance"><span style="font-size: 1.1rem;" class="badge bg-soft-danger text-danger">q.b</span></div>
-                                
-                              </li>
-                              <li class=" table-row">
-                                <div class="col col-2" data-label="№">2</div>
-                                <div class="col col-4" data-label="Lesson Date">27/02</div>
-                                <div class="col col-3" data-label="Download"> <a href=""><span style="font-size: 1.1rem;" class="badge bg-soft-success text-success">i.e</span> </a></div>
-                              
-                              </li>
-                             
-                             
-                            </ul>
-                          </div>
-                    </div>
-                </div>
-                <label class="nav" for="about">
-                    <span>
-                      <svg><use href="/FinalProject/assets/img/attendance.svg"/></svg>
-                      
-                        Attendance
-                    </span>
+              
+                    
                 </label>
 
                 <input name="nav" type="radio" class="contact-radio" id="contact"/>
                 <div class="page contact-page">
                     <div class="page-contents">
                       
-                        <div class="container container-evaluation my-3" >
-                            <ul class="evaluation-table">
-                              <li class="table-header">
-                                <div class="col col-1">№</div>
-                                <div class="col col-2">Type of teaching</div>                             
-                                <div class="col col-4"> Subject</div>
-                                <div class="col col-1">Point</div>
-                                <div class="col col-2">start date</div>
-                                <div class="col col-2">end date</div>                            
-                              </li>
-
-                              <li class=" table-row">
-                                <div class="col col-1" data-label="№">1</div>
-                                <div class="col col-2" data-label="Type of teaching">Mesgele </div>
-                                <div class="col col-4" data-label="Subject"> <button data-toggle="modal" data-target="#myModal"> Ehtimal nəzəriyyəsinin predmeti. Ehtimalın sadə xassələri.</button>
-                                    
-                                      
-                                </div>
-                                
-                                <div class="col col-1" data-label="Point">10</div>
-                                <div class="col col-2" data-label="start date">10.10.2020 </div>
-                                <div class="col col-2" data-label="end date">10.10.2020</div>
-                                
-                              </li>
-                              <div class="modal"  id="myModal" class="modal fade" role="dialog" tabindex="-1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content" >
-                                      <div class="modal-header">
-                                        <h5 class="modal-title">Upload File</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                       
-
-                                       <div>
-                                        <form class="box" method="post" action="" enctype="multipart/form-data">
-                                            <div class="box__input">
-                                              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-                                             
-                                            </div>
-                                          
-                                          </form>
-                                       </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              <li class=" table-row">
-                                <div class="col col-1" data-label="№">1</div>
-                                <div class="col col-2" data-label="Type of teaching">Mesgele </div>
-                                <div class="col col-4" data-label="Subject">Ehtimal nəzəriyyəsinin predmeti. Ehtimalın sadə xassələri.</div>
-                                <div class="col col-1" data-label="Point">10</div>
-                                <div class="col col-2" data-label="start date">10.10.2020 </div>
-                                <div class="col col-2" data-label="end date">10.10.2020</div>
-                                
-                              </li>
-                             
-                             
-                            </ul>
+                                 
+                <section class="mt-5 ">
+    <div class="container animate_animated animatebackInDown animate_delay-0.5s">
+        
+        <div class="row">
+            <div class="col-12">
+                 @if(Model.Lessons.Count()!=0)
+                 {
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                      
+                        <th scope="col">Type</th>
+                        <th scope="col">Topic</th>
+                        <th scope="col">Score</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                       
+                         
+                             @foreach(var lesson in Model.Lessons){
+                               <tr> 
+                                  
+                                    <td>
+                                       @lesson.LessonType.Name
+                                   </td>
+                                   <td>
+                                       @lesson.Name
+                                   </td>
+                                    <td>
+                                       @lesson.Score
+                                   </td>
                             
-                          </div>
+                            </tr>   
+                             }  
+                       
+                        
+                
+                    </tbody>
+                  </table>
+                  }
+                  else
+                                {
+                                    
+                                        <div class="col-lg-12">
+                                            <h3 class="text-center text-warning">No Student Has been Graded Yet</h3>
+                                        </div>
+                                   
+                                }
+                        
+                
+            </div>
+            <div class="col-12 my-4">
+              @*  <a asp-action=GetClases class=" min-card">Back</a>
+                
+                   @{
+                   var user = Model.FirstOrDefault();
+                    if(user.UserExams.Count()!=4)
+                        {
+                              <a asp-action=AddEvaluation asp-route-id=@ViewBag.Class.Id  class="create-btn">Added</a>
+                        }else{
+                            <span class="btn btn-danger text-light py-2 ">All values ​​have already been entered </span>
+                        }
+                
+               }
+               *@
+            </div>
+        </div>
+    </div>
+
+</section>
                 
                        
                     </div>
                 </div>
-                <label class="nav" for="contact">
+                <label class="nav" for="contact" style="position: relative;
+    left: 50%;">
                     <span>
                        
                         Evaluation
