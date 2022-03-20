@@ -18,7 +18,7 @@ namespace StudentIformationSysteam.Core.Models
 
         public int? CourseId { get; set; }
         public Course Course { get; set; }     
-        public int SpecialityId { get; set; }
+        public int? SpecialityId { get; set; }
         public Speciality Speciality { get; set; }
         public int? GenderId { get; set; }
         public Gender Gender { get; set; }

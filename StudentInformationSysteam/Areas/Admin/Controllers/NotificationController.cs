@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
+
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class NotificationController : Controller
     {
         // GET: NotificationController

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
@@ -8,8 +9,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
-{
+{//[Authorize(Roles = "SuperAdmin,Admin")]
     [Area("Admin")]
+     [Authorize(Roles ="Admin")]
     public class DashboardController : Controller
     {
         private readonly AppDbContext _context;

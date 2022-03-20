@@ -210,7 +210,7 @@ namespace StudnetInformationSysteam.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SpecialityId")
+                    b.Property<int?>("SpecialityId")
                         .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -691,9 +691,7 @@ namespace StudnetInformationSysteam.Data.Migrations
 
                     b.HasOne("StudentIformationSysteam.Core.Models.Speciality", "Speciality")
                         .WithMany("AppUsers")
-                        .HasForeignKey("SpecialityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpecialityId");
                 });
 
             modelBuilder.Entity("StudentIformationSysteam.Core.Models.Document", b =>

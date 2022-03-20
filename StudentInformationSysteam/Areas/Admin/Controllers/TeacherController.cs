@@ -1,10 +1,28 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using StudentIformationSysteam.Core.Models;
+using StudentInformationSysteam.Business.ViewModel.TeacherVMs;
+using StudnetInformationSysteam.Data.DAL;
+using System.Threading.Tasks;
 
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+      [Area("Admin")]
     public class TeacherController : Controller
     {
+        private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+
+        public TeacherController(AppDbContext context,UserManager<AppUser> userManager)
+        {
+            _context = context;
+            _userManager = userManager;
+        }
         // GET: TeacherController
         public ActionResult Index()
         {
@@ -18,24 +36,48 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
 
         // GET: TeacherController/Create
-        public ActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Genders = new SelectList(await _context.Genders.ToListAsync(), "Id", "Name");
             return View();
+
         }
 
         // POST: TeacherController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(TeacherCreateVM teacherCreate)
         {
-            try
+            if (!ModelState.IsValid) return View();
+            var IsExist = await _userManager.FindByNameAsync(teacherCreate.UserName);
+            if (IsExist != null)
             {
+                ModelState.AddModelError("Name", "This User already exist");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            AppUser newUser = new AppUser
             {
-                return View();
+                FullName = teacherCreate.FullName,
+                FatherName = teacherCreate.FatherName,
+                UserName = teacherCreate.UserName,
+                GenderId = teacherCreate.GenderId,
+               
+                Email = teacherCreate.Email,
+                Identifier = teacherCreate.Identifier,
+
+            };
+            IdentityResult identityResult = await _userManager.CreateAsync(newUser, "Teacher123@");
+            if (!identityResult.Succeeded)
+            {
+                foreach (var error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(teacherCreate);
             }
+            await _userManager.AddToRoleAsync(newUser, UserRoles.Teacher.ToString());
+
+            return RedirectToAction(nameof(Create));
         }
 
         // GET: TeacherController/Edit/5

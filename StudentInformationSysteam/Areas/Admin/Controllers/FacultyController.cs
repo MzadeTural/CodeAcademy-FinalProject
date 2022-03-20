@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentIformationSysteam.Core.Models;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 namespace StudentInformationSysteam.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class FacultyController : Controller
     {
         private readonly AppDbContext _context;

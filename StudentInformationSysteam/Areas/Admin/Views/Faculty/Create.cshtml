@@ -12,8 +12,8 @@
         <h2 id="register__title" class="text-center">Add new faculty</h2>
         <div class="register__box">
             <label for="user"> Name<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="Name"  maxLength="64" required placeholder="Faculty Name">
-             <span asp-validation-for="Name"></span>
+            <input id="user" autocomplete="off" asp-for="Name"  maxLength="64" required placeholder="Faculty Name">
+             <span class="text-danger" asp-validation-for="Name"></span>
         </div>
        
      

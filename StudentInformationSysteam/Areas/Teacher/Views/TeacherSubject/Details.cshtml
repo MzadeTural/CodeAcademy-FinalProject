@@ -139,6 +139,8 @@
         
         <div class="row">
             <div class="col-12">
+                 @if(Model.Lessons.Count()!=0)
+                 {
                 <table class="table table-hover">
                     <thead>
                       <tr>
@@ -150,6 +152,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                       
                          
                              @foreach(var lesson in Model.Lessons){
                                <tr> 
@@ -167,13 +170,22 @@
                                    </td>
                             
                             </tr>   
-                             } 
-                        
+                             }  
                        
                         
                 
                     </tbody>
                   </table>
+                  }
+                  else
+                                {
+                                    
+                                        <div class="col-lg-12">
+                                            <h3 class="text-center text-warning">No Student Has been Graded Yet</h3>
+                                        </div>
+                                   
+                                }
+                        
                 
             </div>
             <div class="col-12 my-4">

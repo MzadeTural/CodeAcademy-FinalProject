@@ -16,7 +16,8 @@
              <div class="col-lg-4" >
                  <label style="  padding-left: 1rem;" >Topic</label>
                  <input style="border: 1px solid #ced4da;
-                             " asp-for="Name" />
+                             " asp-for="Name" required />
+                  <span asp-validation-for="Name"></span>
                    </div>
             <div class="col-lg-4" >
                 
@@ -46,7 +47,8 @@
           <tr>
       <th scope="row">@count</th>
       <td>@stu.FullName <input type="hidden" asp-for="AppUserId"  value="@stu.Id" style="border-bottom:1px solid" /> </td>
-      <td class="text-center"> <input type="number" asp-for="Score" max="100" min="0" style="border-bottom:1px solid" /></td>
+      <td class="text-center"> <input required type="number" asp-for="Score" max="100" min="0" style="border-bottom:1px solid" />
+                                                                                           <span asp-validation-for="Score"></span>                                  </td>
       
                             </tr>
                             count++;

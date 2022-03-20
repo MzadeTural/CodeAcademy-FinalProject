@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+  
+}
+
+@*@{
+    Layout = null;
+    }
+*@
+@model CreateVM
+<section class="my-5">
+    <form id="register" method="post" enctype="multipart/form-data">
+        <div  class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-relative my-3">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+        <h2 id="register__title" class="text-center">Add new student</h2>
+        <div class="register__box">
+            <label for="user">Full Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="FullName"autocomplete="off" maxLength="64" required placeholder="Full Name">
+        </div>
+        <div class="register__box">
+            <label for="user">User Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="UserName"autocomplete="off"  maxLength="9" required placeholder="User Name">
+        </div>
+        <div class="register__box">
+            <label>Father Name<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="FatherName"autocomplete="off" maxLength="64" required placeholder="Father Name">
+        </div>
+        <div class="register__box">
+            <label asp-for="Identifier">Identifier<i class="fas fa-asterisk"></i></label>
+            <input id="user" asp-for="Identifier" autocomplete="off" maxLength="15" required placeholder="Identifier ">
+        </div>
+        <div class="register__box">
+            <label for="mail">E-mail<i class="fas fa-asterisk"></i></label>
+            <input id="mail" type="email" size="64" maxLength="64" asp-for="Email" autocomplete="off" required placeholder="Example@gmail.com" title="Example@gmail.com">
+        </div>
+        <div class="container my-lg-3">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="register__box conteiner__check">
+                        <label for="genders">Gender</label>
+                        <div class="select" style="font-family: ui-rounded;;width:100% !important">
+
+                            <select asp-for="GenderId" asp-items="@ViewBag.Genders">
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+               
+              
+            </div>
+        </div>
+
+        <button id="register__btn">Add Teacher</button>
+    </form>
+    <div id="overlay" class="hidden">
+        <div id="avatar"></div>
+    </div>
+</section>
+
+
+

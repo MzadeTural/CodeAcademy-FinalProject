@@ -9,10 +9,12 @@ using StudentIformationSysteam.Core.Models;
 using StudentInformationSysteam.Business.ViewModel.DocumentVMs;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StudentInformationSysteam.Areas.Teacher.Controllers
 {
     [Area("Teacher")]
+    [Authorize(Roles = "Teacher")]
     public class DocumentController : Controller
     {
         private AppDbContext _context;

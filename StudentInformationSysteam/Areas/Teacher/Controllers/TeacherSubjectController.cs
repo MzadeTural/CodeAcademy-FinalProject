@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 namespace StudentInformationSysteam.Areas.Teacher.Controllers
 {
     [Area("Teacher")]
+    [Authorize(Roles = "Teacher")]
     public class TeacherSubjectController : Controller
     {
         public AppDbContext _context { get; }
