@@ -22,14 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Teacher\Data\" />
-    <Folder Include="Areas\Teacher\Models\" />
+    <ProjectReference Include="..\StudentInformationSysteam.Business\StudentInformationSysteam.Business.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StudentInformationSysteam.Business\StudentInformationSysteam.Business.csproj" />
+    <Folder Include="wwwroot\assets\document\" />
   </ItemGroup>
 
 </Project>

@@ -42,6 +42,18 @@ namespace StudentInformationSysteam.Controllers
 
             var currentUser = await _userManager.GetUserAsync(User);
 
+
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "dcd64b81-e06e-41e3-8da5-0d1bb45cc2bd").Select(b => b.UserId).Distinct().ToList();
+            List<string> userSbj = _context.SubjectTeachers.Where(a => a.SubjectId == sbjId).Select(b => b.AppUserId).Distinct().ToList();
+            List<string> sbjTeacher = _context.UserGroups.Where(a => a.GroupId == id).Select(b => b.AppUserId).Distinct().ToList();
+            //  var abc=_context.UserGroups
+            var techer = _context.Users.Where(a => userids
+                                     .Any(c => c == a.Id) && userSbj
+                                     .Any(c => c == a.Id) && sbjTeacher
+                                     .Any(c => c == a.Id)).ToList();
+
+
+
             List<string> getGroupToUserIds = _context.UserGroups
                                                  .Where(a => a.GroupId == id)
                                                  .Select(b => b.AppUserId)
@@ -78,12 +90,13 @@ namespace StudentInformationSysteam.Controllers
             //////
            // var lessons = _context.Lesssons.Where(a => getGroupToUserIds.Any(c => c == a.AppUserId) && a.SubjectId == sbjId).Include(x => x.AppUser).Include(s => s.LessonType).ToList();
 
-            var lessons = await _context.Lesssons.Where(s => s.AppUserId == currentUser.Id).Include(l => l.LessonType).ToListAsync();
+            var lessons = await _context.Lesssons.Where(s => s.AppUserId == currentUser.Id && s.SubjectId== sbjId).Include(l => l.LessonType).ToListAsync();
 
             ////
             SubjectDetailVM subjectDetail = new SubjectDetailVM
             {
                 Lessons = lessons,
+                Teachers= techer,
                 Documents = _context.Documents.Where(a => documentGroupId.Any(c => c == a.Id) && documenSubjectId.Any(c => c == a.Id)).ToList()
 
             };

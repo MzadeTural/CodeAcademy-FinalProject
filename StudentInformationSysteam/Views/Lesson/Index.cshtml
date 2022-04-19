@@ -1,33 +1,60 @@
-﻿@model AppUser
+﻿@{
+
+    ViewData["Title"] = "Subject"; 
+}
+
+@model AppUser
 <section id="TitleLesson">
     <div class="container ">
         <div class="row">
             <div class="col-12">
-                <div class="section-title">Lessons</div>
+                <div class="section-title">Subjects</div>
             </div>
         </div>
     </div>
 </section>
 <section class="py-5">
     <div class="container-fluid">
-<ol class="ol-cards">
+        <div class="row">
+@*<ol class="ol-cards">*@
        @foreach (var item in Model.UserGroups)
 
             { 
                 @foreach (var iterator in item.Group.GroupSubjects)
                 {
-                    
+              @*      
                     <li style="--accent-color: #EE5830" class="lesson-items">
         <div class="icon"><i class="fas fa-book-reader"></i></div>
         <a  asp-route-id="@iterator.GroupId" asp-route-sbjId="@iterator.Subject.Id" asp-action="Index" asp-controller="LessonsDetail" class="title"> @iterator.Subject.Name </a>
        
-    </li>
-                 
+    </li>*@
+                
+    
+
+    <div class="col-md-4 service-block">
+                    <div class="service-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3>
+                                <a > @iterator.Subject.Name</a>
+                            </h3>
+                            <p>@item.Group.Name</p>
+                            <div class="btn-box">
+                                <a  asp-route-sbjId="@iterator.Subject.Id"asp-action="Index" asp-controller="LessonsDetail" asp-route-id="@iterator.GroupId" class="theme-btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 }
             }
    
     
-</ol>
+@*</ol>*@
+</div>
 </div>
 </section>
 <script>

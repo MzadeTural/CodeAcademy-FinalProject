@@ -32,9 +32,7 @@ namespace StudentInformationSysteam.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
-            //IsAuthenticated();
-            //ViewData["ReturnUrl"] = returnUrl;
-
+           // IsAuthenticated();
             return View();
         }
 
@@ -130,7 +128,7 @@ namespace StudentInformationSysteam.Controllers
         {
             if (!ModelState.IsValid) return View(changePassword);
             AppUser user = await _userManager.GetUserAsync(User);
-            if (user == null) return Content("NULL");
+            if (user == null) return NotFound();
 
             var changetPassResult = await _userManager.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
             if (!changetPassResult.Succeeded)
@@ -145,6 +143,16 @@ namespace StudentInformationSysteam.Controllers
 
             return RedirectToAction(nameof(Login));
         }
+        //private void IsAuthenticated()
+        //{
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        throw new Exception("You already authenticated!");
+
+
+        //    }
+
+        //}
         #region
         //public async Task CreateRolesandUsers()
         //{

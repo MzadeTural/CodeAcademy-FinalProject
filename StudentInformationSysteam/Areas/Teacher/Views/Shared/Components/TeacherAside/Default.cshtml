@@ -5,9 +5,9 @@
             <p class="sidebar-heading">Teacher</p>
             <a id="CloseBtn" class="close-aside" ><i class="fas fa-times"></i></a>
             <nav>
-                <ul class="sidebar-menu">
+                <ul class="side-menu">
                     <li class="sidebar-menu-item ">
-                        <a href="" class="aside-link active">
+                        <a asp-action="Index" asp-controller="TeacherHome" class="aside-link active">
                             <i class="fa fa-home aside-icon " aria-hidden="true"></i>
                            
                             <span class="aside-title">Home</span></a>
@@ -15,7 +15,7 @@
                     <li class="sidebar-menu-item">
                         <a asp-action="Index" asp-controller="TeacherProfile" class="aside-link">
                             <i class="fa fa-user aside-icon" aria-hidden="true"></i>
-                            <span class="aside-title">Personel Information</span></a>
+                            <span class="aside-title">Personal Information</span></a>
                     </li>
                     <li class="sidebar-menu-item">
                         <a asp-action="Index" asp-controller="TeacherSubject" class="aside-link">

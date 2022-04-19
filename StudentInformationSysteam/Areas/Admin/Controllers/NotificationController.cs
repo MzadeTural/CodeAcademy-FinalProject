@@ -60,6 +60,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             };
             await _context.Notifications.AddAsync(notification);
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Notification sent";
             return RedirectToAction(nameof(Create));
         }
 

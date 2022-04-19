@@ -31,18 +31,30 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
         // GET: SubjectController
         public async Task<IActionResult> Index()
         {
-            AppUser userI = await _userManager.GetUserAsync(User);
+
+            AppUser currentUser = await _userManager.GetUserAsync(User);
 
             AppUser userDetails = await _context.Users
                .Include(ab => ab.UserGroups)
                .ThenInclude(b => b.Group)
                .ThenInclude(b => b.GroupSubjects)
               .ThenInclude(b => b.Subject)
-               .FirstOrDefaultAsync(n => n.Id == userI.Id);
+               .FirstOrDefaultAsync(n => n.Id == currentUser.Id);
 
 
-            return View(userDetails);
-           
+
+            List<string> getStudentToUserIds = _context.UserRoles.Where(a => a.RoleId == "dcd64b81-e06e-41e3-8da5-0d1bb45cc2bd").Select(b => b.UserId).Distinct().ToList();
+            var getSubjectToUserIds = _context.SubjectTeachers
+                                               .Where(a => a.AppUserId == currentUser.Id)
+                                               .Select(b => b.SubjectId)
+                                               .Distinct()
+                                               .ToList();
+         
+
+
+            var subjects = _context.SubjectTeachers.Where(a => getSubjectToUserIds.Any(c => c == a.SubjectId) && getStudentToUserIds.Any(c => c == a.AppUserId)).Include(x => x.AppUser).ThenInclude(s => s.UserGroups).ThenInclude(s=>s.Group).ToList();
+           // var sbj=_context.SubjectTeachers.Where(s=>s.AppUserId==currentUser.Id).Select(b=>b.SubjectId).ToList();
+            return View(subjects);
         }
 
         // GET: SubjectController/Details/5

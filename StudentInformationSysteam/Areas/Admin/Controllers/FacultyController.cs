@@ -103,8 +103,9 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                                  .Any(c => c.Name.ToLower().Trim() == facultyCreateVM.Name.ToLower().Trim());
             if (IsExist)
             {
-                ModelState.AddModelError("Name", "This name already exist");
-                return RedirectToAction(nameof(Index));
+                TempData["Warning"] = "This faculty already exist";
+                ModelState.AddModelError("Name","This faculty already exist");
+                return View();
             }
             Faculty faculty = new Faculty
             {
@@ -113,6 +114,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             };
             await _context.Faculties.AddAsync(faculty);
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Faculty Created";
             return RedirectToAction(nameof(FacultyTable));
         }
 
@@ -139,13 +141,14 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                if (dbCategory == null) return NotFound();
                 if (dbCategory.Name.ToLower().Trim() == faculty.Name.ToLower().Trim())
                 {
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(FacultyTable));
                 }
                 bool IsExist = _context.Faculties
                                     .Any(c => c.Name.ToLower().Trim() == faculty.Name.ToLower().Trim());
                 if (IsExist)
                 {
-                    ModelState.AddModelError("Name", "This category already exist");
+                    TempData["Warning"] = "This faculty already exist";
+                    ModelState.AddModelError("Name", "This faculty already exist");
                     return View(dbCategory);
                 }
 
@@ -155,6 +158,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 dbCategory.Name = dbCategory.Name;
 
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Faculty Uptated";
             return RedirectToAction(nameof(FacultyTable));
         }
     }

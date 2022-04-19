@@ -10,7 +10,7 @@
         <div class="register__box">
             <label > Name<i class="fas fa-asterisk"></i></label>
             <input id="user" asp-for="Name" maxLength="64" required placeholder="Full Name">
-            <span asp-validation-for="Name"></span>
+            <span class="text-danger" asp-validation-for="Name"></span>
         </div>
      
         <div class="container my-lg-3">

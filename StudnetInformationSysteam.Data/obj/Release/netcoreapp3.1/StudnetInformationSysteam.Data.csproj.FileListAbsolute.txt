@@ -1,0 +1,16 @@
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudnetInformationSysteam.Data.deps.json
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudnetInformationSysteam.Data.runtimeconfig.json
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudnetInformationSysteam.Data.runtimeconfig.dev.json
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudnetInformationSysteam.Data.dll
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudnetInformationSysteam.Data.pdb
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudentIformationSysteam.Core.dll
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\bin\Release\netcoreapp3.1\StudentIformationSysteam.Core.pdb
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.csproj.AssemblyReference.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.AssemblyInfoInputs.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.AssemblyInfo.cs
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.csproj.CoreCompileInputs.cache
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.csproj.CopyComplete
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.dll
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.pdb
+D:\Folders\CodeAcademyProjetc(Final)\StudentInformationSysteam\StudnetInformationSysteam.Data\obj\Release\netcoreapp3.1\StudnetInformationSysteam.Data.genruntimeconfig.cache

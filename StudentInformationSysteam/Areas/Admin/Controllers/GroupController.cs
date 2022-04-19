@@ -186,8 +186,11 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                                  .Any(c => c.Name.ToLower().Trim() == groupCreate.Name.ToLower().Trim());
             if (IsExist)
             {
-                ModelState.AddModelError("Group Name", "This name already exist");
-                return RedirectToAction(nameof(Create));
+                TempData["Warning"] = "This group name already exist";
+                ModelState.AddModelError("Name", "This group name already exist");
+                ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
+                ViewBag.Faculty = new SelectList(await _context.Faculties.ToListAsync(), "Id", "Name");
+                return View();
             }
 
             Group group = new Group
@@ -200,7 +203,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             await _context.Groups.AddAsync(group);
             await _context.SaveChangesAsync();
 
-
+            TempData["Success"] = "Group Created";
             return RedirectToAction("Create");
 
         }
@@ -288,6 +291,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 await _context.UserGroups.AddAsync(users);
                 await _context.SaveChangesAsync();
             }
+            TempData["Success"] = "The student was added";
             return RedirectToAction("Details", new { Id = id });
         }
         public async Task<IActionResult> AddTeacherToSubject(int id)
@@ -303,6 +307,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
             ViewBag.Teachers = AppUsers;
             ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
+           
             return View();
         }
 
@@ -328,6 +333,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
                 await _context.SubjectTeachers.AddAsync(subjectTeacher);
                 await _context.SaveChangesAsync();
             }
+            TempData["Success"] = "The teacher was added";
             return RedirectToAction("GroupSubject", new { Id = groupId });
 
         }
@@ -373,7 +379,7 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
         }
         public async Task<IActionResult> DeleteStudentFromGroup(string id)
         {
-            AppUser user = await _context.Users.Where(c=>c.Id == id).FirstOrDefaultAsync();
+            AppUser user = await _context.Users.Where(c => c.Id == id).FirstOrDefaultAsync();
             var groupUserList = _context.Groups.Include(x => x.UserGroups).Select(x => x.UserGroups.Where(x => x.AppUserId == id));
             var subjectUserList = _context.Subjects.Include(x => x.SubjectTeachers).Select(x => x.SubjectTeachers.Where(x => x.AppUserId == id));
             if (user == null) return NotFound();
@@ -388,8 +394,8 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
 
 
 
-            await _context.SaveChangesAsync(); 
-            return RedirectToAction("Index","Dashboard");
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Dashboard");
         }
 
         // POST: FroupController/Delete/5

@@ -58,7 +58,7 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
             };
             await _context.Documents.AddAsync(document);
            await _context.SaveChangesAsync();
-           
+            TempData["Success"] = $"{upload.Title} Aded";
             return RedirectToAction("Details","TeacherSubject", new { Id = id,sbjId=sbjId });
          
         }
@@ -140,24 +140,35 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
         }
 
         // GET: DocumentController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //public IActionResult Delete(int id)
+        //{
+        //    var userFromSubject = _context.Documents.Where(i => i.Id == id).Select(i => i.FilePath).FirstOrDefault();
+        //    var doc = _context.Documents.Where(i => i.Id == id).FirstOrDefault();
+
+        //    string resultPath = Path.Combine("assets/document", userFromSubject);
+        //    var path = Path.Combine(_env.WebRootPath, resultPath);
+        //    var fs = new FileStream(path, FileMode.Open);
+
+
+        //    try
+        //    {
+
+        //        if (!System.IO.File.Exists(path))
+        //        {
+        //            return NotFound();
+        //        }
+        //        System.IO.File.Delete(path);
+        //        _context.Documents.Remove(doc);
+        //        return View();
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+
+        //}
 
         // POST: DocumentController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
     }
 }

@@ -16,10 +16,7 @@ namespace StudentInformationSysteam.Areas.Teacher.Controllers
             _context = context;
         }
 
-        public TeacherHomeController()
-        {
-
-        }
+       
         public async Task<IActionResult> Index()
         {
             ViewBag.Notifications = _context.Notifications.OrderByDescending(n => n.Id).Take(5).ToList();

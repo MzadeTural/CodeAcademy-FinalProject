@@ -27,6 +27,7 @@
                                     <div class="col col-2">№</div>
                                     <div class="col col-6">File Name</div>
                                     <div class="col col-2">Dwonload</div>
+                                  
 
                                 </li>
                         @if (Model.Documents.Count() != 0)
@@ -42,6 +43,13 @@
                                     <div class="col col-2" data-label="Attendance">
                                        <a asp-action="DownloadFile" asp-controller="Document" asp-route-id="@doc.Id"> <i class="fas fa-file-download"></i></a>
                                     </div>
+                                   @* <div class="col col-2" data-label="Attendance">
+                                       <a style="font-size: 1.1rem !important; "class="text-secondary font-weight-bold text-xs delete-sweet " data-toggle="tooltip" data-placement="bottom" title="Delete"  asp-action="Delete" asp-controller="Document" asp-route-id="@doc.Id" data-toggle="tooltip" data-original-title="Edit user">
+                        <span class="badge badge-sm bg-gradient-danger text-danger"> <i style="    font-size: 1.3rem;" class="fas fa-trash"></i></span> </a>
+                                    </div>*@
+                                   
+                                    
+                      
 
                             </li>
                             docCount++;
@@ -78,9 +86,11 @@
 
                 <input name="nav" type="radio" class="contact-radio" id="contact"/>
                 <div class="page contact-page">
-                    <div class="page-contents">
-                      <div class="col-lg-10"> <a asp-route-groupId="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="Create" asp-controller="TeacherLesson"  class="btn btn-outline-success">Add</a> </div>
-                       
+                    <div class="page-contents" style="position: relative;
+    top: 12%;">
+                        <div class="row justify-content-center">
+                      <div class="col-lg-10"> <a style="width:100%" asp-route-groupId="@ViewBag.GroupId" asp-route-sbjId="@ViewBag.SubjectId" asp-action="Create" asp-controller="TeacherLesson"  class="btn btn-outline-success">Add</a> </div>
+                       </div>
                 <section class="mt-5 ">
     <div class="container animate_animated animatebackInDown animate_delay-0.5s">
         

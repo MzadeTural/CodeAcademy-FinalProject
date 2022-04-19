@@ -12,22 +12,26 @@
         <div class="register__box">
             <label for="user">Full Name<i class="fas fa-asterisk"></i></label>
             <input id="user" asp-for="FullName"autocomplete="off" maxLength="64" required placeholder="Full Name">
+            <span class="text-danger" asp-validation-for="FullName"></span>
         </div>
         <div class="register__box">
             <label for="user">User Name<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="UserName"autocomplete="off" maxLength="64" required placeholder="User Name">
+            <input id="user" asp-for="UserName"autocomplete="off" maxLength="9"  pattern="[0-9]+" required placeholder="User Name">
+              <span class="text-danger" asp-validation-for="UserName"></span>
         </div>
         <div class="register__box">
             <label>Father Name<i class="fas fa-asterisk"></i></label>
             <input id="user" asp-for="FatherName"autocomplete="off" maxLength="64" required placeholder="Father Name">
+              <span class="text-danger" asp-validation-for="FatherName"></span>
         </div>
         <div class="register__box">
             <label asp-for="Identifier">Identifier<i class="fas fa-asterisk"></i></label>
-            <input id="user" asp-for="Identifier" autocomplete="off" maxLength="64" required placeholder="Identifier ">
+            <input id="user" pattern="^(?:[a-zA-Z][a-zA-Z-][a-zA-Z]{3}+[0-9]{8})$" maxLength="11" asp-for="Identifier" autocomplete="off" maxLength="64" required placeholder="Identifier ">
+              <span class="text-danger" asp-validation-for="Identifier"></span>
         </div>
         <div class="register__box">
             <label for="mail">E-mail<i class="fas fa-asterisk"></i></label>
-            <input id="mail" type="email" size="64" maxLength="64" required placeholder="Example@gmail.com" title="Example@gmail.com">
+            <input id="mail" asp-for="Email" type="email"autocomplete="off" size="64" maxLength="64" required placeholder="Example@gmail.com" title="Example@gmail.com">
         </div>
         <div class="container my-lg-3">
             <div class="row">

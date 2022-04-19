@@ -14,6 +14,7 @@
         <div class="register__box">
             <label for="user"> Name<i class="fas fa-asterisk"></i></label>
             <input id="user" asp-for="Name"   maxLength="64" required placeholder="Faculty Name">
+            <span class="text-danger" asp-validation-for="Name"></span>
              <span ></span>
         </div>
        

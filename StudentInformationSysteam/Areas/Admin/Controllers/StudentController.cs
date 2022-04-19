@@ -49,8 +49,13 @@ namespace StudentInformationSysteam.Areas.Admin.Controllers
             var IsExist = await _userManager.FindByNameAsync(createVM.UserName);
             if (IsExist!=null)
             {
-                ModelState.AddModelError("Name", "This User already exist");
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("UserName", "This User already exist");
+                TempData["Warning"] = "This User already exist";
+                ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "Id", "Name");
+                ViewBag.Specality = new SelectList(await _context.Specialities.ToListAsync(), "Id", "Name");
+                ViewBag.Genders = new SelectList(await _context.Genders.ToListAsync(), "Id", "Name");
+
+                return View(nameof(AddStudent));
             }
             AppUser newUser = new AppUser
             {

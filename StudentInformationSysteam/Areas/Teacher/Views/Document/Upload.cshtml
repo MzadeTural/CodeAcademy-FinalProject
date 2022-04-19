@@ -12,13 +12,13 @@
      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
   <div class="mb-3">
     <label asp-for="File" class="form-label"></label>
-    <input asp-for="File" required   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-   <span asp-validation-for="File"></span>
+    <input asp-for="File" required   accept=".doc,.docx,.txt,.pptx,.pdf"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   <span class="text-danger" asp-validation-for="File"></span>
   </div>
   <div class="mb-3">
     <label asp-for="Title" class="form-label"></label>
     <input asp-for="Title" required class="form-control" id="exampleInputPassword1">
-     <span asp-validation-for="Title"></span>
+     <span class="text-danger" asp-validation-for="Title"></span>
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>

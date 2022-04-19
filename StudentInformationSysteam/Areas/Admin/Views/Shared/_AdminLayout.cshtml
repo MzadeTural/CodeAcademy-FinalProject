@@ -24,9 +24,23 @@
   <link href="~/admin/assets/css/create.css"  rel="stylesheet"/>
   <!-- CSS Files -->
   <link id="pagestyle" href="~/admin/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200 dark-version">
+    @if (TempData["Error"] != null)
+    {
+        <input type="hidden" id="toaster-error" value="@TempData["Error"]" />
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <input type="hidden" id="toaster-success" value="@TempData["Success"]" />
+    }
+    @if (TempData["Warning"] != null)
+    {
+        <input type="hidden" id="toaster-warning" value="@TempData["Warning"]" />
+    }
  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -362,7 +376,7 @@
           },
         },
       },
-    });
+    })
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -380,6 +394,43 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="~/admin/assets/js/material-dashboard.min.js?v=3.0.0"></script>
   <script src="~/admin/assets/js/material-dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script>
+
+        $(function () {
+            if ($("#toaster-error").length) {
+                toastr["error"]($("#toaster-error").val())
+            }
+
+            if ($("#toaster-success").length) {
+                toastr["success"]($("#toaster-success").val())
+            }
+
+            if ($("#toaster-warning").length) {
+                toastr["warning"]($("#toaster-warning").val())
+            }
+
+           toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": false,
+  "positionClass": "toast-top-full-width",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+        })
+
+    </script>
 </body>
 
 </html>

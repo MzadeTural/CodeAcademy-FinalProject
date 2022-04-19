@@ -1,25 +1,33 @@
-﻿@model AppUser
+﻿@{
+
+    ViewData["Title"] = "Student Dashboard"; 
+}
+@model AppUser
 
 <section id="StudentProfil">
     <!-- Student Profile -->
     <div class="student-profile py-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent text-center">
                             <!-- <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt=""> -->
                             <img style="background-color: #5567ff;padding: 0.4rem;" class="profile_img" src="~/assets/img/white.svg" alt="">
                             <h3>@Model.FullName</h3>
                         </div>
-                        <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Student ID:</strong>@Model.UserName</p>
-
+                        <div class="card-body" style="cursor:default">
+                            <p class="mb-0"><strong class="pr-1">Student ID:</strong>@Model.UserName</p>                        
                             <p class="mb-0"><strong class="pr-1">Email:</strong>@Model.Email</p>
+                            <p class="mb-0 my-3 justify-content-center"><strong class="pr-1"></strong><a asp-action="ChangePassword" asp-controller="Account" style="background: #303956;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 5px; text-decoration:none">Change Password <i class="fas fa-exchange"></i> </a></p>
+                           
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 d-flex justify-content-center">
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent border-0">
                             <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
@@ -99,7 +107,11 @@
                                         <td> @book.Group.Faculty.Name</td>
                                     }
                                 </tr>
-
+                                <tr>
+                    <th width="30%">Default Password</th>
+                    <td width="2%">:</td>
+                    <td>Student123@@</td>                 
+                  </tr>   
 
                             </table>
                         </div>
@@ -108,5 +120,11 @@
             </div>
         </div>
     </div>
+
+</section>
+<section class="my-5">
+    <!-- Student Profile -->
+    <!-- Student Profile -->
+
 
 </section>

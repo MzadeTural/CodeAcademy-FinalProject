@@ -39,14 +39,16 @@
 
                     
                       <td class="align-middle text-center ">
-                            <a style="width:3rem !important"  class="text-secondary font-weight-bold text-xs" asp-route-groupId="@ViewBag.GroupId"  asp-action="AddTeacherToSubject" asp-controller="Group" asp-route-id="@sbj.Id" data-toggle="tooltip" data-original-title="Edit user">
+                            <a style="width:3rem !important"  class="text-secondary font-weight-bold text-xs" asp-route-groupId="@ViewBag.GroupId" data-toggle="tooltip" data-placement="bottom" title="Add Teacher"   asp-action="AddTeacherToSubject" asp-controller="Group" asp-route-id="@sbj.Id" data-toggle="tooltip" data-original-title="Edit user">
                         <span class="badge badge-sm bg-gradient-warning"> <i class="fas fa-user-plus"></i></span> 
                          </a>
                           
                               
-                                <a style="width:3rem !important" type="submit"  asp-route-groupId="@ViewBag.GroupId" asp-action="SubjectDetail" class="text-secondary font-weight-bold text-xs" asp-controller="Group" asp-route-id="@sbj.Id"> <span class="badge badge-sm bg-gradient-warning"><i class="fas fa-info-circle"></i></span></a>
+                                <a style="width:3rem !important" type="submit"  asp-route-groupId="@ViewBag.GroupId" asp-action="SubjectDetail"data-toggle="tooltip" data-placement="bottom" title="Teachers"  class="text-secondary font-weight-bold text-xs" asp-controller="Group" asp-route-id="@sbj.Id"> <span class="badge badge-sm bg-gradient-warning"><i class="fas fa-info-circle"></i></span></a>
                            
-                            
+                             <a style="width:3rem !important"  class="text-secondary font-weight-bold text-xs delete-sweet" asp-route-groupId="@ViewBag.GroupId"data-toggle="tooltip" data-placement="bottom" title="Delete"   asp-action="DeleteSubjectFromGroup" asp-controller="Subject" asp-route-sbjId="@sbj.Id" data-toggle="tooltip" data-original-title="Edit user">
+                                                    <span class="badge badge-sm bg-gradient-danger"> <i class="fas fa-trash"></i></span> 
+                                                </a>
                            
                        
                       </td>
@@ -65,3 +67,14 @@
         </div>
     
 
+                 @section ScriptModal{
+@*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>*@
+<script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="~/admin/assets/js/AlertModal.js"></script>
+}
